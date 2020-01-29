@@ -149,6 +149,7 @@ func genBazelLib(l *occtLib) string {
 	bzl += fmt.Sprintf("    srcs = glob([\n")
 	for _, pkg := range l.pkgs {
 		bzl += fmt.Sprintf("        \"%s\",\n", filepath.Join(pkg, "*.cxx"))
+		bzl += fmt.Sprintf("        \"%s\",\n", filepath.Join(pkg, "*.c"))
 	}
 	bzl += "    ]),\n"
 
