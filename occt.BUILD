@@ -4,7 +4,12 @@ package(default_visibility = ["//visibility:public"])
 cc_library(
     name = "AIS",
     srcs = glob([
+        "AIS/*.c",
+        "AIS/*.cpp",
         "AIS/*.cxx",
+        "PrsDim/*.c",
+        "PrsDim/*.cpp",
+        "PrsDim/*.cxx",
     ]),
     hdrs = glob([
         "AIS/*.gxx",
@@ -12,43 +17,40 @@ cc_library(
         "AIS/*.hxx",
         "AIS/*.lxx",
         "AIS/*.h",
+        "PrsDim/*.gxx",
+        "PrsDim/*.pxx",
+        "PrsDim/*.hxx",
+        "PrsDim/*.lxx",
+        "PrsDim/*.h",
     ]),
     includes = [
         "AIS/",
+        "PrsDim/",
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":Aspect",
-        ":BRep",
-        ":Bnd",
+        ":BVH",
         ":DsgPrs",
         ":ElCLib",
         ":ElSLib",
-        ":Font",
-        ":GC",
         ":GccEnt",
         ":GeomAbs",
-        ":GeomLib",
-        ":GeomProjLib",
         ":Image",
+        ":IntAna",
         ":IntAna2d",
         ":Message",
         ":NCollection",
         ":OSD",
         ":Poly",
-        ":ProjLib",
+        ":Precision",
         ":Quantity",
-        ":StdPrs",
-        ":StdSelect",
         ":TColgp",
         ":TShort",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":Units",
+        ":WNT",
         ":gp",
     ],
 )
@@ -56,6 +58,8 @@ cc_library(
 cc_library(
     name = "APIHeaderSection",
     srcs = glob([
+        "APIHeaderSection/*.c",
+        "APIHeaderSection/*.cpp",
         "APIHeaderSection/*.cxx",
     ]),
     hdrs = glob([
@@ -80,28 +84,284 @@ cc_library(
 cc_library(
     name = "Adaptor2d",
     srcs = glob([
+        "Adaptor2d/*.c",
+        "Adaptor2d/*.cpp",
         "Adaptor2d/*.cxx",
+        "Adaptor3d/*.c",
+        "Adaptor3d/*.cpp",
         "Adaptor3d/*.cxx",
+        "AdvApp2Var/*.c",
+        "AdvApp2Var/*.cpp",
         "AdvApp2Var/*.cxx",
+        "AppBlend/*.c",
+        "AppBlend/*.cpp",
+        "AppBlend/*.cxx",
+        "AppDef/*.c",
+        "AppDef/*.cpp",
+        "AppDef/*.cxx",
+        "Approx/*.c",
+        "Approx/*.cpp",
+        "Approx/*.cxx",
+        "ApproxInt/*.c",
+        "ApproxInt/*.cpp",
+        "ApproxInt/*.cxx",
+        "Aspect/*.c",
+        "Aspect/*.cpp",
+        "Aspect/*.cxx",
+        "BRep/*.c",
+        "BRep/*.cpp",
+        "BRep/*.cxx",
+        "BRepAdaptor/*.c",
+        "BRepAdaptor/*.cpp",
+        "BRepAdaptor/*.cxx",
+        "BRepApprox/*.c",
+        "BRepApprox/*.cpp",
+        "BRepApprox/*.cxx",
+        "BRepBndLib/*.c",
+        "BRepBndLib/*.cpp",
+        "BRepBndLib/*.cxx",
+        "BRepBuilderAPI/*.c",
+        "BRepBuilderAPI/*.cpp",
+        "BRepBuilderAPI/*.cxx",
+        "BRepCheck/*.c",
+        "BRepCheck/*.cpp",
+        "BRepCheck/*.cxx",
+        "BRepClass/*.c",
+        "BRepClass/*.cpp",
+        "BRepClass/*.cxx",
+        "BRepClass3d/*.c",
+        "BRepClass3d/*.cpp",
+        "BRepClass3d/*.cxx",
+        "BRepExtrema/*.c",
+        "BRepExtrema/*.cpp",
+        "BRepExtrema/*.cxx",
+        "BRepGProp/*.c",
+        "BRepGProp/*.cpp",
+        "BRepGProp/*.cxx",
+        "BRepLib/*.c",
+        "BRepLib/*.cpp",
+        "BRepLib/*.cxx",
+        "BRepMesh/*.c",
+        "BRepMesh/*.cpp",
+        "BRepMesh/*.cxx",
+        "BRepMeshData/*.c",
+        "BRepMeshData/*.cpp",
+        "BRepMeshData/*.cxx",
+        "BRepTools/*.c",
+        "BRepTools/*.cpp",
+        "BRepTools/*.cxx",
+        "BRepTopAdaptor/*.c",
+        "BRepTopAdaptor/*.cpp",
+        "BRepTopAdaptor/*.cxx",
+        "BinTools/*.c",
+        "BinTools/*.cpp",
+        "BinTools/*.cxx",
+        "BndLib/*.c",
+        "BndLib/*.cpp",
         "BndLib/*.cxx",
+        "CPnts/*.c",
+        "CPnts/*.cpp",
         "CPnts/*.cxx",
+        "Cocoa/*.c",
+        "Cocoa/*.cpp",
+        "Cocoa/*.cxx",
+        "Contap/*.c",
+        "Contap/*.cpp",
+        "Contap/*.cxx",
+        "DBRep/*.c",
+        "DBRep/*.cpp",
+        "DBRep/*.cxx",
+        "Draw/*.c",
+        "Draw/*.cpp",
+        "Draw/*.cxx",
+        "DrawTrSurf/*.c",
+        "DrawTrSurf/*.cpp",
         "DrawTrSurf/*.cxx",
+        "Extrema/*.c",
+        "Extrema/*.cpp",
         "Extrema/*.cxx",
+        "Font/*.c",
+        "Font/*.cpp",
+        "Font/*.cxx",
+        "GC/*.c",
+        "GC/*.cpp",
+        "GC/*.cxx",
+        "GCE2d/*.c",
+        "GCE2d/*.cpp",
+        "GCE2d/*.cxx",
+        "GCPnts/*.c",
+        "GCPnts/*.cpp",
         "GCPnts/*.cxx",
+        "Geom/*.c",
+        "Geom/*.cpp",
         "Geom/*.cxx",
+        "Geom2d/*.c",
+        "Geom2d/*.cpp",
         "Geom2d/*.cxx",
+        "Geom2dAPI/*.c",
+        "Geom2dAPI/*.cpp",
+        "Geom2dAPI/*.cxx",
+        "Geom2dAdaptor/*.c",
+        "Geom2dAdaptor/*.cpp",
         "Geom2dAdaptor/*.cxx",
+        "Geom2dConvert/*.c",
+        "Geom2dConvert/*.cpp",
         "Geom2dConvert/*.cxx",
+        "Geom2dEvaluator/*.c",
+        "Geom2dEvaluator/*.cpp",
         "Geom2dEvaluator/*.cxx",
+        "Geom2dHatch/*.c",
+        "Geom2dHatch/*.cpp",
+        "Geom2dHatch/*.cxx",
+        "Geom2dInt/*.c",
+        "Geom2dInt/*.cpp",
+        "Geom2dInt/*.cxx",
+        "Geom2dLProp/*.c",
+        "Geom2dLProp/*.cpp",
         "Geom2dLProp/*.cxx",
+        "GeomAPI/*.c",
+        "GeomAPI/*.cpp",
+        "GeomAPI/*.cxx",
+        "GeomAdaptor/*.c",
+        "GeomAdaptor/*.cpp",
         "GeomAdaptor/*.cxx",
+        "GeomConvert/*.c",
+        "GeomConvert/*.cpp",
         "GeomConvert/*.cxx",
+        "GeomEvaluator/*.c",
+        "GeomEvaluator/*.cpp",
         "GeomEvaluator/*.cxx",
+        "GeomFill/*.c",
+        "GeomFill/*.cpp",
+        "GeomFill/*.cxx",
+        "GeomInt/*.c",
+        "GeomInt/*.cpp",
+        "GeomInt/*.cxx",
+        "GeomLProp/*.c",
+        "GeomLProp/*.cpp",
         "GeomLProp/*.cxx",
+        "GeomLib/*.c",
+        "GeomLib/*.cpp",
+        "GeomLib/*.cxx",
+        "GeomProjLib/*.c",
+        "GeomProjLib/*.cpp",
+        "GeomProjLib/*.cxx",
+        "GeomTools/*.c",
+        "GeomTools/*.cpp",
         "GeomTools/*.cxx",
+        "Graphic3d/*.c",
+        "Graphic3d/*.cpp",
+        "Graphic3d/*.cxx",
+        "HLRBRep/*.c",
+        "HLRBRep/*.cpp",
+        "HLRBRep/*.cxx",
+        "HLRTopoBRep/*.c",
+        "HLRTopoBRep/*.cpp",
+        "HLRTopoBRep/*.cxx",
+        "Hermit/*.c",
+        "Hermit/*.cpp",
         "Hermit/*.cxx",
+        "IMeshData/*.c",
+        "IMeshData/*.cpp",
+        "IMeshData/*.cxx",
+        "IMeshTools/*.c",
+        "IMeshTools/*.cpp",
+        "IMeshTools/*.cxx",
+        "IntCurve/*.c",
+        "IntCurve/*.cpp",
+        "IntCurve/*.cxx",
+        "IntCurveSurface/*.c",
+        "IntCurveSurface/*.cpp",
+        "IntCurveSurface/*.cxx",
+        "IntCurvesFace/*.c",
+        "IntCurvesFace/*.cpp",
+        "IntCurvesFace/*.cxx",
+        "IntPatch/*.c",
+        "IntPatch/*.cpp",
+        "IntPatch/*.cxx",
+        "IntPolyh/*.c",
+        "IntPolyh/*.cpp",
+        "IntPolyh/*.cxx",
+        "IntStart/*.c",
+        "IntStart/*.cpp",
+        "IntStart/*.cxx",
+        "IntSurf/*.c",
+        "IntSurf/*.cpp",
+        "IntSurf/*.cxx",
+        "IntWalk/*.c",
+        "IntWalk/*.cpp",
+        "IntWalk/*.cxx",
+        "Intf/*.c",
+        "Intf/*.cpp",
+        "Intf/*.cxx",
+        "Law/*.c",
+        "Law/*.cpp",
+        "Law/*.cxx",
+        "LocalAnalysis/*.c",
+        "LocalAnalysis/*.cpp",
+        "LocalAnalysis/*.cxx",
+        "Media/*.c",
+        "Media/*.cpp",
+        "Media/*.cxx",
+        "ProjLib/*.c",
+        "ProjLib/*.cpp",
+        "ProjLib/*.cxx",
+        "Prs3d/*.c",
+        "Prs3d/*.cpp",
+        "Prs3d/*.cxx",
+        "PrsMgr/*.c",
+        "PrsMgr/*.cpp",
+        "PrsMgr/*.cxx",
+        "Select3D/*.c",
+        "Select3D/*.cpp",
+        "Select3D/*.cxx",
+        "SelectBasics/*.c",
+        "SelectBasics/*.cpp",
+        "SelectBasics/*.cxx",
+        "SelectMgr/*.c",
+        "SelectMgr/*.cpp",
+        "SelectMgr/*.cxx",
+        "ShapeAnalysis/*.c",
+        "ShapeAnalysis/*.cpp",
+        "ShapeAnalysis/*.cxx",
+        "ShapeBuild/*.c",
+        "ShapeBuild/*.cpp",
+        "ShapeBuild/*.cxx",
+        "ShapeConstruct/*.c",
+        "ShapeConstruct/*.cpp",
+        "ShapeConstruct/*.cxx",
+        "ShapeExtend/*.c",
+        "ShapeExtend/*.cpp",
+        "ShapeExtend/*.cxx",
+        "ShapeFix/*.c",
+        "ShapeFix/*.cpp",
+        "ShapeFix/*.cxx",
+        "StdPrs/*.c",
+        "StdPrs/*.cpp",
+        "StdPrs/*.cxx",
+        "StdSelect/*.c",
+        "StdSelect/*.cpp",
+        "StdSelect/*.cxx",
+        "TColGeom/*.c",
+        "TColGeom/*.cpp",
         "TColGeom/*.cxx",
+        "TColGeom2d/*.c",
+        "TColGeom2d/*.cpp",
         "TColGeom2d/*.cxx",
+        "TopClass/*.c",
+        "TopClass/*.cpp",
+        "TopClass/*.cxx",
+        "TopExp/*.c",
+        "TopExp/*.cpp",
+        "TopExp/*.cxx",
+        "TopTools/*.c",
+        "TopTools/*.cpp",
+        "TopTools/*.cxx",
+        "V3d/*.c",
+        "V3d/*.cpp",
+        "V3d/*.cxx",
+        "gce/*.c",
+        "gce/*.cpp",
         "gce/*.cxx",
     ]),
     hdrs = glob([
@@ -120,404 +380,36 @@ cc_library(
         "AdvApp2Var/*.hxx",
         "AdvApp2Var/*.lxx",
         "AdvApp2Var/*.h",
-        "BndLib/*.gxx",
-        "BndLib/*.pxx",
-        "BndLib/*.hxx",
-        "BndLib/*.lxx",
-        "BndLib/*.h",
-        "CPnts/*.gxx",
-        "CPnts/*.pxx",
-        "CPnts/*.hxx",
-        "CPnts/*.lxx",
-        "CPnts/*.h",
-        "DrawTrSurf/*.gxx",
-        "DrawTrSurf/*.pxx",
-        "DrawTrSurf/*.hxx",
-        "DrawTrSurf/*.lxx",
-        "DrawTrSurf/*.h",
-        "Extrema/*.gxx",
-        "Extrema/*.pxx",
-        "Extrema/*.hxx",
-        "Extrema/*.lxx",
-        "Extrema/*.h",
-        "GCPnts/*.gxx",
-        "GCPnts/*.pxx",
-        "GCPnts/*.hxx",
-        "GCPnts/*.lxx",
-        "GCPnts/*.h",
-        "Geom/*.gxx",
-        "Geom/*.pxx",
-        "Geom/*.hxx",
-        "Geom/*.lxx",
-        "Geom/*.h",
-        "Geom2d/*.gxx",
-        "Geom2d/*.pxx",
-        "Geom2d/*.hxx",
-        "Geom2d/*.lxx",
-        "Geom2d/*.h",
-        "Geom2dAdaptor/*.gxx",
-        "Geom2dAdaptor/*.pxx",
-        "Geom2dAdaptor/*.hxx",
-        "Geom2dAdaptor/*.lxx",
-        "Geom2dAdaptor/*.h",
-        "Geom2dConvert/*.gxx",
-        "Geom2dConvert/*.pxx",
-        "Geom2dConvert/*.hxx",
-        "Geom2dConvert/*.lxx",
-        "Geom2dConvert/*.h",
-        "Geom2dEvaluator/*.gxx",
-        "Geom2dEvaluator/*.pxx",
-        "Geom2dEvaluator/*.hxx",
-        "Geom2dEvaluator/*.lxx",
-        "Geom2dEvaluator/*.h",
-        "Geom2dLProp/*.gxx",
-        "Geom2dLProp/*.pxx",
-        "Geom2dLProp/*.hxx",
-        "Geom2dLProp/*.lxx",
-        "Geom2dLProp/*.h",
-        "GeomAdaptor/*.gxx",
-        "GeomAdaptor/*.pxx",
-        "GeomAdaptor/*.hxx",
-        "GeomAdaptor/*.lxx",
-        "GeomAdaptor/*.h",
-        "GeomConvert/*.gxx",
-        "GeomConvert/*.pxx",
-        "GeomConvert/*.hxx",
-        "GeomConvert/*.lxx",
-        "GeomConvert/*.h",
-        "GeomEvaluator/*.gxx",
-        "GeomEvaluator/*.pxx",
-        "GeomEvaluator/*.hxx",
-        "GeomEvaluator/*.lxx",
-        "GeomEvaluator/*.h",
-        "GeomLProp/*.gxx",
-        "GeomLProp/*.pxx",
-        "GeomLProp/*.hxx",
-        "GeomLProp/*.lxx",
-        "GeomLProp/*.h",
-        "GeomTools/*.gxx",
-        "GeomTools/*.pxx",
-        "GeomTools/*.hxx",
-        "GeomTools/*.lxx",
-        "GeomTools/*.h",
-        "Hermit/*.gxx",
-        "Hermit/*.pxx",
-        "Hermit/*.hxx",
-        "Hermit/*.lxx",
-        "Hermit/*.h",
-        "TColGeom/*.gxx",
-        "TColGeom/*.pxx",
-        "TColGeom/*.hxx",
-        "TColGeom/*.lxx",
-        "TColGeom/*.h",
-        "TColGeom2d/*.gxx",
-        "TColGeom2d/*.pxx",
-        "TColGeom2d/*.hxx",
-        "TColGeom2d/*.lxx",
-        "TColGeom2d/*.h",
-        "gce/*.gxx",
-        "gce/*.pxx",
-        "gce/*.hxx",
-        "gce/*.lxx",
-        "gce/*.h",
-    ]),
-    includes = [
-        "Adaptor2d/",
-        "Adaptor3d/",
-        "AdvApp2Var/",
-        "BndLib/",
-        "CPnts/",
-        "DrawTrSurf/",
-        "Extrema/",
-        "GCPnts/",
-        "Geom/",
-        "Geom2d/",
-        "Geom2dAdaptor/",
-        "Geom2dConvert/",
-        "Geom2dEvaluator/",
-        "Geom2dLProp/",
-        "GeomAdaptor/",
-        "GeomConvert/",
-        "GeomEvaluator/",
-        "GeomLProp/",
-        "GeomTools/",
-        "Hermit/",
-        "TColGeom/",
-        "TColGeom2d/",
-        "gce/",
-    ],
-    deps = [
-        ":AdvApprox",
-        ":BSplCLib",
-        ":BSplSLib",
-        ":Bnd",
-        ":CSLib",
-        ":Convert",
-        ":Draw",
-        ":ElCLib",
-        ":ElSLib",
-        ":GeomAbs",
-        ":IntAna",
-        ":IntAna2d",
-        ":LProp",
-        ":Message",
-        ":NCollection",
-        ":PLib",
-        ":Poly",
-        ":StdFail",
-        ":TColgp",
-        ":TopAbs",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
-    name = "AdvApprox",
-    srcs = glob([
-        "AdvApprox/*.cxx",
-    ]),
-    hdrs = glob([
-        "AdvApprox/*.gxx",
-        "AdvApprox/*.pxx",
-        "AdvApprox/*.hxx",
-        "AdvApprox/*.lxx",
-        "AdvApprox/*.h",
-    ]),
-    includes = [
-        "AdvApprox/",
-    ],
-    deps = [
-        ":BSplCLib",
-        ":Convert",
-        ":GeomAbs",
-        ":NCollection",
-        ":PLib",
-        ":TColgp",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
-    name = "AppBlend",
-    srcs = glob([
-        "AppBlend/*.cxx",
-    ]),
-    hdrs = glob([
         "AppBlend/*.gxx",
         "AppBlend/*.pxx",
         "AppBlend/*.hxx",
         "AppBlend/*.lxx",
         "AppBlend/*.h",
-    ]),
-    includes = [
-        "AppBlend/",
-    ],
-    deps = [
-        ":AppDef",
-        ":AppParCurves",
-        ":Approx",
-        ":BSplCLib",
-        ":NCollection",
-        ":StdFail",
-        ":TColgp",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
-    name = "AppCont",
-    srcs = glob([
-        "AppCont/*.cxx",
-    ]),
-    hdrs = glob([
-        "AppCont/*.gxx",
-        "AppCont/*.pxx",
-        "AppCont/*.hxx",
-        "AppCont/*.lxx",
-        "AppCont/*.h",
-    ]),
-    includes = [
-        "AppCont/",
-    ],
-    deps = [
-        ":AppParCurves",
-        ":NCollection",
-        ":PLib",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
-    name = "AppDef",
-    srcs = glob([
-        "AppDef/*.cxx",
-    ]),
-    hdrs = glob([
         "AppDef/*.gxx",
         "AppDef/*.pxx",
         "AppDef/*.hxx",
         "AppDef/*.lxx",
         "AppDef/*.h",
-    ]),
-    includes = [
-        "AppDef/",
-    ],
-    deps = [
-        ":AppParCurves",
-        ":Approx",
-        ":Convert",
-        ":FEmTool",
-        ":GeomAbs",
-        ":NCollection",
-        ":PLib",
-        ":StdFail",
-        ":TColgp",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
-    name = "AppParCurves",
-    srcs = glob([
-        "AppParCurves/*.cxx",
-    ]),
-    hdrs = glob([
-        "AppParCurves/*.gxx",
-        "AppParCurves/*.pxx",
-        "AppParCurves/*.hxx",
-        "AppParCurves/*.lxx",
-        "AppParCurves/*.h",
-    ]),
-    includes = [
-        "AppParCurves/",
-    ],
-    deps = [
-        ":BSplCLib",
-        ":NCollection",
-        ":PLib",
-        ":StdFail",
-        ":TColgp",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
-    name = "AppStd",
-    srcs = glob([
-        "AppStd/*.cxx",
-    ]),
-    hdrs = glob([
-        "AppStd/*.gxx",
-        "AppStd/*.pxx",
-        "AppStd/*.hxx",
-        "AppStd/*.lxx",
-        "AppStd/*.h",
-    ]),
-    includes = [
-        "AppStd/",
-    ],
-    deps = [
-        ":NCollection",
-        ":TDocStd",
-    ],
-)
-
-cc_library(
-    name = "AppStdL",
-    srcs = glob([
-        "AppStdL/*.cxx",
-    ]),
-    hdrs = glob([
-        "AppStdL/*.gxx",
-        "AppStdL/*.pxx",
-        "AppStdL/*.hxx",
-        "AppStdL/*.lxx",
-        "AppStdL/*.h",
-    ]),
-    includes = [
-        "AppStdL/",
-    ],
-    deps = [
-        ":NCollection",
-        ":TDocStd",
-    ],
-)
-
-cc_library(
-    name = "Approx",
-    srcs = glob([
-        "Approx/*.cxx",
-    ]),
-    hdrs = glob([
         "Approx/*.gxx",
         "Approx/*.pxx",
         "Approx/*.hxx",
         "Approx/*.lxx",
         "Approx/*.h",
-    ]),
-    includes = [
-        "Approx/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":AdvApprox",
-        ":AppCont",
-        ":AppParCurves",
-        ":BSplCLib",
-        ":Convert",
-        ":Draw",
-        ":GeomAbs",
-        ":GeomLib",
-        ":NCollection",
-        ":OSD",
-        ":PLib",
-        ":StdFail",
-        ":TColgp",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
-    name = "ApproxInt",
-    srcs = glob([
-        "ApproxInt/*.cxx",
-        "BRepAdaptor/*.cxx",
-        "BRepApprox/*.cxx",
-        "BRepBndLib/*.cxx",
-        "BRepBuilderAPI/*.cxx",
-        "BRepCheck/*.cxx",
-        "BRepClass/*.cxx",
-        "BRepClass3d/*.cxx",
-        "BRepExtrema/*.cxx",
-        "BRepGProp/*.cxx",
-        "BRepLib/*.cxx",
-        "BRepMesh/*.cxx",
-        "BRepTools/*.cxx",
-        "BRepTopAdaptor/*.cxx",
-        "BinTools/*.cxx",
-        "Contap/*.cxx",
-        "DBRep/*.cxx",
-        "GeomAPI/*.cxx",
-        "GeomInt/*.cxx",
-        "HLRBRep/*.cxx",
-        "HLRTopoBRep/*.cxx",
-        "IntCurvesFace/*.cxx",
-        "IntPatch/*.cxx",
-        "IntStart/*.cxx",
-    ]),
-    hdrs = glob([
         "ApproxInt/*.gxx",
         "ApproxInt/*.pxx",
         "ApproxInt/*.hxx",
         "ApproxInt/*.lxx",
         "ApproxInt/*.h",
+        "Aspect/*.gxx",
+        "Aspect/*.pxx",
+        "Aspect/*.hxx",
+        "Aspect/*.lxx",
+        "Aspect/*.h",
+        "BRep/*.gxx",
+        "BRep/*.pxx",
+        "BRep/*.hxx",
+        "BRep/*.lxx",
+        "BRep/*.h",
         "BRepAdaptor/*.gxx",
         "BRepAdaptor/*.pxx",
         "BRepAdaptor/*.hxx",
@@ -573,6 +465,11 @@ cc_library(
         "BRepMesh/*.hxx",
         "BRepMesh/*.lxx",
         "BRepMesh/*.h",
+        "BRepMeshData/*.gxx",
+        "BRepMeshData/*.pxx",
+        "BRepMeshData/*.hxx",
+        "BRepMeshData/*.lxx",
+        "BRepMeshData/*.h",
         "BRepTools/*.gxx",
         "BRepTools/*.pxx",
         "BRepTools/*.hxx",
@@ -588,6 +485,21 @@ cc_library(
         "BinTools/*.hxx",
         "BinTools/*.lxx",
         "BinTools/*.h",
+        "BndLib/*.gxx",
+        "BndLib/*.pxx",
+        "BndLib/*.hxx",
+        "BndLib/*.lxx",
+        "BndLib/*.h",
+        "CPnts/*.gxx",
+        "CPnts/*.pxx",
+        "CPnts/*.hxx",
+        "CPnts/*.lxx",
+        "CPnts/*.h",
+        "Cocoa/*.gxx",
+        "Cocoa/*.pxx",
+        "Cocoa/*.hxx",
+        "Cocoa/*.lxx",
+        "Cocoa/*.h",
         "Contap/*.gxx",
         "Contap/*.pxx",
         "Contap/*.hxx",
@@ -598,16 +510,141 @@ cc_library(
         "DBRep/*.hxx",
         "DBRep/*.lxx",
         "DBRep/*.h",
+        "Draw/*.gxx",
+        "Draw/*.pxx",
+        "Draw/*.hxx",
+        "Draw/*.lxx",
+        "Draw/*.h",
+        "DrawTrSurf/*.gxx",
+        "DrawTrSurf/*.pxx",
+        "DrawTrSurf/*.hxx",
+        "DrawTrSurf/*.lxx",
+        "DrawTrSurf/*.h",
+        "Extrema/*.gxx",
+        "Extrema/*.pxx",
+        "Extrema/*.hxx",
+        "Extrema/*.lxx",
+        "Extrema/*.h",
+        "Font/*.gxx",
+        "Font/*.pxx",
+        "Font/*.hxx",
+        "Font/*.lxx",
+        "Font/*.h",
+        "GC/*.gxx",
+        "GC/*.pxx",
+        "GC/*.hxx",
+        "GC/*.lxx",
+        "GC/*.h",
+        "GCE2d/*.gxx",
+        "GCE2d/*.pxx",
+        "GCE2d/*.hxx",
+        "GCE2d/*.lxx",
+        "GCE2d/*.h",
+        "GCPnts/*.gxx",
+        "GCPnts/*.pxx",
+        "GCPnts/*.hxx",
+        "GCPnts/*.lxx",
+        "GCPnts/*.h",
+        "Geom/*.gxx",
+        "Geom/*.pxx",
+        "Geom/*.hxx",
+        "Geom/*.lxx",
+        "Geom/*.h",
+        "Geom2d/*.gxx",
+        "Geom2d/*.pxx",
+        "Geom2d/*.hxx",
+        "Geom2d/*.lxx",
+        "Geom2d/*.h",
+        "Geom2dAPI/*.gxx",
+        "Geom2dAPI/*.pxx",
+        "Geom2dAPI/*.hxx",
+        "Geom2dAPI/*.lxx",
+        "Geom2dAPI/*.h",
+        "Geom2dAdaptor/*.gxx",
+        "Geom2dAdaptor/*.pxx",
+        "Geom2dAdaptor/*.hxx",
+        "Geom2dAdaptor/*.lxx",
+        "Geom2dAdaptor/*.h",
+        "Geom2dConvert/*.gxx",
+        "Geom2dConvert/*.pxx",
+        "Geom2dConvert/*.hxx",
+        "Geom2dConvert/*.lxx",
+        "Geom2dConvert/*.h",
+        "Geom2dEvaluator/*.gxx",
+        "Geom2dEvaluator/*.pxx",
+        "Geom2dEvaluator/*.hxx",
+        "Geom2dEvaluator/*.lxx",
+        "Geom2dEvaluator/*.h",
+        "Geom2dHatch/*.gxx",
+        "Geom2dHatch/*.pxx",
+        "Geom2dHatch/*.hxx",
+        "Geom2dHatch/*.lxx",
+        "Geom2dHatch/*.h",
+        "Geom2dInt/*.gxx",
+        "Geom2dInt/*.pxx",
+        "Geom2dInt/*.hxx",
+        "Geom2dInt/*.lxx",
+        "Geom2dInt/*.h",
+        "Geom2dLProp/*.gxx",
+        "Geom2dLProp/*.pxx",
+        "Geom2dLProp/*.hxx",
+        "Geom2dLProp/*.lxx",
+        "Geom2dLProp/*.h",
         "GeomAPI/*.gxx",
         "GeomAPI/*.pxx",
         "GeomAPI/*.hxx",
         "GeomAPI/*.lxx",
         "GeomAPI/*.h",
+        "GeomAdaptor/*.gxx",
+        "GeomAdaptor/*.pxx",
+        "GeomAdaptor/*.hxx",
+        "GeomAdaptor/*.lxx",
+        "GeomAdaptor/*.h",
+        "GeomConvert/*.gxx",
+        "GeomConvert/*.pxx",
+        "GeomConvert/*.hxx",
+        "GeomConvert/*.lxx",
+        "GeomConvert/*.h",
+        "GeomEvaluator/*.gxx",
+        "GeomEvaluator/*.pxx",
+        "GeomEvaluator/*.hxx",
+        "GeomEvaluator/*.lxx",
+        "GeomEvaluator/*.h",
+        "GeomFill/*.gxx",
+        "GeomFill/*.pxx",
+        "GeomFill/*.hxx",
+        "GeomFill/*.lxx",
+        "GeomFill/*.h",
         "GeomInt/*.gxx",
         "GeomInt/*.pxx",
         "GeomInt/*.hxx",
         "GeomInt/*.lxx",
         "GeomInt/*.h",
+        "GeomLProp/*.gxx",
+        "GeomLProp/*.pxx",
+        "GeomLProp/*.hxx",
+        "GeomLProp/*.lxx",
+        "GeomLProp/*.h",
+        "GeomLib/*.gxx",
+        "GeomLib/*.pxx",
+        "GeomLib/*.hxx",
+        "GeomLib/*.lxx",
+        "GeomLib/*.h",
+        "GeomProjLib/*.gxx",
+        "GeomProjLib/*.pxx",
+        "GeomProjLib/*.hxx",
+        "GeomProjLib/*.lxx",
+        "GeomProjLib/*.h",
+        "GeomTools/*.gxx",
+        "GeomTools/*.pxx",
+        "GeomTools/*.hxx",
+        "GeomTools/*.lxx",
+        "GeomTools/*.h",
+        "Graphic3d/*.gxx",
+        "Graphic3d/*.pxx",
+        "Graphic3d/*.hxx",
+        "Graphic3d/*.lxx",
+        "Graphic3d/*.h",
         "HLRBRep/*.gxx",
         "HLRBRep/*.pxx",
         "HLRBRep/*.hxx",
@@ -618,6 +655,31 @@ cc_library(
         "HLRTopoBRep/*.hxx",
         "HLRTopoBRep/*.lxx",
         "HLRTopoBRep/*.h",
+        "Hermit/*.gxx",
+        "Hermit/*.pxx",
+        "Hermit/*.hxx",
+        "Hermit/*.lxx",
+        "Hermit/*.h",
+        "IMeshData/*.gxx",
+        "IMeshData/*.pxx",
+        "IMeshData/*.hxx",
+        "IMeshData/*.lxx",
+        "IMeshData/*.h",
+        "IMeshTools/*.gxx",
+        "IMeshTools/*.pxx",
+        "IMeshTools/*.hxx",
+        "IMeshTools/*.lxx",
+        "IMeshTools/*.h",
+        "IntCurve/*.gxx",
+        "IntCurve/*.pxx",
+        "IntCurve/*.hxx",
+        "IntCurve/*.lxx",
+        "IntCurve/*.h",
+        "IntCurveSurface/*.gxx",
+        "IntCurveSurface/*.pxx",
+        "IntCurveSurface/*.hxx",
+        "IntCurveSurface/*.lxx",
+        "IntCurveSurface/*.h",
         "IntCurvesFace/*.gxx",
         "IntCurvesFace/*.pxx",
         "IntCurvesFace/*.hxx",
@@ -628,14 +690,157 @@ cc_library(
         "IntPatch/*.hxx",
         "IntPatch/*.lxx",
         "IntPatch/*.h",
+        "IntPolyh/*.gxx",
+        "IntPolyh/*.pxx",
+        "IntPolyh/*.hxx",
+        "IntPolyh/*.lxx",
+        "IntPolyh/*.h",
         "IntStart/*.gxx",
         "IntStart/*.pxx",
         "IntStart/*.hxx",
         "IntStart/*.lxx",
         "IntStart/*.h",
+        "IntSurf/*.gxx",
+        "IntSurf/*.pxx",
+        "IntSurf/*.hxx",
+        "IntSurf/*.lxx",
+        "IntSurf/*.h",
+        "IntWalk/*.gxx",
+        "IntWalk/*.pxx",
+        "IntWalk/*.hxx",
+        "IntWalk/*.lxx",
+        "IntWalk/*.h",
+        "Intf/*.gxx",
+        "Intf/*.pxx",
+        "Intf/*.hxx",
+        "Intf/*.lxx",
+        "Intf/*.h",
+        "Law/*.gxx",
+        "Law/*.pxx",
+        "Law/*.hxx",
+        "Law/*.lxx",
+        "Law/*.h",
+        "LocalAnalysis/*.gxx",
+        "LocalAnalysis/*.pxx",
+        "LocalAnalysis/*.hxx",
+        "LocalAnalysis/*.lxx",
+        "LocalAnalysis/*.h",
+        "Media/*.gxx",
+        "Media/*.pxx",
+        "Media/*.hxx",
+        "Media/*.lxx",
+        "Media/*.h",
+        "ProjLib/*.gxx",
+        "ProjLib/*.pxx",
+        "ProjLib/*.hxx",
+        "ProjLib/*.lxx",
+        "ProjLib/*.h",
+        "Prs3d/*.gxx",
+        "Prs3d/*.pxx",
+        "Prs3d/*.hxx",
+        "Prs3d/*.lxx",
+        "Prs3d/*.h",
+        "PrsMgr/*.gxx",
+        "PrsMgr/*.pxx",
+        "PrsMgr/*.hxx",
+        "PrsMgr/*.lxx",
+        "PrsMgr/*.h",
+        "Select3D/*.gxx",
+        "Select3D/*.pxx",
+        "Select3D/*.hxx",
+        "Select3D/*.lxx",
+        "Select3D/*.h",
+        "SelectBasics/*.gxx",
+        "SelectBasics/*.pxx",
+        "SelectBasics/*.hxx",
+        "SelectBasics/*.lxx",
+        "SelectBasics/*.h",
+        "SelectMgr/*.gxx",
+        "SelectMgr/*.pxx",
+        "SelectMgr/*.hxx",
+        "SelectMgr/*.lxx",
+        "SelectMgr/*.h",
+        "ShapeAnalysis/*.gxx",
+        "ShapeAnalysis/*.pxx",
+        "ShapeAnalysis/*.hxx",
+        "ShapeAnalysis/*.lxx",
+        "ShapeAnalysis/*.h",
+        "ShapeBuild/*.gxx",
+        "ShapeBuild/*.pxx",
+        "ShapeBuild/*.hxx",
+        "ShapeBuild/*.lxx",
+        "ShapeBuild/*.h",
+        "ShapeConstruct/*.gxx",
+        "ShapeConstruct/*.pxx",
+        "ShapeConstruct/*.hxx",
+        "ShapeConstruct/*.lxx",
+        "ShapeConstruct/*.h",
+        "ShapeExtend/*.gxx",
+        "ShapeExtend/*.pxx",
+        "ShapeExtend/*.hxx",
+        "ShapeExtend/*.lxx",
+        "ShapeExtend/*.h",
+        "ShapeFix/*.gxx",
+        "ShapeFix/*.pxx",
+        "ShapeFix/*.hxx",
+        "ShapeFix/*.lxx",
+        "ShapeFix/*.h",
+        "StdPrs/*.gxx",
+        "StdPrs/*.pxx",
+        "StdPrs/*.hxx",
+        "StdPrs/*.lxx",
+        "StdPrs/*.h",
+        "StdSelect/*.gxx",
+        "StdSelect/*.pxx",
+        "StdSelect/*.hxx",
+        "StdSelect/*.lxx",
+        "StdSelect/*.h",
+        "TColGeom/*.gxx",
+        "TColGeom/*.pxx",
+        "TColGeom/*.hxx",
+        "TColGeom/*.lxx",
+        "TColGeom/*.h",
+        "TColGeom2d/*.gxx",
+        "TColGeom2d/*.pxx",
+        "TColGeom2d/*.hxx",
+        "TColGeom2d/*.lxx",
+        "TColGeom2d/*.h",
+        "TopClass/*.gxx",
+        "TopClass/*.pxx",
+        "TopClass/*.hxx",
+        "TopClass/*.lxx",
+        "TopClass/*.h",
+        "TopExp/*.gxx",
+        "TopExp/*.pxx",
+        "TopExp/*.hxx",
+        "TopExp/*.lxx",
+        "TopExp/*.h",
+        "TopTools/*.gxx",
+        "TopTools/*.pxx",
+        "TopTools/*.hxx",
+        "TopTools/*.lxx",
+        "TopTools/*.h",
+        "V3d/*.gxx",
+        "V3d/*.pxx",
+        "V3d/*.hxx",
+        "V3d/*.lxx",
+        "V3d/*.h",
+        "gce/*.gxx",
+        "gce/*.pxx",
+        "gce/*.hxx",
+        "gce/*.lxx",
+        "gce/*.h",
     ]),
     includes = [
+        "Adaptor2d/",
+        "Adaptor3d/",
+        "AdvApp2Var/",
+        "AppBlend/",
+        "AppDef/",
+        "Approx/",
         "ApproxInt/",
+        "Aspect/",
+        "BRep/",
         "BRepAdaptor/",
         "BRepApprox/",
         "BRepBndLib/",
@@ -647,109 +852,280 @@ cc_library(
         "BRepGProp/",
         "BRepLib/",
         "BRepMesh/",
+        "BRepMeshData/",
         "BRepTools/",
         "BRepTopAdaptor/",
         "BinTools/",
+        "BndLib/",
+        "CPnts/",
+        "Cocoa/",
         "Contap/",
         "DBRep/",
+        "Draw/",
+        "DrawTrSurf/",
+        "Extrema/",
+        "Font/",
+        "GC/",
+        "GCE2d/",
+        "GCPnts/",
+        "Geom/",
+        "Geom2d/",
+        "Geom2dAPI/",
+        "Geom2dAdaptor/",
+        "Geom2dConvert/",
+        "Geom2dEvaluator/",
+        "Geom2dHatch/",
+        "Geom2dInt/",
+        "Geom2dLProp/",
         "GeomAPI/",
+        "GeomAdaptor/",
+        "GeomConvert/",
+        "GeomEvaluator/",
+        "GeomFill/",
         "GeomInt/",
+        "GeomLProp/",
+        "GeomLib/",
+        "GeomProjLib/",
+        "GeomTools/",
+        "Graphic3d/",
         "HLRBRep/",
         "HLRTopoBRep/",
+        "Hermit/",
+        "IMeshData/",
+        "IMeshTools/",
+        "IntCurve/",
+        "IntCurveSurface/",
         "IntCurvesFace/",
         "IntPatch/",
+        "IntPolyh/",
         "IntStart/",
+        "IntSurf/",
+        "IntWalk/",
+        "Intf/",
+        "Law/",
+        "LocalAnalysis/",
+        "Media/",
+        "ProjLib/",
+        "Prs3d/",
+        "PrsMgr/",
+        "Select3D/",
+        "SelectBasics/",
+        "SelectMgr/",
+        "ShapeAnalysis/",
+        "ShapeBuild/",
+        "ShapeConstruct/",
+        "ShapeExtend/",
+        "ShapeFix/",
+        "StdPrs/",
+        "StdSelect/",
+        "TColGeom/",
+        "TColGeom2d/",
+        "TopClass/",
+        "TopExp/",
+        "TopTools/",
+        "V3d/",
+        "gce/",
     ],
     deps = [
-        ":Adaptor2d",
         ":AdvApprox",
-        ":AppDef",
+        ":AppCont",
         ":AppParCurves",
-        ":Approx",
-        ":BRep",
         ":BSplCLib",
+        ":BSplSLib",
         ":BVH",
-        ":Bnd",
         ":CSLib",
-        ":Draw",
+        ":Convert",
         ":ElCLib",
         ":ElSLib",
+        ":FEmTool",
         ":FSD",
         ":GProp",
-        ":Geom2dAPI",
-        ":Geom2dHatch",
-        ":Geom2dInt",
         ":GeomAbs",
-        ":GeomFill",
-        ":GeomLib",
-        ":GeomProjLib",
         ":HLRAlgo",
+        ":Hatch",
         ":HatchGen",
+        ":Image",
         ":IntAna",
-        ":IntCurve",
-        ":IntCurveSurface",
+        ":IntAna2d",
         ":IntImp",
         ":IntImpParGen",
-        ":IntPolyh",
         ":IntRes2d",
-        ":IntSurf",
-        ":IntWalk",
-        ":Intf",
+        ":InterfaceGraphic",
         ":LProp",
-        ":LocalAnalysis",
         ":Message",
         ":NCollection",
         ":OSD",
         ":PLib",
         ":Plugin",
         ":Poly",
-        ":ProjLib",
+        ":Precision",
+        ":Quantity",
+        ":Resource",
+        ":SHMessage",
         ":StdFail",
         ":Storage",
         ":TColgp",
         ":TShort",
         ":TopAbs",
-        ":TopClass",
         ":TopCnx",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopTrans",
         ":TopoDS",
+        ":Units",
+        ":gp",
+        ":math",
+        "@freetype2",
+        "@org_freedesktop_fontconfig//:fontconfig",
+        "@tcl",
+    ],
+)
+
+cc_library(
+    name = "AdvApprox",
+    srcs = glob([
+        "AdvApprox/*.c",
+        "AdvApprox/*.cpp",
+        "AdvApprox/*.cxx",
+    ]),
+    hdrs = glob([
+        "AdvApprox/*.gxx",
+        "AdvApprox/*.pxx",
+        "AdvApprox/*.hxx",
+        "AdvApprox/*.lxx",
+        "AdvApprox/*.h",
+    ]),
+    includes = [
+        "AdvApprox/",
+    ],
+    deps = [
+        ":BSplCLib",
+        ":Convert",
+        ":GeomAbs",
+        ":NCollection",
+        ":PLib",
+        ":Precision",
+        ":TColgp",
         ":gp",
         ":math",
     ],
 )
 
 cc_library(
-    name = "Aspect",
+    name = "AppCont",
     srcs = glob([
-        "Aspect/*.cxx",
+        "AppCont/*.c",
+        "AppCont/*.cpp",
+        "AppCont/*.cxx",
     ]),
     hdrs = glob([
-        "Aspect/*.gxx",
-        "Aspect/*.pxx",
-        "Aspect/*.hxx",
-        "Aspect/*.lxx",
-        "Aspect/*.h",
+        "AppCont/*.gxx",
+        "AppCont/*.pxx",
+        "AppCont/*.hxx",
+        "AppCont/*.lxx",
+        "AppCont/*.h",
     ]),
     includes = [
-        "Aspect/",
+        "AppCont/",
     ],
     deps = [
-        ":InterfaceGraphic",
+        ":AppParCurves",
         ":NCollection",
-        ":OSD",
-        ":Quantity",
+        ":PLib",
+        ":Precision",
+        ":gp",
+        ":math",
+    ],
+)
+
+cc_library(
+    name = "AppParCurves",
+    srcs = glob([
+        "AppParCurves/*.c",
+        "AppParCurves/*.cpp",
+        "AppParCurves/*.cxx",
+    ]),
+    hdrs = glob([
+        "AppParCurves/*.gxx",
+        "AppParCurves/*.pxx",
+        "AppParCurves/*.hxx",
+        "AppParCurves/*.lxx",
+        "AppParCurves/*.h",
+    ]),
+    includes = [
+        "AppParCurves/",
+    ],
+    deps = [
+        ":BSplCLib",
+        ":NCollection",
+        ":PLib",
+        ":StdFail",
+        ":TColgp",
+        ":gp",
+        ":math",
+    ],
+)
+
+cc_library(
+    name = "AppStd",
+    srcs = glob([
+        "AppStd/*.c",
+        "AppStd/*.cpp",
+        "AppStd/*.cxx",
+    ]),
+    hdrs = glob([
+        "AppStd/*.gxx",
+        "AppStd/*.pxx",
+        "AppStd/*.hxx",
+        "AppStd/*.lxx",
+        "AppStd/*.h",
+    ]),
+    includes = [
+        "AppStd/",
+    ],
+    deps = [
+        ":NCollection",
+        ":TDocStd",
+    ],
+)
+
+cc_library(
+    name = "AppStdL",
+    srcs = glob([
+        "AppStdL/*.c",
+        "AppStdL/*.cpp",
+        "AppStdL/*.cxx",
+    ]),
+    hdrs = glob([
+        "AppStdL/*.gxx",
+        "AppStdL/*.pxx",
+        "AppStdL/*.hxx",
+        "AppStdL/*.lxx",
+        "AppStdL/*.h",
+    ]),
+    includes = [
+        "AppStdL/",
+    ],
+    deps = [
+        ":NCollection",
+        ":TDocStd",
     ],
 )
 
 cc_library(
     name = "BOPAlgo",
     srcs = glob([
+        "BOPAlgo/*.c",
+        "BOPAlgo/*.cpp",
         "BOPAlgo/*.cxx",
+        "BOPDS/*.c",
+        "BOPDS/*.cpp",
         "BOPDS/*.cxx",
+        "BOPTools/*.c",
+        "BOPTools/*.cpp",
         "BOPTools/*.cxx",
+        "BRepAlgoAPI/*.c",
+        "BRepAlgoAPI/*.cpp",
+        "BRepAlgoAPI/*.cxx",
     ]),
     hdrs = glob([
         "BOPAlgo/*.gxx",
@@ -767,41 +1143,37 @@ cc_library(
         "BOPTools/*.hxx",
         "BOPTools/*.lxx",
         "BOPTools/*.h",
+        "BRepAlgoAPI/*.gxx",
+        "BRepAlgoAPI/*.pxx",
+        "BRepAlgoAPI/*.hxx",
+        "BRepAlgoAPI/*.lxx",
+        "BRepAlgoAPI/*.h",
     ]),
     includes = [
         "BOPAlgo/",
         "BOPDS/",
         "BOPTools/",
+        "BRepAlgoAPI/",
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepPrimAPI",
-        ":Bnd",
+        ":BVH",
         ":ElCLib",
         ":GProp",
-        ":Geom2dAPI",
-        ":Geom2dHatch",
-        ":Geom2dInt",
         ":GeomAbs",
-        ":GeomLib",
-        ":GeomProjLib",
         ":HatchGen",
         ":IntRes2d",
-        ":IntSurf",
         ":IntTools",
         ":Message",
         ":NCollection",
         ":OSD",
         ":Poly",
-        ":ProjLib",
+        ":Precision",
         ":ShapeUpgrade",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -810,6 +1182,8 @@ cc_library(
 cc_library(
     name = "BOPTest",
     srcs = glob([
+        "BOPTest/*.c",
+        "BOPTest/*.cpp",
         "BOPTest/*.cxx",
     ]),
     hdrs = glob([
@@ -824,12 +1198,8 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
         ":BOPAlgo",
-        ":BRep",
-        ":BRepAlgoAPI",
         ":BRepTest",
-        ":Draw",
         ":GeometryTest",
         ":GeomliteTest",
         ":HLRTest",
@@ -838,43 +1208,10 @@ cc_library(
         ":Message",
         ":NCollection",
         ":OSD",
+        ":Precision",
         ":SWDRAW",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
-        ":TopoDS",
-        ":gp",
-    ],
-)
-
-cc_library(
-    name = "BRep",
-    srcs = glob([
-        "BRep/*.cxx",
-    ]),
-    hdrs = glob([
-        "BRep/*.gxx",
-        "BRep/*.pxx",
-        "BRep/*.hxx",
-        "BRep/*.lxx",
-        "BRep/*.h",
-    ]),
-    includes = [
-        "BRep/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":ElSLib",
-        ":GeomAbs",
-        ":GeomProjLib",
-        ":NCollection",
-        ":Poly",
-        ":ProjLib",
-        ":TopAbs",
-        ":TopExp",
-        ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -883,6 +1220,8 @@ cc_library(
 cc_library(
     name = "BRepAlgo",
     srcs = glob([
+        "BRepAlgo/*.c",
+        "BRepAlgo/*.cpp",
         "BRepAlgo/*.cxx",
     ]),
     hdrs = glob([
@@ -897,56 +1236,20 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":Approx",
-        ":ApproxInt",
-        ":BRep",
-        ":BRepAlgoAPI",
-        ":Bnd",
+        ":BOPAlgo",
         ":ElCLib",
         ":GeomAbs",
-        ":GeomProjLib",
         ":NCollection",
         ":OSD",
-        ":ProjLib",
-        ":ShapeAnalysis",
+        ":Precision",
         ":StdFail",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
         ":TopOpeBRep",
         ":TopOpeBRepBuild",
         ":TopOpeBRepDS",
         ":TopOpeBRepTool",
-        ":TopTools",
-        ":TopoDS",
-        ":gp",
-    ],
-)
-
-cc_library(
-    name = "BRepAlgoAPI",
-    srcs = glob([
-        "BRepAlgoAPI/*.cxx",
-    ]),
-    hdrs = glob([
-        "BRepAlgoAPI/*.gxx",
-        "BRepAlgoAPI/*.pxx",
-        "BRepAlgoAPI/*.hxx",
-        "BRepAlgoAPI/*.lxx",
-        "BRepAlgoAPI/*.h",
-    ]),
-    includes = [
-        "BRepAlgoAPI/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":ApproxInt",
-        ":BOPAlgo",
-        ":NCollection",
-        ":OSD",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -955,6 +1258,8 @@ cc_library(
 cc_library(
     name = "BRepBlend",
     srcs = glob([
+        "BRepBlend/*.c",
+        "BRepBlend/*.cpp",
         "BRepBlend/*.cxx",
     ]),
     hdrs = glob([
@@ -969,22 +1274,15 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":AppBlend",
-        ":Approx",
-        ":ApproxInt",
-        ":BRep",
         ":Blend",
         ":BlendFunc",
         ":ChFiDS",
         ":Convert",
         ":ElCLib",
-        ":Geom2dInt",
         ":GeomAbs",
-        ":GeomFill",
         ":IntRes2d",
-        ":IntSurf",
-        ":Law",
         ":NCollection",
+        ":Precision",
         ":StdFail",
         ":TColgp",
         ":TopAbs",
@@ -997,6 +1295,8 @@ cc_library(
 cc_library(
     name = "BRepFeat",
     srcs = glob([
+        "BRepFeat/*.c",
+        "BRepFeat/*.cpp",
         "BRepFeat/*.cxx",
     ]),
     hdrs = glob([
@@ -1011,32 +1311,25 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
         ":BOPAlgo",
-        ":BRep",
         ":BRepAlgo",
-        ":BRepAlgoAPI",
         ":BRepIntCurveSurface",
         ":BRepPrim",
         ":BRepPrimAPI",
         ":BRepSweep",
-        ":Bnd",
+        ":BVH",
         ":CSLib",
         ":ElCLib",
         ":ElSLib",
-        ":Geom2dAPI",
-        ":GeomLib",
-        ":GeomProjLib",
         ":IntRes2d",
         ":IntTools",
         ":LocOpe",
         ":NCollection",
+        ":Precision",
         ":StdFail",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -1045,6 +1338,8 @@ cc_library(
 cc_library(
     name = "BRepFill",
     srcs = glob([
+        "BRepFill/*.c",
+        "BRepFill/*.cpp",
         "BRepFill/*.cxx",
     ]),
     hdrs = glob([
@@ -1060,55 +1355,43 @@ cc_library(
     deps = [
         ":Adaptor2d",
         ":AppCont",
-        ":AppDef",
         ":AppParCurves",
-        ":Approx",
-        ":ApproxInt",
         ":BOPAlgo",
-        ":BRep",
         ":BRepAlgo",
-        ":BRepAlgoAPI",
         ":BRepIntCurveSurface",
         ":BRepLProp",
         ":BRepMAT2d",
         ":BRepSweep",
         ":BSplCLib",
+        ":BVH",
         ":Bisector",
-        ":Bnd",
-        ":Draw",
         ":ElCLib",
         ":GProp",
-        ":Geom2dAPI",
-        ":Geom2dInt",
         ":GeomAbs",
-        ":GeomFill",
-        ":GeomLib",
         ":GeomPlate",
-        ":GeomProjLib",
-        ":IntCurveSurface",
         ":IntRes2d",
         ":IntTools",
-        ":Law",
         ":MAT",
         ":MAT2d",
         ":NCollection",
         ":PLib",
-        ":ProjLib",
+        ":Precision",
         ":ShapeUpgrade",
         ":StdFail",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
+        ":math",
     ],
 )
 
 cc_library(
     name = "BRepFilletAPI",
     srcs = glob([
+        "BRepFilletAPI/*.c",
+        "BRepFilletAPI/*.cpp",
         "BRepFilletAPI/*.cxx",
     ]),
     hdrs = glob([
@@ -1123,19 +1406,16 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
         ":ChFi2d",
         ":ChFi3d",
         ":ChFiDS",
         ":GeomAbs",
-        ":Law",
         ":NCollection",
+        ":Precision",
         ":StdFail",
         ":TColgp",
-        ":TopExp",
         ":TopOpeBRepBuild",
         ":TopOpeBRepDS",
-        ":TopTools",
         ":TopoDS",
     ],
 )
@@ -1143,6 +1423,8 @@ cc_library(
 cc_library(
     name = "BRepIntCurveSurface",
     srcs = glob([
+        "BRepIntCurveSurface/*.c",
+        "BRepIntCurveSurface/*.cpp",
         "BRepIntCurveSurface/*.cxx",
     ]),
     hdrs = glob([
@@ -1157,13 +1439,10 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":Bnd",
-        ":IntCurveSurface",
+        ":BVH",
         ":NCollection",
         ":StdFail",
         ":TopAbs",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -1172,6 +1451,8 @@ cc_library(
 cc_library(
     name = "BRepLProp",
     srcs = glob([
+        "BRepLProp/*.c",
+        "BRepLProp/*.cpp",
         "BRepLProp/*.cxx",
     ]),
     hdrs = glob([
@@ -1185,10 +1466,11 @@ cc_library(
         "BRepLProp/",
     ],
     deps = [
-        ":ApproxInt",
+        ":Adaptor2d",
         ":GeomAbs",
         ":LProp",
         ":NCollection",
+        ":Precision",
         ":TopAbs",
         ":TopoDS",
         ":gp",
@@ -1198,6 +1480,8 @@ cc_library(
 cc_library(
     name = "BRepMAT2d",
     srcs = glob([
+        "BRepMAT2d/*.c",
+        "BRepMAT2d/*.cpp",
         "BRepMAT2d/*.cxx",
     ]),
     hdrs = glob([
@@ -1212,18 +1496,14 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":Bisector",
-        ":GCE2d",
         ":GeomAbs",
         ":MAT",
         ":MAT2d",
         ":NCollection",
+        ":Precision",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -1232,6 +1512,8 @@ cc_library(
 cc_library(
     name = "BRepOffset",
     srcs = glob([
+        "BRepOffset/*.c",
+        "BRepOffset/*.cpp",
         "BRepOffset/*.cxx",
     ]),
     hdrs = glob([
@@ -1246,34 +1528,24 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
         ":BOPAlgo",
-        ":BRep",
         ":BRepAlgo",
-        ":BRepAlgoAPI",
-        ":Bnd",
+        ":BRepPrimAPI",
+        ":BVH",
+        ":ChFi3d",
+        ":ChFiDS",
         ":ElCLib",
         ":ElSLib",
-        ":GC",
-        ":GCE2d",
         ":GProp",
-        ":Geom2dInt",
         ":GeomAbs",
-        ":GeomFill",
-        ":GeomLib",
-        ":GeomProjLib",
         ":IntRes2d",
         ":IntTools",
         ":NCollection",
         ":OSD",
-        ":ProjLib",
-        ":ShapeAnalysis",
-        ":ShapeBuild",
+        ":Precision",
         ":ShapeCustom",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -1282,6 +1554,8 @@ cc_library(
 cc_library(
     name = "BRepOffsetAPI",
     srcs = glob([
+        "BRepOffsetAPI/*.c",
+        "BRepOffsetAPI/*.cpp",
         "BRepOffsetAPI/*.cxx",
     ]),
     hdrs = glob([
@@ -1296,40 +1570,56 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":Approx",
-        ":ApproxInt",
-        ":BRep",
         ":BRepAlgo",
         ":BRepFill",
         ":BRepOffset",
         ":BRepPrimAPI",
         ":BSplCLib",
         ":Draft",
-        ":GC",
-        ":GCE2d",
         ":GProp",
-        ":Geom2dInt",
         ":GeomAbs",
-        ":GeomFill",
-        ":GeomLib",
         ":IntRes2d",
-        ":Law",
         ":NCollection",
+        ":Precision",
         ":ShapeUpgrade",
         ":StdFail",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
 )
 
 cc_library(
+    name = "BRepPreviewAPI",
+    srcs = glob([
+        "BRepPreviewAPI/*.c",
+        "BRepPreviewAPI/*.cpp",
+        "BRepPreviewAPI/*.cxx",
+    ]),
+    hdrs = glob([
+        "BRepPreviewAPI/*.gxx",
+        "BRepPreviewAPI/*.pxx",
+        "BRepPreviewAPI/*.hxx",
+        "BRepPreviewAPI/*.lxx",
+        "BRepPreviewAPI/*.h",
+    ]),
+    includes = [
+        "BRepPreviewAPI/",
+    ],
+    deps = [
+        ":Adaptor2d",
+        ":BRepPrimAPI",
+        ":TopoDS",
+    ],
+)
+
+cc_library(
     name = "BRepPrim",
     srcs = glob([
+        "BRepPrim/*.c",
+        "BRepPrim/*.cpp",
         "BRepPrim/*.cxx",
     ]),
     hdrs = glob([
@@ -1344,11 +1634,10 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":ElCLib",
         ":ElSLib",
         ":NCollection",
+        ":Precision",
         ":TopoDS",
         ":gp",
     ],
@@ -1357,6 +1646,8 @@ cc_library(
 cc_library(
     name = "BRepPrimAPI",
     srcs = glob([
+        "BRepPrimAPI/*.c",
+        "BRepPrimAPI/*.cpp",
         "BRepPrimAPI/*.cxx",
     ]),
     hdrs = glob([
@@ -1371,16 +1662,11 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepLProp",
         ":BRepPrim",
         ":BRepSweep",
-        ":GeomProjLib",
         ":NCollection",
         ":StdFail",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -1389,6 +1675,8 @@ cc_library(
 cc_library(
     name = "BRepProj",
     srcs = glob([
+        "BRepProj/*.c",
+        "BRepProj/*.cpp",
         "BRepProj/*.cxx",
     ]),
     hdrs = glob([
@@ -1402,17 +1690,14 @@ cc_library(
         "BRepProj/",
     ],
     deps = [
-        ":ApproxInt",
-        ":BRep",
-        ":BRepAlgoAPI",
+        ":Adaptor2d",
+        ":BOPAlgo",
         ":BRepFill",
         ":BRepSweep",
-        ":Bnd",
+        ":BVH",
         ":NCollection",
-        ":ShapeAnalysis",
-        ":TopExp",
+        ":Precision",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -1421,6 +1706,8 @@ cc_library(
 cc_library(
     name = "BRepSweep",
     srcs = glob([
+        "BRepSweep/*.c",
+        "BRepSweep/*.cpp",
         "BRepSweep/*.cxx",
     ]),
     hdrs = glob([
@@ -1435,18 +1722,15 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepLProp",
         ":ElCLib",
         ":ElSLib",
         ":GeomAbs",
         ":NCollection",
+        ":Precision",
         ":Sweep",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -1455,6 +1739,8 @@ cc_library(
 cc_library(
     name = "BRepTest",
     srcs = glob([
+        "BRepTest/*.c",
+        "BRepTest/*.cpp",
         "BRepTest/*.cxx",
     ]),
     hdrs = glob([
@@ -1470,11 +1756,8 @@ cc_library(
     deps = [
         ":Adaptor2d",
         ":AdvApprox",
-        ":ApproxInt",
         ":BOPAlgo",
-        ":BRep",
         ":BRepAlgo",
-        ":BRepAlgoAPI",
         ":BRepFeat",
         ":BRepFill",
         ":BRepFilletAPI",
@@ -1482,37 +1765,32 @@ cc_library(
         ":BRepMAT2d",
         ":BRepOffset",
         ":BRepOffsetAPI",
+        ":BRepPreviewAPI",
         ":BRepPrimAPI",
         ":BRepProj",
+        ":BVH",
         ":BiTgte",
         ":Bisector",
-        ":Bnd",
         ":ChFi2d",
         ":ChFi3d",
-        ":Draw",
         ":ElCLib",
         ":FilletSurf",
         ":GProp",
-        ":Geom2dAPI",
         ":GeomAbs",
-        ":GeomFill",
         ":GeomPlate",
         ":GeometryTest",
-        ":Law",
         ":LocOpe",
-        ":LocalAnalysis",
         ":MAT",
+        ":Message",
         ":NCollection",
         ":OSD",
-        ":ProjLib",
+        ":Precision",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopOpeBRep",
         ":TopOpeBRepBuild",
         ":TopOpeBRepDS",
         ":TopOpeBRepTool",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -1521,6 +1799,8 @@ cc_library(
 cc_library(
     name = "BRepToIGES",
     srcs = glob([
+        "BRepToIGES/*.c",
+        "BRepToIGES/*.cpp",
         "BRepToIGES/*.cxx",
     ]),
     hdrs = glob([
@@ -1535,23 +1815,17 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":Geom2dToIGES",
         ":GeomToIGES",
         ":IGESBasic",
         ":Interface",
         ":Message",
         ":NCollection",
+        ":Precision",
         ":ShapeAlgo",
-        ":ShapeAnalysis",
-        ":ShapeBuild",
         ":ShapeCustom",
-        ":ShapeExtend",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":Transfer",
         ":TransferBRep",
@@ -1562,6 +1836,8 @@ cc_library(
 cc_library(
     name = "BRepToIGESBRep",
     srcs = glob([
+        "BRepToIGESBRep/*.c",
+        "BRepToIGESBRep/*.cpp",
         "BRepToIGESBRep/*.cxx",
     ]),
     hdrs = glob([
@@ -1576,8 +1852,6 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepToIGES",
         ":Geom2dToIGES",
         ":GeomToIGES",
@@ -1587,13 +1861,10 @@ cc_library(
         ":Message",
         ":NCollection",
         ":ShapeAlgo",
-        ":ShapeAnalysis",
         ":ShapeCustom",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":Transfer",
         ":TransferBRep",
@@ -1604,6 +1875,8 @@ cc_library(
 cc_library(
     name = "BSplCLib",
     srcs = glob([
+        "BSplCLib/*.c",
+        "BSplCLib/*.cpp",
         "BSplCLib/*.cxx",
     ]),
     hdrs = glob([
@@ -1621,6 +1894,7 @@ cc_library(
         ":GeomAbs",
         ":NCollection",
         ":PLib",
+        ":Precision",
         ":TColgp",
         ":gp",
         ":math",
@@ -1630,6 +1904,8 @@ cc_library(
 cc_library(
     name = "BSplSLib",
     srcs = glob([
+        "BSplSLib/*.c",
+        "BSplSLib/*.cpp",
         "BSplSLib/*.cxx",
     ]),
     hdrs = glob([
@@ -1655,7 +1931,12 @@ cc_library(
 cc_library(
     name = "BVH",
     srcs = glob([
+        "BVH/*.c",
+        "BVH/*.cpp",
         "BVH/*.cxx",
+        "Bnd/*.c",
+        "Bnd/*.cpp",
+        "Bnd/*.cxx",
     ]),
     hdrs = glob([
         "BVH/*.gxx",
@@ -1663,19 +1944,30 @@ cc_library(
         "BVH/*.hxx",
         "BVH/*.lxx",
         "BVH/*.h",
+        "Bnd/*.gxx",
+        "Bnd/*.pxx",
+        "Bnd/*.hxx",
+        "Bnd/*.lxx",
+        "Bnd/*.h",
     ]),
     includes = [
         "BVH/",
+        "Bnd/",
     ],
     deps = [
         ":NCollection",
         ":OSD",
+        ":Precision",
+        ":TColgp",
+        ":gp",
     ],
 )
 
 cc_library(
     name = "BiTgte",
     srcs = glob([
+        "BiTgte/*.c",
+        "BiTgte/*.cpp",
         "BiTgte/*.cxx",
     ]),
     hdrs = glob([
@@ -1692,25 +1984,20 @@ cc_library(
         ":Adaptor2d",
         ":AppCont",
         ":AppParCurves",
-        ":Approx",
-        ":ApproxInt",
-        ":BRep",
         ":BRepAlgo",
         ":BRepFill",
         ":BRepOffset",
         ":BSplCLib",
-        ":Bnd",
+        ":BVH",
         ":ChFi3d",
         ":Convert",
         ":ElSLib",
-        ":Geom2dAPI",
         ":GeomAbs",
         ":NCollection",
         ":OSD",
+        ":Precision",
         ":StdFail",
         ":TColgp",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -1719,6 +2006,8 @@ cc_library(
 cc_library(
     name = "BinDrivers",
     srcs = glob([
+        "BinDrivers/*.c",
+        "BinDrivers/*.cpp",
         "BinDrivers/*.cxx",
     ]),
     hdrs = glob([
@@ -1751,6 +2040,8 @@ cc_library(
 cc_library(
     name = "BinLDrivers",
     srcs = glob([
+        "BinLDrivers/*.c",
+        "BinLDrivers/*.cpp",
         "BinLDrivers/*.cxx",
     ]),
     hdrs = glob([
@@ -1770,12 +2061,11 @@ cc_library(
         ":BinMFunction",
         ":BinMNaming",
         ":BinObjMgt",
-        ":CDM",
+        ":CDF",
         ":FSD",
         ":Message",
         ":NCollection",
         ":OSD",
-        ":PCDM",
         ":Plugin",
         ":Storage",
         ":TDF",
@@ -1786,6 +2076,8 @@ cc_library(
 cc_library(
     name = "BinMDF",
     srcs = glob([
+        "BinMDF/*.c",
+        "BinMDF/*.cpp",
         "BinMDF/*.cxx",
     ]),
     hdrs = glob([
@@ -1809,6 +2101,8 @@ cc_library(
 cc_library(
     name = "BinMDataStd",
     srcs = glob([
+        "BinMDataStd/*.c",
+        "BinMDataStd/*.cpp",
         "BinMDataStd/*.cxx",
     ]),
     hdrs = glob([
@@ -1834,6 +2128,8 @@ cc_library(
 cc_library(
     name = "BinMDataXtd",
     srcs = glob([
+        "BinMDataXtd/*.c",
+        "BinMDataXtd/*.cpp",
         "BinMDataXtd/*.cxx",
     ]),
     hdrs = glob([
@@ -1851,6 +2147,7 @@ cc_library(
         ":BinObjMgt",
         ":Message",
         ":NCollection",
+        ":Quantity",
         ":TDF",
         ":TDataStd",
         ":TDataXtd",
@@ -1862,6 +2159,8 @@ cc_library(
 cc_library(
     name = "BinMDocStd",
     srcs = glob([
+        "BinMDocStd/*.c",
+        "BinMDocStd/*.cpp",
         "BinMDocStd/*.cxx",
     ]),
     hdrs = glob([
@@ -1887,6 +2186,8 @@ cc_library(
 cc_library(
     name = "BinMFunction",
     srcs = glob([
+        "BinMFunction/*.c",
+        "BinMFunction/*.cpp",
         "BinMFunction/*.cxx",
     ]),
     hdrs = glob([
@@ -1912,6 +2213,8 @@ cc_library(
 cc_library(
     name = "BinMNaming",
     srcs = glob([
+        "BinMNaming/*.c",
+        "BinMNaming/*.cpp",
         "BinMNaming/*.cxx",
     ]),
     hdrs = glob([
@@ -1925,7 +2228,7 @@ cc_library(
         "BinMNaming/",
     ],
     deps = [
-        ":ApproxInt",
+        ":Adaptor2d",
         ":BinMDF",
         ":BinObjMgt",
         ":Message",
@@ -1940,6 +2243,8 @@ cc_library(
 cc_library(
     name = "BinMXCAFDoc",
     srcs = glob([
+        "BinMXCAFDoc/*.c",
+        "BinMXCAFDoc/*.cpp",
         "BinMXCAFDoc/*.cxx",
     ]),
     hdrs = glob([
@@ -1953,13 +2258,14 @@ cc_library(
         "BinMXCAFDoc/",
     ],
     deps = [
-        ":ApproxInt",
+        ":Adaptor2d",
         ":BinMDF",
         ":BinMDataStd",
         ":BinMNaming",
         ":BinObjMgt",
         ":Message",
         ":NCollection",
+        ":Precision",
         ":TDF",
         ":TNaming",
         ":TopLoc",
@@ -1971,6 +2277,8 @@ cc_library(
 cc_library(
     name = "BinObjMgt",
     srcs = glob([
+        "BinObjMgt/*.c",
+        "BinObjMgt/*.cpp",
         "BinObjMgt/*.cxx",
     ]),
     hdrs = glob([
@@ -1994,6 +2302,8 @@ cc_library(
 cc_library(
     name = "BinTObjDrivers",
     srcs = glob([
+        "BinTObjDrivers/*.c",
+        "BinTObjDrivers/*.cpp",
         "BinTObjDrivers/*.cxx",
     ]),
     hdrs = glob([
@@ -2022,6 +2332,8 @@ cc_library(
 cc_library(
     name = "BinXCAFDrivers",
     srcs = glob([
+        "BinXCAFDrivers/*.c",
+        "BinXCAFDrivers/*.cpp",
         "BinXCAFDrivers/*.cxx",
     ]),
     hdrs = glob([
@@ -2048,6 +2360,8 @@ cc_library(
 cc_library(
     name = "Bisector",
     srcs = glob([
+        "Bisector/*.c",
+        "Bisector/*.cpp",
         "Bisector/*.cxx",
     ]),
     hdrs = glob([
@@ -2063,17 +2377,15 @@ cc_library(
     deps = [
         ":Adaptor2d",
         ":ElCLib",
-        ":GCE2d",
         ":GccAna",
         ":GccEnt",
         ":GccInt",
-        ":Geom2dAPI",
         ":Geom2dGcc",
-        ":Geom2dInt",
         ":GeomAbs",
         ":IntAna2d",
         ":IntRes2d",
         ":NCollection",
+        ":Precision",
         ":StdFail",
         ":gp",
         ":math",
@@ -2083,6 +2395,8 @@ cc_library(
 cc_library(
     name = "Blend",
     srcs = glob([
+        "Blend/*.c",
+        "Blend/*.cpp",
         "Blend/*.cxx",
     ]),
     hdrs = glob([
@@ -2098,10 +2412,9 @@ cc_library(
     deps = [
         ":Adaptor2d",
         ":CSLib",
-        ":Draw",
         ":GeomAbs",
-        ":IntSurf",
         ":NCollection",
+        ":Precision",
         ":StdFail",
         ":TColgp",
         ":gp",
@@ -2112,6 +2425,8 @@ cc_library(
 cc_library(
     name = "BlendFunc",
     srcs = glob([
+        "BlendFunc/*.c",
+        "BlendFunc/*.cpp",
         "BlendFunc/*.cxx",
     ]),
     hdrs = glob([
@@ -2131,9 +2446,8 @@ cc_library(
         ":Convert",
         ":ElCLib",
         ":GeomAbs",
-        ":GeomFill",
-        ":Law",
         ":NCollection",
+        ":Precision",
         ":TColgp",
         ":gp",
         ":math",
@@ -2141,31 +2455,17 @@ cc_library(
 )
 
 cc_library(
-    name = "Bnd",
-    srcs = glob([
-        "Bnd/*.cxx",
-    ]),
-    hdrs = glob([
-        "Bnd/*.gxx",
-        "Bnd/*.pxx",
-        "Bnd/*.hxx",
-        "Bnd/*.lxx",
-        "Bnd/*.h",
-    ]),
-    includes = [
-        "Bnd/",
-    ],
-    deps = [
-        ":NCollection",
-        ":TColgp",
-        ":gp",
-    ],
-)
-
-cc_library(
     name = "CDF",
     srcs = glob([
+        "CDF/*.c",
+        "CDF/*.cpp",
         "CDF/*.cxx",
+        "CDM/*.c",
+        "CDM/*.cpp",
+        "CDM/*.cxx",
+        "PCDM/*.c",
+        "PCDM/*.cpp",
+        "PCDM/*.cxx",
     ]),
     hdrs = glob([
         "CDF/*.gxx",
@@ -2173,39 +2473,31 @@ cc_library(
         "CDF/*.hxx",
         "CDF/*.lxx",
         "CDF/*.h",
-    ]),
-    includes = [
-        "CDF/",
-    ],
-    deps = [
-        ":CDM",
-        ":NCollection",
-        ":OSD",
-        ":PCDM",
-        ":Plugin",
-        ":UTL",
-    ],
-)
-
-cc_library(
-    name = "CDM",
-    srcs = glob([
-        "CDM/*.cxx",
-    ]),
-    hdrs = glob([
         "CDM/*.gxx",
         "CDM/*.pxx",
         "CDM/*.hxx",
         "CDM/*.lxx",
         "CDM/*.h",
+        "PCDM/*.gxx",
+        "PCDM/*.pxx",
+        "PCDM/*.hxx",
+        "PCDM/*.lxx",
+        "PCDM/*.h",
     ]),
     includes = [
+        "CDF/",
         "CDM/",
+        "PCDM/",
     ],
     deps = [
+        ":FSD",
+        ":LDOM",
         ":Message",
         ":NCollection",
+        ":OSD",
+        ":Plugin",
         ":Resource",
+        ":Storage",
         ":UTL",
     ],
 )
@@ -2213,6 +2505,8 @@ cc_library(
 cc_library(
     name = "CSLib",
     srcs = glob([
+        "CSLib/*.c",
+        "CSLib/*.cpp",
         "CSLib/*.cxx",
     ]),
     hdrs = glob([
@@ -2228,6 +2522,7 @@ cc_library(
     deps = [
         ":NCollection",
         ":PLib",
+        ":Precision",
         ":TColgp",
         ":gp",
         ":math",
@@ -2237,6 +2532,8 @@ cc_library(
 cc_library(
     name = "ChFi2d",
     srcs = glob([
+        "ChFi2d/*.c",
+        "ChFi2d/*.cpp",
         "ChFi2d/*.cxx",
     ]),
     hdrs = glob([
@@ -2251,25 +2548,16 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":ElCLib",
         ":ElSLib",
-        ":GC",
         ":GccEnt",
-        ":Geom2dAPI",
         ":Geom2dGcc",
-        ":Geom2dInt",
-        ":GeomProjLib",
         ":IntAna2d",
         ":IntRes2d",
         ":NCollection",
-        ":ProjLib",
-        ":ShapeAnalysis",
+        ":Precision",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -2278,6 +2566,8 @@ cc_library(
 cc_library(
     name = "ChFi3d",
     srcs = glob([
+        "ChFi3d/*.c",
+        "ChFi3d/*.cpp",
         "ChFi3d/*.cxx",
     ]),
     hdrs = glob([
@@ -2292,57 +2582,38 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":AppBlend",
         ":AppParCurves",
-        ":Approx",
-        ":ApproxInt",
-        ":BRep",
         ":BRepAlgo",
         ":BRepBlend",
         ":BRepLProp",
         ":BSplCLib",
+        ":BVH",
         ":Blend",
         ":BlendFunc",
-        ":Bnd",
         ":ChFiDS",
         ":ChFiKPart",
         ":Convert",
-        ":Draw",
         ":ElCLib",
         ":ElSLib",
         ":FairCurve",
-        ":GC",
-        ":Geom2dAPI",
-        ":Geom2dHatch",
-        ":Geom2dInt",
         ":GeomAbs",
-        ":GeomFill",
-        ":GeomLib",
         ":GeomPlate",
-        ":GeomProjLib",
         ":HatchGen",
         ":IntAna",
         ":IntAna2d",
-        ":IntCurveSurface",
         ":IntRes2d",
-        ":IntSurf",
-        ":IntWalk",
-        ":Law",
-        ":LocalAnalysis",
+        ":IntTools",
         ":NCollection",
         ":OSD",
         ":PLib",
-        ":ProjLib",
-        ":ShapeAnalysis",
+        ":Precision",
         ":StdFail",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
         ":TopOpeBRepBuild",
         ":TopOpeBRepDS",
         ":TopOpeBRepTool",
-        ":TopTools",
         ":TopoDS",
         ":gp",
         ":math",
@@ -2352,6 +2623,8 @@ cc_library(
 cc_library(
     name = "ChFiDS",
     srcs = glob([
+        "ChFiDS/*.c",
+        "ChFiDS/*.cpp",
         "ChFiDS/*.cxx",
     ]),
     hdrs = glob([
@@ -2366,16 +2639,12 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":ElCLib",
         ":GeomAbs",
-        ":Law",
         ":NCollection",
+        ":Precision",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -2384,6 +2653,8 @@ cc_library(
 cc_library(
     name = "ChFiKPart",
     srcs = glob([
+        "ChFiKPart/*.c",
+        "ChFiKPart/*.cpp",
         "ChFiKPart/*.cxx",
     ]),
     hdrs = glob([
@@ -2398,51 +2669,26 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
         ":ChFiDS",
         ":ElCLib",
         ":ElSLib",
-        ":Geom2dInt",
         ":GeomAbs",
         ":IntAna",
         ":IntRes2d",
-        ":IntSurf",
         ":NCollection",
-        ":ProjLib",
+        ":Precision",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopOpeBRepDS",
         ":gp",
     ],
 )
 
 cc_library(
-    name = "Cocoa",
-    srcs = glob([
-        "Cocoa/*.cxx",
-    ]),
-    hdrs = glob([
-        "Cocoa/*.gxx",
-        "Cocoa/*.pxx",
-        "Cocoa/*.hxx",
-        "Cocoa/*.lxx",
-        "Cocoa/*.h",
-    ]),
-    includes = [
-        "Cocoa/",
-    ],
-    deps = [
-        ":Aspect",
-        ":Image",
-        ":NCollection",
-        ":Quantity",
-    ],
-)
-
-cc_library(
     name = "Convert",
     srcs = glob([
+        "Convert/*.c",
+        "Convert/*.cpp",
         "Convert/*.cxx",
     ]),
     hdrs = glob([
@@ -2460,6 +2706,7 @@ cc_library(
         ":BSplSLib",
         ":NCollection",
         ":PLib",
+        ":Precision",
         ":StdFail",
         ":TColgp",
         ":gp",
@@ -2469,6 +2716,8 @@ cc_library(
 cc_library(
     name = "D3DHost",
     srcs = glob([
+        "D3DHost/*.c",
+        "D3DHost/*.cpp",
         "D3DHost/*.cxx",
     ]),
     hdrs = glob([
@@ -2490,6 +2739,8 @@ cc_library(
 cc_library(
     name = "DDF",
     srcs = glob([
+        "DDF/*.c",
+        "DDF/*.cpp",
         "DDF/*.cxx",
     ]),
     hdrs = glob([
@@ -2503,10 +2754,10 @@ cc_library(
         "DDF/",
     ],
     deps = [
-        ":Draw",
+        ":Adaptor2d",
+        ":Message",
         ":NCollection",
         ":OSD",
-        ":Storage",
         ":TDF",
         ":TDataStd",
     ],
@@ -2515,6 +2766,8 @@ cc_library(
 cc_library(
     name = "DDataStd",
     srcs = glob([
+        "DDataStd/*.c",
+        "DDataStd/*.cpp",
         "DDataStd/*.cxx",
     ]),
     hdrs = glob([
@@ -2529,13 +2782,12 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":DDF",
-        ":Draw",
         ":DrawDim",
         ":ElSLib",
+        ":Message",
         ":NCollection",
+        ":Precision",
         ":TDF",
         ":TDataStd",
         ":TDataXtd",
@@ -2550,6 +2802,8 @@ cc_library(
 cc_library(
     name = "DDocStd",
     srcs = glob([
+        "DDocStd/*.c",
+        "DDocStd/*.cpp",
         "DDocStd/*.cxx",
     ]),
     hdrs = glob([
@@ -2564,16 +2818,12 @@ cc_library(
     ],
     deps = [
         ":AIS",
-        ":ApproxInt",
-        ":BRep",
+        ":Adaptor2d",
         ":BinDrivers",
         ":BinLDrivers",
         ":CDF",
-        ":CDM",
         ":DDF",
-        ":Draw",
         ":FSD",
-        ":Font",
         ":NCollection",
         ":OSD",
         ":Plugin",
@@ -2587,7 +2837,6 @@ cc_library(
         ":TDocStd",
         ":TNaming",
         ":TPrsStd",
-        ":TopTools",
         ":TopoDS",
         ":ViewerTest",
         ":XmlDrivers",
@@ -2598,6 +2847,8 @@ cc_library(
 cc_library(
     name = "DNaming",
     srcs = glob([
+        "DNaming/*.c",
+        "DNaming/*.cpp",
         "DNaming/*.cxx",
     ]),
     hdrs = glob([
@@ -2612,19 +2863,17 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
+        ":BOPAlgo",
         ":BRepAlgo",
-        ":BRepAlgoAPI",
         ":BRepFilletAPI",
         ":BRepPrimAPI",
         ":DDF",
         ":DDocStd",
-        ":Draw",
         ":GProp",
         ":GeomAbs",
-        ":GeomLib",
+        ":Message",
         ":NCollection",
+        ":Precision",
         ":TColgp",
         ":TDF",
         ":TDataStd",
@@ -2632,9 +2881,7 @@ cc_library(
         ":TFunction",
         ":TNaming",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -2643,6 +2890,8 @@ cc_library(
 cc_library(
     name = "DPrsStd",
     srcs = glob([
+        "DPrsStd/*.c",
+        "DPrsStd/*.cpp",
         "DPrsStd/*.cxx",
     ]),
     hdrs = glob([
@@ -2657,13 +2906,12 @@ cc_library(
     ],
     deps = [
         ":AIS",
+        ":Adaptor2d",
         ":AppStd",
         ":DDF",
         ":DDataStd",
         ":DDocStd",
         ":DNaming",
-        ":Draw",
-        ":Font",
         ":NCollection",
         ":OSD",
         ":Quantity",
@@ -2679,6 +2927,8 @@ cc_library(
 cc_library(
     name = "DRAWEXE",
     srcs = glob([
+        "DRAWEXE/*.c",
+        "DRAWEXE/*.cpp",
         "DRAWEXE/*.cxx",
     ]),
     hdrs = glob([
@@ -2693,14 +2943,14 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":Draw",
     ],
 )
 
 cc_library(
     name = "Draft",
     srcs = glob([
+        "Draft/*.c",
+        "Draft/*.cpp",
         "Draft/*.cxx",
     ]),
     hdrs = glob([
@@ -2715,64 +2965,26 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":Approx",
-        ":ApproxInt",
-        ":BRep",
         ":ElCLib",
         ":ElSLib",
-        ":Geom2dAPI",
         ":GeomAbs",
-        ":GeomProjLib",
         ":IntAna",
-        ":IntCurveSurface",
         ":NCollection",
-        ":ProjLib",
+        ":Precision",
         ":StdFail",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
 )
 
 cc_library(
-    name = "Draw",
-    srcs = glob([
-        "Draw/*.cxx",
-    ]),
-    hdrs = glob([
-        "Draw/*.gxx",
-        "Draw/*.pxx",
-        "Draw/*.hxx",
-        "Draw/*.lxx",
-        "Draw/*.h",
-    ]),
-    includes = [
-        "Draw/",
-    ],
-    deps = [
-        ":Aspect",
-        ":Bnd",
-        ":Cocoa",
-        ":ElCLib",
-        ":Image",
-        ":Message",
-        ":NCollection",
-        ":OSD",
-        ":Plugin",
-        ":Resource",
-        ":Units",
-        ":gp",
-        "@tcl",
-    ],
-)
-
-cc_library(
     name = "DrawDim",
     srcs = glob([
+        "DrawDim/*.c",
+        "DrawDim/*.cpp",
         "DrawDim/*.cxx",
     ]),
     hdrs = glob([
@@ -2787,19 +2999,13 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
-        ":Draw",
         ":ElCLib",
         ":ElSLib",
-        ":GC",
-        ":Geom2dAPI",
         ":IntAna",
         ":IntAna2d",
         ":NCollection",
+        ":Precision",
         ":TopAbs",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -2808,6 +3014,8 @@ cc_library(
 cc_library(
     name = "DrawFairCurve",
     srcs = glob([
+        "DrawFairCurve/*.c",
+        "DrawFairCurve/*.cpp",
         "DrawFairCurve/*.cxx",
     ]),
     hdrs = glob([
@@ -2822,7 +3030,6 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":Draw",
         ":FairCurve",
         ":NCollection",
         ":gp",
@@ -2832,6 +3039,8 @@ cc_library(
 cc_library(
     name = "DsgPrs",
     srcs = glob([
+        "DsgPrs/*.c",
+        "DsgPrs/*.cpp",
         "DsgPrs/*.cxx",
     ]),
     hdrs = glob([
@@ -2846,22 +3055,15 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":Aspect",
-        ":BRep",
-        ":Bnd",
+        ":BVH",
         ":ElCLib",
-        ":Font",
-        ":GC",
         ":IntAna2d",
         ":NCollection",
+        ":Precision",
         ":Quantity",
-        ":StdPrs",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":Units",
         ":gp",
@@ -2871,6 +3073,8 @@ cc_library(
 cc_library(
     name = "ElCLib",
     srcs = glob([
+        "ElCLib/*.c",
+        "ElCLib/*.cpp",
         "ElCLib/*.cxx",
     ]),
     hdrs = glob([
@@ -2892,6 +3096,8 @@ cc_library(
 cc_library(
     name = "ElSLib",
     srcs = glob([
+        "ElSLib/*.c",
+        "ElSLib/*.cpp",
         "ElSLib/*.cxx",
     ]),
     hdrs = glob([
@@ -2913,6 +3119,8 @@ cc_library(
 cc_library(
     name = "Expr",
     srcs = glob([
+        "Expr/*.c",
+        "Expr/*.cpp",
         "Expr/*.cxx",
     ]),
     hdrs = glob([
@@ -2933,6 +3141,8 @@ cc_library(
 cc_library(
     name = "ExprIntrp",
     srcs = glob([
+        "ExprIntrp/*.c",
+        "ExprIntrp/*.cpp",
         "ExprIntrp/*.cxx",
     ]),
     hdrs = glob([
@@ -2954,6 +3164,8 @@ cc_library(
 cc_library(
     name = "FEmTool",
     srcs = glob([
+        "FEmTool/*.c",
+        "FEmTool/*.cpp",
         "FEmTool/*.cxx",
     ]),
     hdrs = glob([
@@ -2979,6 +3191,8 @@ cc_library(
 cc_library(
     name = "FSD",
     srcs = glob([
+        "FSD/*.c",
+        "FSD/*.cpp",
         "FSD/*.cxx",
     ]),
     hdrs = glob([
@@ -2992,6 +3206,7 @@ cc_library(
         "FSD/",
     ],
     deps = [
+        ":Message",
         ":NCollection",
         ":OSD",
         ":Storage",
@@ -3001,6 +3216,8 @@ cc_library(
 cc_library(
     name = "FairCurve",
     srcs = glob([
+        "FairCurve/*.c",
+        "FairCurve/*.cpp",
         "FairCurve/*.cxx",
     ]),
     hdrs = glob([
@@ -3018,6 +3235,7 @@ cc_library(
         ":BSplCLib",
         ":NCollection",
         ":PLib",
+        ":Precision",
         ":TColgp",
         ":gp",
         ":math",
@@ -3027,6 +3245,8 @@ cc_library(
 cc_library(
     name = "FilletSurf",
     srcs = glob([
+        "FilletSurf/*.c",
+        "FilletSurf/*.cpp",
         "FilletSurf/*.cxx",
     ]),
     hdrs = glob([
@@ -3041,19 +3261,16 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepBlend",
         ":ChFi3d",
         ":ChFiDS",
         ":ElSLib",
         ":GeomAbs",
-        ":IntCurveSurface",
         ":NCollection",
+        ":Precision",
         ":StdFail",
         ":TopAbs",
         ":TopOpeBRepDS",
-        ":TopTools",
         ":TopoDS",
         ":gp",
         ":math",
@@ -3061,152 +3278,10 @@ cc_library(
 )
 
 cc_library(
-    name = "Font",
-    srcs = glob([
-        "Font/*.cxx",
-        "Graphic3d/*.cxx",
-        "Prs3d/*.cxx",
-        "PrsMgr/*.cxx",
-        "Select3D/*.cxx",
-        "SelectBasics/*.cxx",
-        "SelectMgr/*.cxx",
-        "V3d/*.cxx",
-    ]),
-    hdrs = glob([
-        "Font/*.gxx",
-        "Font/*.pxx",
-        "Font/*.hxx",
-        "Font/*.lxx",
-        "Font/*.h",
-        "Graphic3d/*.gxx",
-        "Graphic3d/*.pxx",
-        "Graphic3d/*.hxx",
-        "Graphic3d/*.lxx",
-        "Graphic3d/*.h",
-        "Prs3d/*.gxx",
-        "Prs3d/*.pxx",
-        "Prs3d/*.hxx",
-        "Prs3d/*.lxx",
-        "Prs3d/*.h",
-        "PrsMgr/*.gxx",
-        "PrsMgr/*.pxx",
-        "PrsMgr/*.hxx",
-        "PrsMgr/*.lxx",
-        "PrsMgr/*.h",
-        "Select3D/*.gxx",
-        "Select3D/*.pxx",
-        "Select3D/*.hxx",
-        "Select3D/*.lxx",
-        "Select3D/*.h",
-        "SelectBasics/*.gxx",
-        "SelectBasics/*.pxx",
-        "SelectBasics/*.hxx",
-        "SelectBasics/*.lxx",
-        "SelectBasics/*.h",
-        "SelectMgr/*.gxx",
-        "SelectMgr/*.pxx",
-        "SelectMgr/*.hxx",
-        "SelectMgr/*.lxx",
-        "SelectMgr/*.h",
-        "V3d/*.gxx",
-        "V3d/*.pxx",
-        "V3d/*.hxx",
-        "V3d/*.lxx",
-        "V3d/*.h",
-    ]),
-    includes = [
-        "Font/",
-        "Graphic3d/",
-        "Prs3d/",
-        "PrsMgr/",
-        "Select3D/",
-        "SelectBasics/",
-        "SelectMgr/",
-        "V3d/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":ApproxInt",
-        ":Aspect",
-        ":BRep",
-        ":BVH",
-        ":Bnd",
-        ":GC",
-        ":GCE2d",
-        ":GeomLib",
-        ":HLRAlgo",
-        ":Image",
-        ":Message",
-        ":NCollection",
-        ":OSD",
-        ":Poly",
-        ":Quantity",
-        ":ShapeAnalysis",
-        ":ShapeBuild",
-        ":TColgp",
-        ":TopAbs",
-        ":TopExp",
-        ":TopLoc",
-        ":TopTools",
-        ":TopoDS",
-        ":gp",
-        "@freetype2",
-    ],
-)
-
-cc_library(
-    name = "GC",
-    srcs = glob([
-        "GC/*.cxx",
-    ]),
-    hdrs = glob([
-        "GC/*.gxx",
-        "GC/*.pxx",
-        "GC/*.hxx",
-        "GC/*.lxx",
-        "GC/*.h",
-    ]),
-    includes = [
-        "GC/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":ElCLib",
-        ":NCollection",
-        ":StdFail",
-        ":TColgp",
-        ":gp",
-    ],
-)
-
-cc_library(
-    name = "GCE2d",
-    srcs = glob([
-        "GCE2d/*.cxx",
-    ]),
-    hdrs = glob([
-        "GCE2d/*.gxx",
-        "GCE2d/*.pxx",
-        "GCE2d/*.hxx",
-        "GCE2d/*.lxx",
-        "GCE2d/*.h",
-    ]),
-    includes = [
-        "GCE2d/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":ElCLib",
-        ":IntAna2d",
-        ":NCollection",
-        ":StdFail",
-        ":gp",
-    ],
-)
-
-cc_library(
     name = "GProp",
     srcs = glob([
+        "GProp/*.c",
+        "GProp/*.cpp",
         "GProp/*.cxx",
     ]),
     hdrs = glob([
@@ -3231,6 +3306,8 @@ cc_library(
 cc_library(
     name = "GccAna",
     srcs = glob([
+        "GccAna/*.c",
+        "GccAna/*.cpp",
         "GccAna/*.cxx",
     ]),
     hdrs = glob([
@@ -3249,6 +3326,7 @@ cc_library(
         ":GccInt",
         ":IntAna2d",
         ":NCollection",
+        ":Precision",
         ":StdFail",
         ":TColgp",
         ":gp",
@@ -3259,6 +3337,8 @@ cc_library(
 cc_library(
     name = "GccEnt",
     srcs = glob([
+        "GccEnt/*.c",
+        "GccEnt/*.cpp",
         "GccEnt/*.cxx",
     ]),
     hdrs = glob([
@@ -3280,6 +3360,8 @@ cc_library(
 cc_library(
     name = "GccInt",
     srcs = glob([
+        "GccInt/*.c",
+        "GccInt/*.cpp",
         "GccInt/*.cxx",
     ]),
     hdrs = glob([
@@ -3299,41 +3381,10 @@ cc_library(
 )
 
 cc_library(
-    name = "Geom2dAPI",
-    srcs = glob([
-        "Geom2dAPI/*.cxx",
-    ]),
-    hdrs = glob([
-        "Geom2dAPI/*.gxx",
-        "Geom2dAPI/*.pxx",
-        "Geom2dAPI/*.hxx",
-        "Geom2dAPI/*.lxx",
-        "Geom2dAPI/*.h",
-    ]),
-    includes = [
-        "Geom2dAPI/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":AppDef",
-        ":AppParCurves",
-        ":Approx",
-        ":BSplCLib",
-        ":Geom2dInt",
-        ":GeomAbs",
-        ":IntRes2d",
-        ":NCollection",
-        ":PLib",
-        ":StdFail",
-        ":TColgp",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
     name = "Geom2dGcc",
     srcs = glob([
+        "Geom2dGcc/*.c",
+        "Geom2dGcc/*.cpp",
         "Geom2dGcc/*.cxx",
     ]),
     hdrs = glob([
@@ -3352,7 +3403,6 @@ cc_library(
         ":GccAna",
         ":GccEnt",
         ":GccInt",
-        ":Geom2dInt",
         ":IntAna2d",
         ":IntRes2d",
         ":NCollection",
@@ -3364,69 +3414,10 @@ cc_library(
 )
 
 cc_library(
-    name = "Geom2dHatch",
-    srcs = glob([
-        "Geom2dHatch/*.cxx",
-    ]),
-    hdrs = glob([
-        "Geom2dHatch/*.gxx",
-        "Geom2dHatch/*.pxx",
-        "Geom2dHatch/*.hxx",
-        "Geom2dHatch/*.lxx",
-        "Geom2dHatch/*.h",
-    ]),
-    includes = [
-        "Geom2dHatch/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":ElCLib",
-        ":Geom2dInt",
-        ":HatchGen",
-        ":IntRes2d",
-        ":NCollection",
-        ":StdFail",
-        ":TopAbs",
-        ":TopClass",
-        ":TopTrans",
-        ":gp",
-    ],
-)
-
-cc_library(
-    name = "Geom2dInt",
-    srcs = glob([
-        "Geom2dInt/*.cxx",
-    ]),
-    hdrs = glob([
-        "Geom2dInt/*.gxx",
-        "Geom2dInt/*.pxx",
-        "Geom2dInt/*.hxx",
-        "Geom2dInt/*.lxx",
-        "Geom2dInt/*.h",
-    ]),
-    includes = [
-        "Geom2dInt/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":Bnd",
-        ":GeomAbs",
-        ":IntCurve",
-        ":IntImpParGen",
-        ":IntRes2d",
-        ":Intf",
-        ":NCollection",
-        ":StdFail",
-        ":TColgp",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
     name = "Geom2dToIGES",
     srcs = glob([
+        "Geom2dToIGES/*.c",
+        "Geom2dToIGES/*.cpp",
         "Geom2dToIGES/*.cxx",
     ]),
     hdrs = glob([
@@ -3441,11 +3432,11 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
         ":GeomToIGES",
         ":IGESBasic",
         ":Interface",
         ":NCollection",
+        ":Precision",
         ":gp",
     ],
 )
@@ -3453,6 +3444,8 @@ cc_library(
 cc_library(
     name = "GeomAbs",
     srcs = glob([
+        "GeomAbs/*.c",
+        "GeomAbs/*.cpp",
         "GeomAbs/*.cxx",
     ]),
     hdrs = glob([
@@ -3470,83 +3463,10 @@ cc_library(
 )
 
 cc_library(
-    name = "GeomFill",
-    srcs = glob([
-        "GeomFill/*.cxx",
-    ]),
-    hdrs = glob([
-        "GeomFill/*.gxx",
-        "GeomFill/*.pxx",
-        "GeomFill/*.hxx",
-        "GeomFill/*.lxx",
-        "GeomFill/*.h",
-    ]),
-    includes = [
-        "GeomFill/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":AdvApprox",
-        ":AppBlend",
-        ":Approx",
-        ":BSplCLib",
-        ":Bnd",
-        ":CSLib",
-        ":Convert",
-        ":Draw",
-        ":ElCLib",
-        ":ElSLib",
-        ":GeomAbs",
-        ":GeomLib",
-        ":IntCurveSurface",
-        ":Law",
-        ":NCollection",
-        ":OSD",
-        ":PLib",
-        ":StdFail",
-        ":TColgp",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
-    name = "GeomLib",
-    srcs = glob([
-        "GeomLib/*.cxx",
-    ]),
-    hdrs = glob([
-        "GeomLib/*.gxx",
-        "GeomLib/*.pxx",
-        "GeomLib/*.hxx",
-        "GeomLib/*.lxx",
-        "GeomLib/*.h",
-    ]),
-    includes = [
-        "GeomLib/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":AdvApprox",
-        ":BSplCLib",
-        ":BSplSLib",
-        ":CSLib",
-        ":ElCLib",
-        ":ElSLib",
-        ":GeomAbs",
-        ":NCollection",
-        ":OSD",
-        ":PLib",
-        ":StdFail",
-        ":TColgp",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
     name = "GeomPlate",
     srcs = glob([
+        "GeomPlate/*.c",
+        "GeomPlate/*.cpp",
         "GeomPlate/*.cxx",
     ]),
     hdrs = glob([
@@ -3562,22 +3482,16 @@ cc_library(
     deps = [
         ":Adaptor2d",
         ":AdvApprox",
-        ":Approx",
-        ":ApproxInt",
-        ":Draw",
         ":ElCLib",
         ":ElSLib",
-        ":Geom2dInt",
         ":GeomAbs",
-        ":GeomLib",
         ":IntRes2d",
-        ":Law",
-        ":LocalAnalysis",
+        ":Message",
         ":NCollection",
         ":OSD",
         ":PLib",
         ":Plate",
-        ":ProjLib",
+        ":Precision",
         ":TColgp",
         ":gp",
         ":math",
@@ -3585,33 +3499,10 @@ cc_library(
 )
 
 cc_library(
-    name = "GeomProjLib",
-    srcs = glob([
-        "GeomProjLib/*.cxx",
-    ]),
-    hdrs = glob([
-        "GeomProjLib/*.gxx",
-        "GeomProjLib/*.pxx",
-        "GeomProjLib/*.hxx",
-        "GeomProjLib/*.lxx",
-        "GeomProjLib/*.h",
-    ]),
-    includes = [
-        "GeomProjLib/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":Approx",
-        ":NCollection",
-        ":ProjLib",
-        ":TColgp",
-        ":gp",
-    ],
-)
-
-cc_library(
     name = "GeomToIGES",
     srcs = glob([
+        "GeomToIGES/*.c",
+        "GeomToIGES/*.cpp",
         "GeomToIGES/*.cxx",
     ]),
     hdrs = glob([
@@ -3632,7 +3523,7 @@ cc_library(
         ":IGESSolid",
         ":Interface",
         ":NCollection",
-        ":ShapeAnalysis",
+        ":Precision",
         ":ShapeCustom",
         ":TColgp",
         ":gp",
@@ -3642,6 +3533,8 @@ cc_library(
 cc_library(
     name = "GeomToStep",
     srcs = glob([
+        "GeomToStep/*.c",
+        "GeomToStep/*.cpp",
         "GeomToStep/*.cxx",
     ]),
     hdrs = glob([
@@ -3670,6 +3563,8 @@ cc_library(
 cc_library(
     name = "GeometryTest",
     srcs = glob([
+        "GeometryTest/*.c",
+        "GeometryTest/*.cpp",
         "GeometryTest/*.cxx",
     ]),
     hdrs = glob([
@@ -3685,29 +3580,20 @@ cc_library(
     deps = [
         ":AIS",
         ":Adaptor2d",
-        ":AppDef",
         ":AppParCurves",
-        ":Approx",
-        ":ApproxInt",
         ":BSplCLib",
-        ":Draw",
         ":DrawFairCurve",
         ":FairCurve",
-        ":GC",
         ":GccAna",
         ":GccEnt",
         ":GccInt",
-        ":Geom2dAPI",
         ":Geom2dGcc",
         ":GeomAbs",
-        ":GeomFill",
-        ":GeomProjLib",
         ":GeomliteTest",
-        ":Law",
-        ":LocalAnalysis",
+        ":Message",
         ":NCollection",
         ":Poly",
-        ":ProjLib",
+        ":Precision",
         ":TColgp",
         ":TopoDS",
         ":gp",
@@ -3718,6 +3604,8 @@ cc_library(
 cc_library(
     name = "GeomliteTest",
     srcs = glob([
+        "GeomliteTest/*.c",
+        "GeomliteTest/*.cpp",
         "GeomliteTest/*.cxx",
     ]),
     hdrs = glob([
@@ -3732,22 +3620,19 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":AppDef",
+        ":AppCont",
         ":AppParCurves",
-        ":Approx",
-        ":ApproxInt",
         ":BSplCLib",
         ":Convert",
-        ":Draw",
         ":ElCLib",
         ":ElSLib",
-        ":Geom2dAPI",
         ":GeomAbs",
-        ":GeomLib",
         ":IntAna2d",
         ":IntRes2d",
+        ":Message",
         ":NCollection",
         ":PLib",
+        ":Precision",
         ":TColgp",
         ":TopoDS",
         ":gp",
@@ -3758,6 +3643,8 @@ cc_library(
 cc_library(
     name = "HLRAlgo",
     srcs = glob([
+        "HLRAlgo/*.c",
+        "HLRAlgo/*.cpp",
         "HLRAlgo/*.cxx",
     ]),
     hdrs = glob([
@@ -3773,6 +3660,7 @@ cc_library(
     deps = [
         ":Intrv",
         ":NCollection",
+        ":Precision",
         ":TColgp",
         ":TopAbs",
         ":TopBas",
@@ -3783,6 +3671,8 @@ cc_library(
 cc_library(
     name = "HLRAppli",
     srcs = glob([
+        "HLRAppli/*.c",
+        "HLRAppli/*.cpp",
         "HLRAppli/*.cxx",
     ]),
     hdrs = glob([
@@ -3796,8 +3686,7 @@ cc_library(
         "HLRAppli/",
     ],
     deps = [
-        ":ApproxInt",
-        ":BRep",
+        ":Adaptor2d",
         ":HLRAlgo",
         ":NCollection",
         ":TopoDS",
@@ -3808,6 +3697,8 @@ cc_library(
 cc_library(
     name = "HLRTest",
     srcs = glob([
+        "HLRTest/*.c",
+        "HLRTest/*.cpp",
         "HLRTest/*.cxx",
     ]),
     hdrs = glob([
@@ -3821,9 +3712,7 @@ cc_library(
         "HLRTest/",
     ],
     deps = [
-        ":ApproxInt",
-        ":BRep",
-        ":Draw",
+        ":Adaptor2d",
         ":HLRAlgo",
         ":HLRAppli",
         ":NCollection",
@@ -3836,6 +3725,8 @@ cc_library(
 cc_library(
     name = "Hatch",
     srcs = glob([
+        "Hatch/*.c",
+        "Hatch/*.cpp",
         "Hatch/*.cxx",
     ]),
     hdrs = glob([
@@ -3858,6 +3749,8 @@ cc_library(
 cc_library(
     name = "HatchGen",
     srcs = glob([
+        "HatchGen/*.c",
+        "HatchGen/*.cpp",
         "HatchGen/*.cxx",
     ]),
     hdrs = glob([
@@ -3880,6 +3773,8 @@ cc_library(
 cc_library(
     name = "HeaderSection",
     srcs = glob([
+        "HeaderSection/*.c",
+        "HeaderSection/*.cpp",
         "HeaderSection/*.cxx",
     ]),
     hdrs = glob([
@@ -3902,6 +3797,8 @@ cc_library(
 cc_library(
     name = "IFGraph",
     srcs = glob([
+        "IFGraph/*.c",
+        "IFGraph/*.cpp",
         "IFGraph/*.cxx",
     ]),
     hdrs = glob([
@@ -3923,6 +3820,8 @@ cc_library(
 cc_library(
     name = "IFSelect",
     srcs = glob([
+        "IFSelect/*.c",
+        "IFSelect/*.cpp",
         "IFSelect/*.cxx",
     ]),
     hdrs = glob([
@@ -3948,6 +3847,8 @@ cc_library(
 cc_library(
     name = "IGESAppli",
     srcs = glob([
+        "IGESAppli/*.c",
+        "IGESAppli/*.cpp",
         "IGESAppli/*.cxx",
     ]),
     hdrs = glob([
@@ -3977,8 +3878,14 @@ cc_library(
 cc_library(
     name = "IGESBasic",
     srcs = glob([
+        "IGESBasic/*.c",
+        "IGESBasic/*.cpp",
         "IGESBasic/*.cxx",
+        "IGESData/*.c",
+        "IGESData/*.cpp",
         "IGESData/*.cxx",
+        "IGESGeom/*.c",
+        "IGESGeom/*.cpp",
         "IGESGeom/*.cxx",
     ]),
     hdrs = glob([
@@ -4019,6 +3926,8 @@ cc_library(
 cc_library(
     name = "IGESCAFControl",
     srcs = glob([
+        "IGESCAFControl/*.c",
+        "IGESCAFControl/*.cpp",
         "IGESCAFControl/*.cxx",
     ]),
     hdrs = glob([
@@ -4032,25 +3941,23 @@ cc_library(
         "IGESCAFControl/",
     ],
     deps = [
-        ":BRep",
+        ":Adaptor2d",
         ":IGESBasic",
         ":IGESControl",
         ":IGESGraph",
         ":IGESSolid",
         ":Interface",
+        ":Message",
         ":NCollection",
         ":Quantity",
         ":TDF",
         ":TDataStd",
         ":TDocStd",
         ":TopAbs",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":Transfer",
         ":TransferBRep",
         ":XCAFDimTolObjects",
-        ":XCAFPrs",
         ":XSControl",
     ],
 )
@@ -4058,6 +3965,8 @@ cc_library(
 cc_library(
     name = "IGESControl",
     srcs = glob([
+        "IGESControl/*.c",
+        "IGESControl/*.cpp",
         "IGESControl/*.cxx",
     ]),
     hdrs = glob([
@@ -4072,11 +3981,9 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepToIGES",
         ":BRepToIGESBRep",
-        ":Bnd",
+        ":BVH",
         ":GeomToIGES",
         ":IFSelect",
         ":IGESAppli",
@@ -4088,11 +3995,8 @@ cc_library(
         ":Message",
         ":NCollection",
         ":OSD",
+        ":Precision",
         ":ShapeAlgo",
-        ":ShapeAnalysis",
-        ":ShapeBuild",
-        ":ShapeExtend",
-        ":TopExp",
         ":TopoDS",
         ":Transfer",
         ":TransferBRep",
@@ -4105,6 +4009,8 @@ cc_library(
 cc_library(
     name = "IGESConvGeom",
     srcs = glob([
+        "IGESConvGeom/*.c",
+        "IGESConvGeom/*.cpp",
         "IGESConvGeom/*.cxx",
     ]),
     hdrs = glob([
@@ -4133,6 +4039,8 @@ cc_library(
 cc_library(
     name = "IGESDefs",
     srcs = glob([
+        "IGESDefs/*.c",
+        "IGESDefs/*.cpp",
         "IGESDefs/*.cxx",
     ]),
     hdrs = glob([
@@ -4157,6 +4065,8 @@ cc_library(
 cc_library(
     name = "IGESDimen",
     srcs = glob([
+        "IGESDimen/*.c",
+        "IGESDimen/*.cpp",
         "IGESDimen/*.cxx",
     ]),
     hdrs = glob([
@@ -4183,6 +4093,8 @@ cc_library(
 cc_library(
     name = "IGESDraw",
     srcs = glob([
+        "IGESDraw/*.c",
+        "IGESDraw/*.cpp",
         "IGESDraw/*.cxx",
     ]),
     hdrs = glob([
@@ -4210,6 +4122,8 @@ cc_library(
 cc_library(
     name = "IGESFile",
     srcs = glob([
+        "IGESFile/*.c",
+        "IGESFile/*.cpp",
         "IGESFile/*.cxx",
     ]),
     hdrs = glob([
@@ -4234,6 +4148,8 @@ cc_library(
 cc_library(
     name = "IGESGraph",
     srcs = glob([
+        "IGESGraph/*.c",
+        "IGESGraph/*.cpp",
         "IGESGraph/*.cxx",
     ]),
     hdrs = glob([
@@ -4259,6 +4175,8 @@ cc_library(
 cc_library(
     name = "IGESSelect",
     srcs = glob([
+        "IGESSelect/*.c",
+        "IGESSelect/*.cpp",
         "IGESSelect/*.cxx",
     ]),
     hdrs = glob([
@@ -4294,6 +4212,8 @@ cc_library(
 cc_library(
     name = "IGESSolid",
     srcs = glob([
+        "IGESSolid/*.c",
+        "IGESSolid/*.cpp",
         "IGESSolid/*.cxx",
     ]),
     hdrs = glob([
@@ -4319,6 +4239,8 @@ cc_library(
 cc_library(
     name = "IGESToBRep",
     srcs = glob([
+        "IGESToBRep/*.c",
+        "IGESToBRep/*.cpp",
         "IGESToBRep/*.cxx",
     ]),
     hdrs = glob([
@@ -4333,8 +4255,6 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepFill",
         ":BRepPrimAPI",
         ":BSplCLib",
@@ -4342,7 +4262,6 @@ cc_library(
         ":ElSLib",
         ":GProp",
         ":GeomAbs",
-        ":GeomLib",
         ":IGESAppli",
         ":IGESBasic",
         ":IGESConvGeom",
@@ -4352,16 +4271,12 @@ cc_library(
         ":Message",
         ":NCollection",
         ":OSD",
+        ":Precision",
         ":ShapeAlgo",
-        ":ShapeAnalysis",
-        ":ShapeBuild",
         ":ShapeCustom",
-        ":ShapeExtend",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":Transfer",
         ":TransferBRep",
@@ -4373,6 +4288,8 @@ cc_library(
 cc_library(
     name = "IVtk",
     srcs = glob([
+        "IVtk/*.c",
+        "IVtk/*.cpp",
         "IVtk/*.cxx",
     ]),
     hdrs = glob([
@@ -4386,7 +4303,7 @@ cc_library(
         "IVtk/",
     ],
     deps = [
-        ":Font",
+        ":Adaptor2d",
         ":NCollection",
         ":gp",
     ],
@@ -4395,6 +4312,8 @@ cc_library(
 cc_library(
     name = "IVtkDraw",
     srcs = glob([
+        "IVtkDraw/*.c",
+        "IVtkDraw/*.cpp",
         "IVtkDraw/*.cxx",
     ]),
     hdrs = glob([
@@ -4408,10 +4327,7 @@ cc_library(
         "IVtkDraw/",
     ],
     deps = [
-        ":ApproxInt",
-        ":Aspect",
-        ":BRep",
-        ":Draw",
+        ":Adaptor2d",
         ":IVtk",
         ":IVtkOCC",
         ":IVtkTools",
@@ -4419,7 +4335,6 @@ cc_library(
         ":Message",
         ":NCollection",
         ":OpenGl",
-        ":TopTools",
         ":TopoDS",
         ":WNT",
         ":Xw",
@@ -4429,6 +4344,8 @@ cc_library(
 cc_library(
     name = "IVtkOCC",
     srcs = glob([
+        "IVtkOCC/*.c",
+        "IVtkOCC/*.cpp",
         "IVtkOCC/*.cxx",
     ]),
     hdrs = glob([
@@ -4444,19 +4361,14 @@ cc_library(
     deps = [
         ":AIS",
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
-        ":Bnd",
-        ":Font",
+        ":BVH",
         ":Hatch",
         ":IVtk",
         ":Message",
         ":NCollection",
         ":Poly",
-        ":StdSelect",
+        ":Precision",
         ":TColgp",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -4465,6 +4377,8 @@ cc_library(
 cc_library(
     name = "IVtkTools",
     srcs = glob([
+        "IVtkTools/*.c",
+        "IVtkTools/*.cpp",
         "IVtkTools/*.cxx",
     ]),
     hdrs = glob([
@@ -4488,6 +4402,8 @@ cc_library(
 cc_library(
     name = "IVtkVTK",
     srcs = glob([
+        "IVtkVTK/*.c",
+        "IVtkVTK/*.cpp",
         "IVtkVTK/*.cxx",
     ]),
     hdrs = glob([
@@ -4502,12 +4418,15 @@ cc_library(
     ],
     deps = [
         ":IVtk",
+        ":NCollection",
     ],
 )
 
 cc_library(
     name = "Image",
     srcs = glob([
+        "Image/*.c",
+        "Image/*.cpp",
         "Image/*.cxx",
     ]),
     hdrs = glob([
@@ -4533,6 +4452,8 @@ cc_library(
 cc_library(
     name = "IntAna",
     srcs = glob([
+        "IntAna/*.c",
+        "IntAna/*.cpp",
         "IntAna/*.cxx",
     ]),
     hdrs = glob([
@@ -4551,6 +4472,7 @@ cc_library(
         ":GeomAbs",
         ":IntAna2d",
         ":NCollection",
+        ":Precision",
         ":StdFail",
         ":gp",
         ":math",
@@ -4560,6 +4482,8 @@ cc_library(
 cc_library(
     name = "IntAna2d",
     srcs = glob([
+        "IntAna2d/*.c",
+        "IntAna2d/*.cpp",
         "IntAna2d/*.cxx",
     ]),
     hdrs = glob([
@@ -4582,75 +4506,10 @@ cc_library(
 )
 
 cc_library(
-    name = "IntCurve",
-    srcs = glob([
-        "IntCurve/*.cxx",
-    ]),
-    hdrs = glob([
-        "IntCurve/*.gxx",
-        "IntCurve/*.pxx",
-        "IntCurve/*.hxx",
-        "IntCurve/*.lxx",
-        "IntCurve/*.h",
-    ]),
-    includes = [
-        "IntCurve/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":Bnd",
-        ":ElCLib",
-        ":GeomAbs",
-        ":IntAna2d",
-        ":IntImpParGen",
-        ":IntRes2d",
-        ":Intf",
-        ":NCollection",
-        ":TColgp",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
-    name = "IntCurveSurface",
-    srcs = glob([
-        "IntCurveSurface/*.cxx",
-    ]),
-    hdrs = glob([
-        "IntCurveSurface/*.gxx",
-        "IntCurveSurface/*.pxx",
-        "IntCurveSurface/*.hxx",
-        "IntCurveSurface/*.lxx",
-        "IntCurveSurface/*.h",
-    ]),
-    includes = [
-        "IntCurveSurface/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":Bnd",
-        ":ElCLib",
-        ":ElSLib",
-        ":GProp",
-        ":GeomAbs",
-        ":IntAna",
-        ":IntAna2d",
-        ":IntImp",
-        ":IntSurf",
-        ":Intf",
-        ":NCollection",
-        ":ProjLib",
-        ":StdFail",
-        ":TColgp",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
     name = "IntImp",
     srcs = glob([
+        "IntImp/*.c",
+        "IntImp/*.cpp",
         "IntImp/*.cxx",
     ]),
     hdrs = glob([
@@ -4665,6 +4524,7 @@ cc_library(
     ],
     deps = [
         ":NCollection",
+        ":Precision",
         ":StdFail",
         ":gp",
         ":math",
@@ -4674,6 +4534,8 @@ cc_library(
 cc_library(
     name = "IntImpParGen",
     srcs = glob([
+        "IntImpParGen/*.c",
+        "IntImpParGen/*.cpp",
         "IntImpParGen/*.cxx",
     ]),
     hdrs = glob([
@@ -4695,32 +4557,10 @@ cc_library(
 )
 
 cc_library(
-    name = "IntPolyh",
-    srcs = glob([
-        "IntPolyh/*.cxx",
-    ]),
-    hdrs = glob([
-        "IntPolyh/*.gxx",
-        "IntPolyh/*.pxx",
-        "IntPolyh/*.hxx",
-        "IntPolyh/*.lxx",
-        "IntPolyh/*.h",
-    ]),
-    includes = [
-        "IntPolyh/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":Bnd",
-        ":IntCurveSurface",
-        ":NCollection",
-        ":gp",
-    ],
-)
-
-cc_library(
     name = "IntRes2d",
     srcs = glob([
+        "IntRes2d/*.c",
+        "IntRes2d/*.cpp",
         "IntRes2d/*.cxx",
     ]),
     hdrs = glob([
@@ -4735,34 +4575,8 @@ cc_library(
     ],
     deps = [
         ":NCollection",
+        ":Precision",
         ":StdFail",
-        ":gp",
-    ],
-)
-
-cc_library(
-    name = "IntSurf",
-    srcs = glob([
-        "IntSurf/*.cxx",
-    ]),
-    hdrs = glob([
-        "IntSurf/*.gxx",
-        "IntSurf/*.pxx",
-        "IntSurf/*.hxx",
-        "IntSurf/*.lxx",
-        "IntSurf/*.h",
-    ]),
-    includes = [
-        "IntSurf/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":ElCLib",
-        ":ElSLib",
-        ":GeomAbs",
-        ":NCollection",
-        ":StdFail",
-        ":TColgp",
         ":gp",
     ],
 )
@@ -4770,6 +4584,8 @@ cc_library(
 cc_library(
     name = "IntTools",
     srcs = glob([
+        "IntTools/*.c",
+        "IntTools/*.cpp",
         "IntTools/*.cxx",
     ]),
     hdrs = glob([
@@ -4784,66 +4600,30 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
-        ":Bnd",
+        ":BVH",
         ":CSLib",
         ":ElCLib",
         ":ElSLib",
         ":GProp",
-        ":Geom2dAPI",
-        ":Geom2dHatch",
-        ":Geom2dInt",
         ":GeomAbs",
-        ":GeomLib",
         ":IntAna",
-        ":IntCurveSurface",
         ":IntRes2d",
-        ":IntSurf",
         ":NCollection",
-        ":ProjLib",
+        ":Poly",
+        ":Precision",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
 )
 
 cc_library(
-    name = "IntWalk",
-    srcs = glob([
-        "IntWalk/*.cxx",
-    ]),
-    hdrs = glob([
-        "IntWalk/*.gxx",
-        "IntWalk/*.pxx",
-        "IntWalk/*.hxx",
-        "IntWalk/*.lxx",
-        "IntWalk/*.h",
-    ]),
-    includes = [
-        "IntWalk/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":Bnd",
-        ":IntImp",
-        ":IntSurf",
-        ":NCollection",
-        ":OSD",
-        ":StdFail",
-        ":TColgp",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
     name = "Interface",
     srcs = glob([
+        "Interface/*.c",
+        "Interface/*.cpp",
         "Interface/*.cxx",
     ]),
     hdrs = glob([
@@ -4862,6 +4642,7 @@ cc_library(
         ":MoniTool",
         ":NCollection",
         ":OSD",
+        ":Precision",
         ":Quantity",
         ":XSMessage",
     ],
@@ -4870,6 +4651,8 @@ cc_library(
 cc_library(
     name = "InterfaceGraphic",
     srcs = glob([
+        "InterfaceGraphic/*.c",
+        "InterfaceGraphic/*.cpp",
         "InterfaceGraphic/*.cxx",
     ]),
     hdrs = glob([
@@ -4887,34 +4670,10 @@ cc_library(
 )
 
 cc_library(
-    name = "Intf",
-    srcs = glob([
-        "Intf/*.cxx",
-    ]),
-    hdrs = glob([
-        "Intf/*.gxx",
-        "Intf/*.pxx",
-        "Intf/*.hxx",
-        "Intf/*.lxx",
-        "Intf/*.h",
-    ]),
-    includes = [
-        "Intf/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":Bnd",
-        ":ElCLib",
-        ":IntAna",
-        ":IntAna2d",
-        ":NCollection",
-        ":gp",
-    ],
-)
-
-cc_library(
     name = "Intrv",
     srcs = glob([
+        "Intrv/*.c",
+        "Intrv/*.cpp",
         "Intrv/*.cxx",
     ]),
     hdrs = glob([
@@ -4935,6 +4694,8 @@ cc_library(
 cc_library(
     name = "LDOM",
     srcs = glob([
+        "LDOM/*.c",
+        "LDOM/*.cpp",
         "LDOM/*.cxx",
     ]),
     hdrs = glob([
@@ -4956,6 +4717,8 @@ cc_library(
 cc_library(
     name = "LProp",
     srcs = glob([
+        "LProp/*.c",
+        "LProp/*.cpp",
         "LProp/*.cxx",
     ]),
     hdrs = glob([
@@ -4981,6 +4744,8 @@ cc_library(
 cc_library(
     name = "LProp3d",
     srcs = glob([
+        "LProp3d/*.c",
+        "LProp3d/*.cpp",
         "LProp3d/*.cxx",
     ]),
     hdrs = glob([
@@ -5002,37 +4767,10 @@ cc_library(
 )
 
 cc_library(
-    name = "Law",
-    srcs = glob([
-        "Law/*.cxx",
-    ]),
-    hdrs = glob([
-        "Law/*.gxx",
-        "Law/*.pxx",
-        "Law/*.hxx",
-        "Law/*.lxx",
-        "Law/*.h",
-    ]),
-    includes = [
-        "Law/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":BSplCLib",
-        ":Draw",
-        ":ElCLib",
-        ":GeomAbs",
-        ":NCollection",
-        ":PLib",
-        ":StdFail",
-        ":TColgp",
-        ":gp",
-    ],
-)
-
-cc_library(
     name = "LibCtl",
     srcs = glob([
+        "LibCtl/*.c",
+        "LibCtl/*.cpp",
         "LibCtl/*.cxx",
     ]),
     hdrs = glob([
@@ -5053,6 +4791,8 @@ cc_library(
 cc_library(
     name = "LocOpe",
     srcs = glob([
+        "LocOpe/*.c",
+        "LocOpe/*.cpp",
         "LocOpe/*.cxx",
     ]),
     hdrs = glob([
@@ -5067,55 +4807,22 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepAlgo",
         ":BRepFill",
         ":BRepIntCurveSurface",
         ":BRepSweep",
         ":BSplCLib",
-        ":Bnd",
+        ":BVH",
         ":ElCLib",
         ":ElSLib",
         ":GProp",
-        ":Geom2dAPI",
-        ":Geom2dInt",
-        ":GeomFill",
-        ":GeomProjLib",
         ":IntAna",
-        ":IntCurveSurface",
         ":NCollection",
-        ":ShapeAnalysis",
+        ":Precision",
         ":StdFail",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
-        ":gp",
-    ],
-)
-
-cc_library(
-    name = "LocalAnalysis",
-    srcs = glob([
-        "LocalAnalysis/*.cxx",
-    ]),
-    hdrs = glob([
-        "LocalAnalysis/*.gxx",
-        "LocalAnalysis/*.pxx",
-        "LocalAnalysis/*.hxx",
-        "LocalAnalysis/*.lxx",
-        "LocalAnalysis/*.h",
-    ]),
-    includes = [
-        "LocalAnalysis/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":GeomAbs",
-        ":NCollection",
-        ":StdFail",
         ":gp",
     ],
 )
@@ -5123,6 +4830,8 @@ cc_library(
 cc_library(
     name = "MAT",
     srcs = glob([
+        "MAT/*.c",
+        "MAT/*.cpp",
         "MAT/*.cxx",
     ]),
     hdrs = glob([
@@ -5137,12 +4846,15 @@ cc_library(
     ],
     deps = [
         ":NCollection",
+        ":Precision",
     ],
 )
 
 cc_library(
     name = "MAT2d",
     srcs = glob([
+        "MAT2d/*.c",
+        "MAT2d/*.cpp",
         "MAT2d/*.cxx",
     ]),
     hdrs = glob([
@@ -5157,16 +4869,13 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
         ":Bisector",
-        ":Draw",
         ":ElCLib",
-        ":GCE2d",
-        ":Geom2dInt",
         ":GeomAbs",
         ":IntRes2d",
         ":MAT",
         ":NCollection",
+        ":Precision",
         ":StdFail",
         ":gp",
     ],
@@ -5175,6 +4884,8 @@ cc_library(
 cc_library(
     name = "MMgt",
     srcs = glob([
+        "MMgt/*.c",
+        "MMgt/*.cpp",
         "MMgt/*.cxx",
     ]),
     hdrs = glob([
@@ -5195,6 +4906,8 @@ cc_library(
 cc_library(
     name = "MeshTest",
     srcs = glob([
+        "MeshTest/*.c",
+        "MeshTest/*.cpp",
         "MeshTest/*.cxx",
     ]),
     hdrs = glob([
@@ -5209,33 +4922,28 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":AppCont",
-        ":ApproxInt",
-        ":BRep",
         ":BRepTest",
-        ":Bnd",
+        ":BVH",
         ":CSLib",
-        ":Draw",
         ":GProp",
         ":GeometryTest",
+        ":Message",
         ":NCollection",
         ":OSD",
-        ":PLib",
         ":Poly",
+        ":Precision",
         ":TColgp",
-        ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
-        ":math",
     ],
 )
 
 cc_library(
     name = "MeshVS",
     srcs = glob([
+        "MeshVS/*.c",
+        "MeshVS/*.cpp",
         "MeshVS/*.cxx",
     ]),
     hdrs = glob([
@@ -5250,14 +4958,13 @@ cc_library(
     ],
     deps = [
         ":AIS",
-        ":Aspect",
-        ":Bnd",
-        ":Font",
+        ":Adaptor2d",
+        ":BVH",
         ":Image",
         ":NCollection",
         ":OSD",
+        ":Precision",
         ":Quantity",
-        ":StdSelect",
         ":TColgp",
         ":TopLoc",
         ":gp",
@@ -5267,6 +4974,8 @@ cc_library(
 cc_library(
     name = "Message",
     srcs = glob([
+        "Message/*.c",
+        "Message/*.cpp",
         "Message/*.cxx",
     ]),
     hdrs = glob([
@@ -5282,12 +4991,15 @@ cc_library(
     deps = [
         ":NCollection",
         ":OSD",
+        ":Precision",
     ],
 )
 
 cc_library(
     name = "MoniTool",
     srcs = glob([
+        "MoniTool/*.c",
+        "MoniTool/*.cpp",
         "MoniTool/*.cxx",
     ]),
     hdrs = glob([
@@ -5306,7 +5018,6 @@ cc_library(
         ":NCollection",
         ":OSD",
         ":TopAbs",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -5315,10 +5026,17 @@ cc_library(
 cc_library(
     name = "NCollection",
     srcs = glob([
+        "NCollection/*.c",
+        "NCollection/*.cpp",
         "NCollection/*.cxx",
-        "Precision/*.cxx",
+        "Standard/*.c",
+        "Standard/*.cpp",
         "Standard/*.cxx",
+        "TColStd/*.c",
+        "TColStd/*.cpp",
         "TColStd/*.cxx",
+        "TCollection/*.c",
+        "TCollection/*.cpp",
         "TCollection/*.cxx",
     ]),
     hdrs = glob([
@@ -5327,11 +5045,6 @@ cc_library(
         "NCollection/*.hxx",
         "NCollection/*.lxx",
         "NCollection/*.h",
-        "Precision/*.gxx",
-        "Precision/*.pxx",
-        "Precision/*.hxx",
-        "Precision/*.lxx",
-        "Precision/*.h",
         "Standard/*.gxx",
         "Standard/*.pxx",
         "Standard/*.hxx",
@@ -5350,7 +5063,6 @@ cc_library(
     ]),
     includes = [
         "NCollection/",
-        "Precision/",
         "Standard/",
         "TColStd/",
         "TCollection/",
@@ -5362,6 +5074,8 @@ cc_library(
 cc_library(
     name = "NLPlate",
     srcs = glob([
+        "NLPlate/*.c",
+        "NLPlate/*.cpp",
         "NLPlate/*.cxx",
     ]),
     hdrs = glob([
@@ -5386,6 +5100,8 @@ cc_library(
 cc_library(
     name = "OSD",
     srcs = glob([
+        "OSD/*.c",
+        "OSD/*.cpp",
         "OSD/*.cxx",
     ]),
     hdrs = glob([
@@ -5407,6 +5123,8 @@ cc_library(
 cc_library(
     name = "OpenGl",
     srcs = glob([
+        "OpenGl/*.c",
+        "OpenGl/*.cpp",
         "OpenGl/*.cxx",
     ]),
     hdrs = glob([
@@ -5420,17 +5138,17 @@ cc_library(
         "OpenGl/",
     ],
     deps = [
-        ":Aspect",
+        ":Adaptor2d",
         ":BVH",
-        ":Cocoa",
-        ":Font",
         ":Image",
         ":InterfaceGraphic",
         ":Message",
         ":NCollection",
         ":OSD",
+        ":Precision",
         ":Quantity",
         ":Shaders",
+        ":Textures",
         ":WNT",
         ":Xw",
         ":gp",
@@ -5439,37 +5157,10 @@ cc_library(
 )
 
 cc_library(
-    name = "PCDM",
-    srcs = glob([
-        "PCDM/*.cxx",
-    ]),
-    hdrs = glob([
-        "PCDM/*.gxx",
-        "PCDM/*.pxx",
-        "PCDM/*.hxx",
-        "PCDM/*.lxx",
-        "PCDM/*.h",
-    ]),
-    includes = [
-        "PCDM/",
-    ],
-    deps = [
-        ":CDM",
-        ":FSD",
-        ":LDOM",
-        ":Message",
-        ":NCollection",
-        ":OSD",
-        ":Plugin",
-        ":Resource",
-        ":Storage",
-        ":UTL",
-    ],
-)
-
-cc_library(
     name = "PLib",
     srcs = glob([
+        "PLib/*.c",
+        "PLib/*.cpp",
         "PLib/*.cxx",
     ]),
     hdrs = glob([
@@ -5493,6 +5184,8 @@ cc_library(
 cc_library(
     name = "Plate",
     srcs = glob([
+        "Plate/*.c",
+        "Plate/*.cpp",
         "Plate/*.cxx",
     ]),
     hdrs = glob([
@@ -5506,6 +5199,7 @@ cc_library(
         "Plate/",
     ],
     deps = [
+        ":Message",
         ":NCollection",
         ":TColgp",
         ":gp",
@@ -5516,6 +5210,8 @@ cc_library(
 cc_library(
     name = "Plugin",
     srcs = glob([
+        "Plugin/*.c",
+        "Plugin/*.cpp",
         "Plugin/*.cxx",
     ]),
     hdrs = glob([
@@ -5538,6 +5234,8 @@ cc_library(
 cc_library(
     name = "Poly",
     srcs = glob([
+        "Poly/*.c",
+        "Poly/*.cpp",
         "Poly/*.cxx",
     ]),
     hdrs = glob([
@@ -5552,6 +5250,7 @@ cc_library(
     ],
     deps = [
         ":NCollection",
+        ":Precision",
         ":TColgp",
         ":TShort",
         ":gp",
@@ -5559,44 +5258,32 @@ cc_library(
 )
 
 cc_library(
-    name = "ProjLib",
+    name = "Precision",
     srcs = glob([
-        "ProjLib/*.cxx",
+        "Precision/*.c",
+        "Precision/*.cpp",
+        "Precision/*.cxx",
     ]),
     hdrs = glob([
-        "ProjLib/*.gxx",
-        "ProjLib/*.pxx",
-        "ProjLib/*.hxx",
-        "ProjLib/*.lxx",
-        "ProjLib/*.h",
+        "Precision/*.gxx",
+        "Precision/*.pxx",
+        "Precision/*.hxx",
+        "Precision/*.lxx",
+        "Precision/*.h",
     ]),
     includes = [
-        "ProjLib/",
+        "Precision/",
     ],
     deps = [
-        ":Adaptor2d",
-        ":AppCont",
-        ":AppParCurves",
-        ":Approx",
-        ":BSplCLib",
-        ":Convert",
-        ":ElCLib",
-        ":ElSLib",
-        ":GeomAbs",
-        ":GeomLib",
         ":NCollection",
-        ":OSD",
-        ":PLib",
-        ":StdFail",
-        ":TColgp",
-        ":gp",
-        ":math",
     ],
 )
 
 cc_library(
     name = "QABugs",
     srcs = glob([
+        "QABugs/*.c",
+        "QABugs/*.cpp",
         "QABugs/*.cxx",
     ]),
     hdrs = glob([
@@ -5612,40 +5299,34 @@ cc_library(
     deps = [
         ":AIS",
         ":Adaptor2d",
+        ":AppCont",
         ":AppStd",
-        ":ApproxInt",
-        ":Aspect",
         ":BOPAlgo",
-        ":BRep",
         ":BRepAlgo",
-        ":BRepAlgoAPI",
         ":BRepFeat",
         ":BRepFilletAPI",
         ":BRepOffset",
         ":BRepOffsetAPI",
         ":BRepPrimAPI",
-        ":Bnd",
+        ":BVH",
+        ":BinDrivers",
+        ":BinLDrivers",
+        ":BinXCAFDrivers",
         ":CDF",
         ":ChFi3d",
+        ":Convert",
         ":DDF",
         ":DDataStd",
         ":DDocStd",
-        ":Draw",
         ":ElSLib",
         ":Expr",
         ":ExprIntrp",
         ":FSD",
-        ":Font",
-        ":GC",
-        ":GCE2d",
         ":GProp",
         ":GccEnt",
-        ":Geom2dAPI",
         ":Geom2dGcc",
         ":GeomAbs",
-        ":GeomFill",
         ":GeomPlate",
-        ":GeomProjLib",
         ":HLRAlgo",
         ":HLRAppli",
         ":IFSelect",
@@ -5653,47 +5334,41 @@ cc_library(
         ":IGESControl",
         ":IGESToBRep",
         ":Image",
-        ":IntCurveSurface",
         ":IntRes2d",
         ":IntTools",
         ":Interface",
         ":LDOM",
-        ":Law",
         ":Message",
         ":NCollection",
         ":OSD",
-        ":PCDM",
         ":Plugin",
         ":Poly",
-        ":ProjLib",
+        ":Precision",
         ":Resource",
         ":STEPCAFControl",
         ":STEPControl",
-        ":ShapeAnalysis",
-        ":ShapeBuild",
-        ":ShapeExtend",
         ":ShapeProcess",
         ":ShapeUpgrade",
-        ":StdSelect",
+        ":StdDrivers",
+        ":StdLDrivers",
         ":TColgp",
         ":TDF",
         ":TDataStd",
         ":TDocStd",
         ":TNaming",
+        ":TObj",
         ":TPrsStd",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":Transfer",
         ":Units",
         ":ViewerTest",
         ":XCAFDimTolObjects",
-        ":XCAFPrs",
         ":XCAFView",
         ":XSControl",
         ":XSDRAW",
         ":XmlDrivers",
+        ":XmlLDrivers",
         ":gp",
         ":math",
     ],
@@ -5702,6 +5377,8 @@ cc_library(
 cc_library(
     name = "QADNaming",
     srcs = glob([
+        "QADNaming/*.c",
+        "QADNaming/*.cpp",
         "QADNaming/*.cxx",
     ]),
     hdrs = glob([
@@ -5715,18 +5392,14 @@ cc_library(
         "QADNaming/",
     ],
     deps = [
-        ":ApproxInt",
-        ":BRep",
+        ":Adaptor2d",
         ":DDF",
         ":DNaming",
-        ":Draw",
         ":NCollection",
         ":TDF",
         ":TNaming",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -5735,6 +5408,8 @@ cc_library(
 cc_library(
     name = "QADraw",
     srcs = glob([
+        "QADraw/*.c",
+        "QADraw/*.cpp",
         "QADraw/*.cxx",
     ]),
     hdrs = glob([
@@ -5749,16 +5424,14 @@ cc_library(
     ],
     deps = [
         ":AIS",
-        ":ApproxInt",
-        ":Bnd",
-        ":Draw",
+        ":Adaptor2d",
+        ":BVH",
         ":NCollection",
         ":OSD",
         ":QABugs",
         ":QADNaming",
         ":QANCollection",
         ":TColgp",
-        ":TopTools",
         ":TopoDS",
         ":ViewerTest",
     ],
@@ -5767,6 +5440,8 @@ cc_library(
 cc_library(
     name = "QANCollection",
     srcs = glob([
+        "QANCollection/*.c",
+        "QANCollection/*.cpp",
         "QANCollection/*.cxx",
     ]),
     hdrs = glob([
@@ -5781,10 +5456,10 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":Draw",
         ":Message",
         ":NCollection",
         ":OSD",
+        ":Precision",
         ":TColgp",
         ":gp",
         ":math",
@@ -5794,6 +5469,8 @@ cc_library(
 cc_library(
     name = "Quantity",
     srcs = glob([
+        "Quantity/*.c",
+        "Quantity/*.cpp",
         "Quantity/*.cxx",
     ]),
     hdrs = glob([
@@ -5812,8 +5489,48 @@ cc_library(
 )
 
 cc_library(
+    name = "RWGltf",
+    srcs = glob([
+        "RWGltf/*.c",
+        "RWGltf/*.cpp",
+        "RWGltf/*.cxx",
+    ]),
+    hdrs = glob([
+        "RWGltf/*.gxx",
+        "RWGltf/*.pxx",
+        "RWGltf/*.hxx",
+        "RWGltf/*.lxx",
+        "RWGltf/*.h",
+    ]),
+    includes = [
+        "RWGltf/",
+    ],
+    deps = [
+        ":Adaptor2d",
+        ":BVH",
+        ":FSD",
+        ":Image",
+        ":Message",
+        ":NCollection",
+        ":OSD",
+        ":Poly",
+        ":Precision",
+        ":Quantity",
+        ":RWMesh",
+        ":TDF",
+        ":TDataStd",
+        ":TDocStd",
+        ":TopoDS",
+        ":XCAFDimTolObjects",
+        ":gp",
+    ],
+)
+
+cc_library(
     name = "RWHeaderSection",
     srcs = glob([
+        "RWHeaderSection/*.c",
+        "RWHeaderSection/*.cpp",
         "RWHeaderSection/*.cxx",
     ]),
     hdrs = glob([
@@ -5835,8 +5552,74 @@ cc_library(
 )
 
 cc_library(
+    name = "RWMesh",
+    srcs = glob([
+        "RWMesh/*.c",
+        "RWMesh/*.cpp",
+        "RWMesh/*.cxx",
+    ]),
+    hdrs = glob([
+        "RWMesh/*.gxx",
+        "RWMesh/*.pxx",
+        "RWMesh/*.hxx",
+        "RWMesh/*.lxx",
+        "RWMesh/*.h",
+    ]),
+    includes = [
+        "RWMesh/",
+    ],
+    deps = [
+        ":Adaptor2d",
+        ":BRepLProp",
+        ":Message",
+        ":NCollection",
+        ":OSD",
+        ":Poly",
+        ":TDF",
+        ":TDataStd",
+        ":TDocStd",
+        ":TopoDS",
+        ":XCAFDimTolObjects",
+        ":gp",
+    ],
+)
+
+cc_library(
+    name = "RWObj",
+    srcs = glob([
+        "RWObj/*.c",
+        "RWObj/*.cpp",
+        "RWObj/*.cxx",
+    ]),
+    hdrs = glob([
+        "RWObj/*.gxx",
+        "RWObj/*.pxx",
+        "RWObj/*.hxx",
+        "RWObj/*.lxx",
+        "RWObj/*.h",
+    ]),
+    includes = [
+        "RWObj/",
+    ],
+    deps = [
+        ":Adaptor2d",
+        ":Message",
+        ":NCollection",
+        ":OSD",
+        ":Poly",
+        ":Precision",
+        ":Quantity",
+        ":RWMesh",
+        ":TopoDS",
+        ":gp",
+    ],
+)
+
+cc_library(
     name = "RWStepAP203",
     srcs = glob([
+        "RWStepAP203/*.c",
+        "RWStepAP203/*.cpp",
         "RWStepAP203/*.cxx",
     ]),
     hdrs = glob([
@@ -5861,6 +5644,8 @@ cc_library(
 cc_library(
     name = "RWStepAP214",
     srcs = glob([
+        "RWStepAP214/*.c",
+        "RWStepAP214/*.cpp",
         "RWStepAP214/*.cxx",
     ]),
     hdrs = glob([
@@ -5903,6 +5688,8 @@ cc_library(
 cc_library(
     name = "RWStepAP242",
     srcs = glob([
+        "RWStepAP242/*.c",
+        "RWStepAP242/*.cpp",
         "RWStepAP242/*.cxx",
     ]),
     hdrs = glob([
@@ -5927,6 +5714,8 @@ cc_library(
 cc_library(
     name = "RWStepBasic",
     srcs = glob([
+        "RWStepBasic/*.c",
+        "RWStepBasic/*.cpp",
         "RWStepBasic/*.cxx",
     ]),
     hdrs = glob([
@@ -5950,6 +5739,8 @@ cc_library(
 cc_library(
     name = "RWStepDimTol",
     srcs = glob([
+        "RWStepDimTol/*.c",
+        "RWStepDimTol/*.cpp",
         "RWStepDimTol/*.cxx",
     ]),
     hdrs = glob([
@@ -5975,6 +5766,8 @@ cc_library(
 cc_library(
     name = "RWStepElement",
     srcs = glob([
+        "RWStepElement/*.c",
+        "RWStepElement/*.cpp",
         "RWStepElement/*.cxx",
     ]),
     hdrs = glob([
@@ -5999,6 +5792,8 @@ cc_library(
 cc_library(
     name = "RWStepFEA",
     srcs = glob([
+        "RWStepFEA/*.c",
+        "RWStepFEA/*.cpp",
         "RWStepFEA/*.cxx",
     ]),
     hdrs = glob([
@@ -6025,6 +5820,8 @@ cc_library(
 cc_library(
     name = "RWStepGeom",
     srcs = glob([
+        "RWStepGeom/*.c",
+        "RWStepGeom/*.cpp",
         "RWStepGeom/*.cxx",
     ]),
     hdrs = glob([
@@ -6049,6 +5846,8 @@ cc_library(
 cc_library(
     name = "RWStepRepr",
     srcs = glob([
+        "RWStepRepr/*.c",
+        "RWStepRepr/*.cpp",
         "RWStepRepr/*.cxx",
     ]),
     hdrs = glob([
@@ -6073,6 +5872,8 @@ cc_library(
 cc_library(
     name = "RWStepShape",
     srcs = glob([
+        "RWStepShape/*.c",
+        "RWStepShape/*.cpp",
         "RWStepShape/*.cxx",
     ]),
     hdrs = glob([
@@ -6088,6 +5889,7 @@ cc_library(
     deps = [
         ":Interface",
         ":NCollection",
+        ":Precision",
         ":StepBasic",
         ":StepData",
         ":StepGeom",
@@ -6097,6 +5899,8 @@ cc_library(
 cc_library(
     name = "RWStepVisual",
     srcs = glob([
+        "RWStepVisual/*.c",
+        "RWStepVisual/*.cpp",
         "RWStepVisual/*.cxx",
     ]),
     hdrs = glob([
@@ -6124,6 +5928,8 @@ cc_library(
 cc_library(
     name = "RWStl",
     srcs = glob([
+        "RWStl/*.c",
+        "RWStl/*.cpp",
         "RWStl/*.cxx",
     ]),
     hdrs = glob([
@@ -6142,6 +5948,7 @@ cc_library(
         ":NCollection",
         ":OSD",
         ":Poly",
+        ":Precision",
         ":gp",
     ],
 )
@@ -6149,6 +5956,8 @@ cc_library(
 cc_library(
     name = "Resource",
     srcs = glob([
+        "Resource/*.c",
+        "Resource/*.cpp",
         "Resource/*.cxx",
     ]),
     hdrs = glob([
@@ -6170,6 +5979,8 @@ cc_library(
 cc_library(
     name = "SHMessage",
     srcs = glob([
+        "SHMessage/*.c",
+        "SHMessage/*.cpp",
         "SHMessage/*.cxx",
     ]),
     hdrs = glob([
@@ -6189,6 +6000,8 @@ cc_library(
 cc_library(
     name = "STEPCAFControl",
     srcs = glob([
+        "STEPCAFControl/*.c",
+        "STEPCAFControl/*.cpp",
         "STEPCAFControl/*.cxx",
     ]),
     hdrs = glob([
@@ -6204,9 +6017,7 @@ cc_library(
     deps = [
         ":AIS",
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
-        ":Bnd",
+        ":BVH",
         ":GeomToStep",
         ":HeaderSection",
         ":IFSelect",
@@ -6216,9 +6027,9 @@ cc_library(
         ":NCollection",
         ":OSD",
         ":Quantity",
+        ":Resource",
         ":STEPConstruct",
         ":STEPControl",
-        ":ShapeAnalysis",
         ":StepAP214",
         ":StepBasic",
         ":StepData",
@@ -6232,13 +6043,11 @@ cc_library(
         ":TDocStd",
         ":TNaming",
         ":TPrsStd",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":Transfer",
         ":TransferBRep",
+        ":UnitsMethods",
         ":XCAFDimTolObjects",
-        ":XCAFPrs",
         ":XCAFView",
         ":XSAlgo",
         ":XSControl",
@@ -6249,6 +6058,8 @@ cc_library(
 cc_library(
     name = "STEPConstruct",
     srcs = glob([
+        "STEPConstruct/*.c",
+        "STEPConstruct/*.cpp",
         "STEPConstruct/*.cxx",
     ]),
     hdrs = glob([
@@ -6288,7 +6099,11 @@ cc_library(
 cc_library(
     name = "STEPControl",
     srcs = glob([
+        "STEPControl/*.c",
+        "STEPControl/*.cpp",
         "STEPControl/*.cxx",
+        "StepToTopoDS/*.c",
+        "StepToTopoDS/*.cpp",
         "StepToTopoDS/*.cxx",
     ]),
     hdrs = glob([
@@ -6310,11 +6125,8 @@ cc_library(
     deps = [
         ":APIHeaderSection",
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":ElCLib",
         ":ElSLib",
-        ":Geom2dAPI",
         ":GeomAbs",
         ":GeomToStep",
         ":HeaderSection",
@@ -6324,15 +6136,13 @@ cc_library(
         ":MoniTool",
         ":NCollection",
         ":OSD",
+        ":Precision",
         ":RWHeaderSection",
         ":RWStepAP214",
         ":STEPConstruct",
         ":STEPEdit",
         ":STEPSelections",
         ":ShapeAlgo",
-        ":ShapeAnalysis",
-        ":ShapeBuild",
-        ":ShapeExtend",
         ":ShapeProcess",
         ":StdFail",
         ":StepBasic",
@@ -6342,9 +6152,7 @@ cc_library(
         ":StepSelect",
         ":StepToGeom",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":TopoDSToStep",
         ":Transfer",
@@ -6359,6 +6167,8 @@ cc_library(
 cc_library(
     name = "STEPEdit",
     srcs = glob([
+        "STEPEdit/*.c",
+        "STEPEdit/*.cpp",
         "STEPEdit/*.cxx",
     ]),
     hdrs = glob([
@@ -6388,6 +6198,8 @@ cc_library(
 cc_library(
     name = "STEPSelections",
     srcs = glob([
+        "STEPSelections/*.c",
+        "STEPSelections/*.cpp",
         "STEPSelections/*.cxx",
     ]),
     hdrs = glob([
@@ -6418,6 +6230,8 @@ cc_library(
 cc_library(
     name = "SWDRAW",
     srcs = glob([
+        "SWDRAW/*.c",
+        "SWDRAW/*.cpp",
         "SWDRAW/*.cxx",
     ]),
     hdrs = glob([
@@ -6432,26 +6246,18 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepTest",
-        ":Draw",
         ":GProp",
         ":GeomAbs",
-        ":GeomLib",
         ":Message",
         ":NCollection",
-        ":ShapeAnalysis",
-        ":ShapeBuild",
+        ":Precision",
         ":ShapeCustom",
-        ":ShapeExtend",
         ":ShapeProcess",
         ":ShapeProcessAPI",
         ":ShapeUpgrade",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -6460,6 +6266,8 @@ cc_library(
 cc_library(
     name = "Shaders",
     srcs = glob([
+        "Shaders/*.c",
+        "Shaders/*.cpp",
         "Shaders/*.cxx",
     ]),
     hdrs = glob([
@@ -6479,6 +6287,8 @@ cc_library(
 cc_library(
     name = "ShapeAlgo",
     srcs = glob([
+        "ShapeAlgo/*.c",
+        "ShapeAlgo/*.cpp",
         "ShapeAlgo/*.cxx",
     ]),
     hdrs = glob([
@@ -6493,111 +6303,12 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":GeomAbs",
-        ":IntSurf",
         ":NCollection",
-        ":ShapeAnalysis",
-        ":ShapeBuild",
+        ":Precision",
         ":ShapeCustom",
-        ":ShapeExtend",
         ":ShapeUpgrade",
         ":TColgp",
-        ":TopExp",
-        ":TopoDS",
-        ":gp",
-    ],
-)
-
-cc_library(
-    name = "ShapeAnalysis",
-    srcs = glob([
-        "ShapeAnalysis/*.cxx",
-        "ShapeConstruct/*.cxx",
-        "ShapeFix/*.cxx",
-    ]),
-    hdrs = glob([
-        "ShapeAnalysis/*.gxx",
-        "ShapeAnalysis/*.pxx",
-        "ShapeAnalysis/*.hxx",
-        "ShapeAnalysis/*.lxx",
-        "ShapeAnalysis/*.h",
-        "ShapeConstruct/*.gxx",
-        "ShapeConstruct/*.pxx",
-        "ShapeConstruct/*.hxx",
-        "ShapeConstruct/*.lxx",
-        "ShapeConstruct/*.h",
-        "ShapeFix/*.gxx",
-        "ShapeFix/*.pxx",
-        "ShapeFix/*.hxx",
-        "ShapeFix/*.lxx",
-        "ShapeFix/*.h",
-    ]),
-    includes = [
-        "ShapeAnalysis/",
-        "ShapeConstruct/",
-        "ShapeFix/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":Approx",
-        ":ApproxInt",
-        ":BRep",
-        ":BSplCLib",
-        ":Bnd",
-        ":ElCLib",
-        ":ElSLib",
-        ":GProp",
-        ":Geom2dAPI",
-        ":Geom2dInt",
-        ":GeomAbs",
-        ":GeomLib",
-        ":GeomProjLib",
-        ":IntCurve",
-        ":IntRes2d",
-        ":Message",
-        ":NCollection",
-        ":Poly",
-        ":ProjLib",
-        ":ShapeBuild",
-        ":ShapeExtend",
-        ":TColgp",
-        ":TopAbs",
-        ":TopExp",
-        ":TopLoc",
-        ":TopTools",
-        ":TopoDS",
-        ":gp",
-    ],
-)
-
-cc_library(
-    name = "ShapeBuild",
-    srcs = glob([
-        "ShapeBuild/*.cxx",
-    ]),
-    hdrs = glob([
-        "ShapeBuild/*.gxx",
-        "ShapeBuild/*.pxx",
-        "ShapeBuild/*.hxx",
-        "ShapeBuild/*.lxx",
-        "ShapeBuild/*.h",
-    ]),
-    includes = [
-        "ShapeBuild/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
-        ":ElCLib",
-        ":NCollection",
-        ":ShapeExtend",
-        ":TopAbs",
-        ":TopExp",
-        ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -6606,6 +6317,8 @@ cc_library(
 cc_library(
     name = "ShapeCustom",
     srcs = glob([
+        "ShapeCustom/*.c",
+        "ShapeCustom/*.cpp",
         "ShapeCustom/*.cxx",
     ]),
     hdrs = glob([
@@ -6620,50 +6333,14 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":ElCLib",
         ":ElSLib",
         ":GeomAbs",
         ":Message",
         ":NCollection",
-        ":ShapeAnalysis",
-        ":ShapeBuild",
-        ":ShapeExtend",
+        ":Precision",
         ":TColgp",
         ":TopLoc",
-        ":TopTools",
-        ":TopoDS",
-        ":gp",
-    ],
-)
-
-cc_library(
-    name = "ShapeExtend",
-    srcs = glob([
-        "ShapeExtend/*.cxx",
-    ]),
-    hdrs = glob([
-        "ShapeExtend/*.gxx",
-        "ShapeExtend/*.pxx",
-        "ShapeExtend/*.hxx",
-        "ShapeExtend/*.lxx",
-        "ShapeExtend/*.h",
-    ]),
-    includes = [
-        "ShapeExtend/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
-        ":GeomAbs",
-        ":Message",
-        ":NCollection",
-        ":SHMessage",
-        ":TopAbs",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -6672,6 +6349,8 @@ cc_library(
 cc_library(
     name = "ShapePersistent",
     srcs = glob([
+        "ShapePersistent/*.c",
+        "ShapePersistent/*.cpp",
         "ShapePersistent/*.cxx",
     ]),
     hdrs = glob([
@@ -6686,7 +6365,6 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":BRep",
         ":NCollection",
         ":Poly",
         ":StdLPersistent",
@@ -6701,6 +6379,8 @@ cc_library(
 cc_library(
     name = "ShapeProcess",
     srcs = glob([
+        "ShapeProcess/*.c",
+        "ShapeProcess/*.cpp",
         "ShapeProcess/*.cxx",
     ]),
     hdrs = glob([
@@ -6714,19 +6394,15 @@ cc_library(
         "ShapeProcess/",
     ],
     deps = [
-        ":ApproxInt",
-        ":BRep",
+        ":Adaptor2d",
         ":GeomAbs",
         ":Message",
         ":NCollection",
+        ":Precision",
         ":Resource",
-        ":ShapeAnalysis",
-        ":ShapeBuild",
         ":ShapeCustom",
-        ":ShapeExtend",
         ":ShapeUpgrade",
         ":TopAbs",
-        ":TopTools",
         ":TopoDS",
     ],
 )
@@ -6734,6 +6410,8 @@ cc_library(
 cc_library(
     name = "ShapeProcessAPI",
     srcs = glob([
+        "ShapeProcessAPI/*.c",
+        "ShapeProcessAPI/*.cpp",
         "ShapeProcessAPI/*.cxx",
     ]),
     hdrs = glob([
@@ -6747,12 +6425,12 @@ cc_library(
         "ShapeProcessAPI/",
     ],
     deps = [
+        ":Adaptor2d",
         ":Message",
         ":NCollection",
         ":Resource",
         ":ShapeProcess",
         ":TopAbs",
-        ":TopTools",
         ":TopoDS",
     ],
 )
@@ -6760,6 +6438,8 @@ cc_library(
 cc_library(
     name = "ShapeUpgrade",
     srcs = glob([
+        "ShapeUpgrade/*.c",
+        "ShapeUpgrade/*.cpp",
         "ShapeUpgrade/*.cxx",
     ]),
     hdrs = glob([
@@ -6774,25 +6454,19 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BSplCLib",
-        ":Bnd",
-        ":GC",
+        ":BVH",
+        ":ElCLib",
+        ":ElSLib",
         ":GProp",
         ":GeomAbs",
-        ":GeomLib",
         ":Message",
         ":NCollection",
-        ":ShapeAnalysis",
-        ":ShapeBuild",
+        ":Precision",
         ":ShapeCustom",
-        ":ShapeExtend",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -6801,6 +6475,8 @@ cc_library(
 cc_library(
     name = "StdDrivers",
     srcs = glob([
+        "StdDrivers/*.c",
+        "StdDrivers/*.cpp",
         "StdDrivers/*.cxx",
     ]),
     hdrs = glob([
@@ -6814,8 +6490,8 @@ cc_library(
         "StdDrivers/",
     ],
     deps = [
+        ":CDF",
         ":NCollection",
-        ":PCDM",
         ":Plugin",
         ":ShapePersistent",
         ":StdLDrivers",
@@ -6828,6 +6504,8 @@ cc_library(
 cc_library(
     name = "StdFail",
     srcs = glob([
+        "StdFail/*.c",
+        "StdFail/*.cpp",
         "StdFail/*.cxx",
     ]),
     hdrs = glob([
@@ -6848,6 +6526,8 @@ cc_library(
 cc_library(
     name = "StdLDrivers",
     srcs = glob([
+        "StdLDrivers/*.c",
+        "StdLDrivers/*.cpp",
         "StdLDrivers/*.cxx",
     ]),
     hdrs = glob([
@@ -6861,8 +6541,8 @@ cc_library(
         "StdLDrivers/",
     ],
     deps = [
+        ":CDF",
         ":NCollection",
-        ":PCDM",
         ":Plugin",
         ":StdLPersistent",
         ":StdObjMgt",
@@ -6874,6 +6554,8 @@ cc_library(
 cc_library(
     name = "StdLPersistent",
     srcs = glob([
+        "StdLPersistent/*.c",
+        "StdLPersistent/*.cpp",
         "StdLPersistent/*.cxx",
     ]),
     hdrs = glob([
@@ -6899,6 +6581,8 @@ cc_library(
 cc_library(
     name = "StdObjMgt",
     srcs = glob([
+        "StdObjMgt/*.c",
+        "StdObjMgt/*.cpp",
         "StdObjMgt/*.cxx",
     ]),
     hdrs = glob([
@@ -6921,7 +6605,11 @@ cc_library(
 cc_library(
     name = "StdObject",
     srcs = glob([
+        "StdObject/*.c",
+        "StdObject/*.cpp",
         "StdObject/*.cxx",
+        "StdPersistent/*.c",
+        "StdPersistent/*.cpp",
         "StdPersistent/*.cxx",
     ]),
     hdrs = glob([
@@ -6954,89 +6642,10 @@ cc_library(
 )
 
 cc_library(
-    name = "StdPrs",
-    srcs = glob([
-        "StdPrs/*.cxx",
-    ]),
-    hdrs = glob([
-        "StdPrs/*.gxx",
-        "StdPrs/*.pxx",
-        "StdPrs/*.hxx",
-        "StdPrs/*.lxx",
-        "StdPrs/*.h",
-    ]),
-    includes = [
-        "StdPrs/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":ApproxInt",
-        ":Aspect",
-        ":BRep",
-        ":Bnd",
-        ":Font",
-        ":GeomAbs",
-        ":GeomLib",
-        ":HLRAlgo",
-        ":Hatch",
-        ":NCollection",
-        ":OSD",
-        ":Poly",
-        ":Quantity",
-        ":TColgp",
-        ":TShort",
-        ":TopAbs",
-        ":TopExp",
-        ":TopLoc",
-        ":TopTools",
-        ":TopoDS",
-        ":gp",
-    ],
-)
-
-cc_library(
-    name = "StdSelect",
-    srcs = glob([
-        "StdSelect/*.cxx",
-    ]),
-    hdrs = glob([
-        "StdSelect/*.gxx",
-        "StdSelect/*.pxx",
-        "StdSelect/*.hxx",
-        "StdSelect/*.lxx",
-        "StdSelect/*.h",
-    ]),
-    includes = [
-        "StdSelect/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":ApproxInt",
-        ":Aspect",
-        ":BRep",
-        ":Bnd",
-        ":Font",
-        ":GeomAbs",
-        ":Message",
-        ":NCollection",
-        ":OSD",
-        ":Poly",
-        ":Quantity",
-        ":StdPrs",
-        ":TColgp",
-        ":TopAbs",
-        ":TopExp",
-        ":TopLoc",
-        ":TopTools",
-        ":TopoDS",
-        ":gp",
-        ":math",
-    ],
-)
-
-cc_library(
     name = "StdStorage",
     srcs = glob([
+        "StdStorage/*.c",
+        "StdStorage/*.cpp",
         "StdStorage/*.cxx",
     ]),
     hdrs = glob([
@@ -7050,8 +6659,8 @@ cc_library(
         "StdStorage/",
     ],
     deps = [
+        ":CDF",
         ":NCollection",
-        ":PCDM",
         ":StdDrivers",
         ":StdObjMgt",
         ":Storage",
@@ -7061,6 +6670,8 @@ cc_library(
 cc_library(
     name = "StepAP203",
     srcs = glob([
+        "StepAP203/*.c",
+        "StepAP203/*.cpp",
         "StepAP203/*.cxx",
     ]),
     hdrs = glob([
@@ -7084,6 +6695,8 @@ cc_library(
 cc_library(
     name = "StepAP209",
     srcs = glob([
+        "StepAP209/*.c",
+        "StepAP209/*.cpp",
         "StepAP209/*.cxx",
     ]),
     hdrs = glob([
@@ -7117,7 +6730,11 @@ cc_library(
 cc_library(
     name = "StepAP214",
     srcs = glob([
+        "StepAP214/*.c",
+        "StepAP214/*.cpp",
         "StepAP214/*.cxx",
+        "StepAP242/*.c",
+        "StepAP242/*.cpp",
         "StepAP242/*.cxx",
     ]),
     hdrs = glob([
@@ -7154,6 +6771,8 @@ cc_library(
 cc_library(
     name = "StepBasic",
     srcs = glob([
+        "StepBasic/*.c",
+        "StepBasic/*.cpp",
         "StepBasic/*.cxx",
     ]),
     hdrs = glob([
@@ -7176,6 +6795,8 @@ cc_library(
 cc_library(
     name = "StepData",
     srcs = glob([
+        "StepData/*.c",
+        "StepData/*.cpp",
         "StepData/*.cxx",
     ]),
     hdrs = glob([
@@ -7199,6 +6820,8 @@ cc_library(
 cc_library(
     name = "StepDimTol",
     srcs = glob([
+        "StepDimTol/*.c",
+        "StepDimTol/*.cpp",
         "StepDimTol/*.cxx",
     ]),
     hdrs = glob([
@@ -7223,6 +6846,8 @@ cc_library(
 cc_library(
     name = "StepElement",
     srcs = glob([
+        "StepElement/*.c",
+        "StepElement/*.cpp",
         "StepElement/*.cxx",
     ]),
     hdrs = glob([
@@ -7245,6 +6870,8 @@ cc_library(
 cc_library(
     name = "StepFEA",
     srcs = glob([
+        "StepFEA/*.c",
+        "StepFEA/*.cpp",
         "StepFEA/*.cxx",
     ]),
     hdrs = glob([
@@ -7269,6 +6896,8 @@ cc_library(
 cc_library(
     name = "StepFile",
     srcs = glob([
+        "StepFile/*.c",
+        "StepFile/*.cpp",
         "StepFile/*.cxx",
     ]),
     hdrs = glob([
@@ -7287,15 +6916,20 @@ cc_library(
         ":NCollection",
         ":OSD",
         ":StepData",
-        ":Transfer",
     ],
 )
 
 cc_library(
     name = "StepGeom",
     srcs = glob([
+        "StepGeom/*.c",
+        "StepGeom/*.cpp",
         "StepGeom/*.cxx",
+        "StepRepr/*.c",
+        "StepRepr/*.cpp",
         "StepRepr/*.cxx",
+        "StepShape/*.c",
+        "StepShape/*.cpp",
         "StepShape/*.cxx",
     ]),
     hdrs = glob([
@@ -7331,6 +6965,8 @@ cc_library(
 cc_library(
     name = "StepSelect",
     srcs = glob([
+        "StepSelect/*.c",
+        "StepSelect/*.cpp",
         "StepSelect/*.cxx",
     ]),
     hdrs = glob([
@@ -7357,6 +6993,8 @@ cc_library(
 cc_library(
     name = "StepToGeom",
     srcs = glob([
+        "StepToGeom/*.c",
+        "StepToGeom/*.cpp",
         "StepToGeom/*.cxx",
     ]),
     hdrs = glob([
@@ -7371,12 +7009,9 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":ElCLib",
         ":NCollection",
         ":ShapeAlgo",
-        ":ShapeAnalysis",
         ":StepGeom",
         ":TopoDS",
         ":UnitsMethods",
@@ -7387,6 +7022,8 @@ cc_library(
 cc_library(
     name = "StepVisual",
     srcs = glob([
+        "StepVisual/*.c",
+        "StepVisual/*.cpp",
         "StepVisual/*.cxx",
     ]),
     hdrs = glob([
@@ -7412,6 +7049,8 @@ cc_library(
 cc_library(
     name = "StlAPI",
     srcs = glob([
+        "StlAPI/*.c",
+        "StlAPI/*.cpp",
         "StlAPI/*.cxx",
     ]),
     hdrs = glob([
@@ -7425,14 +7064,13 @@ cc_library(
         "StlAPI/",
     ],
     deps = [
-        ":ApproxInt",
-        ":BRep",
-        ":Bnd",
+        ":Adaptor2d",
+        ":BVH",
+        ":Message",
         ":NCollection",
         ":OSD",
         ":Poly",
         ":RWStl",
-        ":TopExp",
         ":TopoDS",
         ":gp",
     ],
@@ -7441,6 +7079,8 @@ cc_library(
 cc_library(
     name = "Storage",
     srcs = glob([
+        "Storage/*.c",
+        "Storage/*.cpp",
         "Storage/*.cxx",
     ]),
     hdrs = glob([
@@ -7462,6 +7102,8 @@ cc_library(
 cc_library(
     name = "Sweep",
     srcs = glob([
+        "Sweep/*.c",
+        "Sweep/*.cpp",
         "Sweep/*.cxx",
     ]),
     hdrs = glob([
@@ -7481,29 +7123,10 @@ cc_library(
 )
 
 cc_library(
-    name = "TColQuantity",
-    srcs = glob([
-        "TColQuantity/*.cxx",
-    ]),
-    hdrs = glob([
-        "TColQuantity/*.gxx",
-        "TColQuantity/*.pxx",
-        "TColQuantity/*.hxx",
-        "TColQuantity/*.lxx",
-        "TColQuantity/*.h",
-    ]),
-    includes = [
-        "TColQuantity/",
-    ],
-    deps = [
-        ":NCollection",
-        ":Quantity",
-    ],
-)
-
-cc_library(
     name = "TColgp",
     srcs = glob([
+        "TColgp/*.c",
+        "TColgp/*.cpp",
         "TColgp/*.cxx",
     ]),
     hdrs = glob([
@@ -7525,6 +7148,8 @@ cc_library(
 cc_library(
     name = "TDF",
     srcs = glob([
+        "TDF/*.c",
+        "TDF/*.cpp",
         "TDF/*.cxx",
     ]),
     hdrs = glob([
@@ -7545,6 +7170,8 @@ cc_library(
 cc_library(
     name = "TDataStd",
     srcs = glob([
+        "TDataStd/*.c",
+        "TDataStd/*.cpp",
         "TDataStd/*.cxx",
     ]),
     hdrs = glob([
@@ -7566,6 +7193,8 @@ cc_library(
 cc_library(
     name = "TDataXtd",
     srcs = glob([
+        "TDataXtd/*.c",
+        "TDataXtd/*.cpp",
         "TDataXtd/*.cxx",
     ]),
     hdrs = glob([
@@ -7580,10 +7209,7 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":GeomAbs",
-        ":GeomLib",
         ":NCollection",
         ":Poly",
         ":Quantity",
@@ -7600,6 +7226,8 @@ cc_library(
 cc_library(
     name = "TDocStd",
     srcs = glob([
+        "TDocStd/*.c",
+        "TDocStd/*.cpp",
         "TDocStd/*.cxx",
     ]),
     hdrs = glob([
@@ -7614,11 +7242,9 @@ cc_library(
     ],
     deps = [
         ":CDF",
-        ":CDM",
         ":Message",
         ":NCollection",
         ":OSD",
-        ":PCDM",
         ":Plugin",
         ":Resource",
         ":TDF",
@@ -7629,6 +7255,8 @@ cc_library(
 cc_library(
     name = "TFunction",
     srcs = glob([
+        "TFunction/*.c",
+        "TFunction/*.cpp",
         "TFunction/*.cxx",
     ]),
     hdrs = glob([
@@ -7651,6 +7279,8 @@ cc_library(
 cc_library(
     name = "TNaming",
     srcs = glob([
+        "TNaming/*.c",
+        "TNaming/*.cpp",
         "TNaming/*.cxx",
     ]),
     hdrs = glob([
@@ -7664,15 +7294,12 @@ cc_library(
         "TNaming/",
     ],
     deps = [
-        ":ApproxInt",
-        ":BRep",
+        ":Adaptor2d",
         ":IntTools",
         ":NCollection",
         ":TDF",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -7681,6 +7308,8 @@ cc_library(
 cc_library(
     name = "TObj",
     srcs = glob([
+        "TObj/*.c",
+        "TObj/*.cpp",
         "TObj/*.cxx",
     ]),
     hdrs = glob([
@@ -7697,6 +7326,7 @@ cc_library(
         ":Message",
         ":NCollection",
         ":OSD",
+        ":Precision",
         ":Resource",
         ":TDF",
         ":TDataStd",
@@ -7708,6 +7338,8 @@ cc_library(
 cc_library(
     name = "TObjDRAW",
     srcs = glob([
+        "TObjDRAW/*.c",
+        "TObjDRAW/*.cpp",
         "TObjDRAW/*.cxx",
     ]),
     hdrs = glob([
@@ -7721,9 +7353,9 @@ cc_library(
         "TObjDRAW/",
     ],
     deps = [
+        ":Adaptor2d",
         ":BinTObjDrivers",
         ":DDocStd",
-        ":Draw",
         ":Message",
         ":NCollection",
         ":TDF",
@@ -7737,6 +7369,8 @@ cc_library(
 cc_library(
     name = "TPrsStd",
     srcs = glob([
+        "TPrsStd/*.c",
+        "TPrsStd/*.cpp",
         "TPrsStd/*.cxx",
     ]),
     hdrs = glob([
@@ -7752,21 +7386,16 @@ cc_library(
     deps = [
         ":AIS",
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
-        ":Font",
-        ":GC",
         ":GeomAbs",
         ":IntAna",
         ":NCollection",
+        ":Precision",
         ":Quantity",
         ":TDF",
         ":TDataStd",
         ":TDataXtd",
         ":TNaming",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":Units",
         ":gp",
@@ -7776,6 +7405,8 @@ cc_library(
 cc_library(
     name = "TShort",
     srcs = glob([
+        "TShort/*.c",
+        "TShort/*.cpp",
         "TShort/*.cxx",
     ]),
     hdrs = glob([
@@ -7794,8 +7425,31 @@ cc_library(
 )
 
 cc_library(
+    name = "Textures",
+    srcs = glob([
+        "Textures/*.c",
+        "Textures/*.cpp",
+        "Textures/*.cxx",
+    ]),
+    hdrs = glob([
+        "Textures/*.gxx",
+        "Textures/*.pxx",
+        "Textures/*.hxx",
+        "Textures/*.lxx",
+        "Textures/*.h",
+    ]),
+    includes = [
+        "Textures/",
+    ],
+    deps = [
+    ],
+)
+
+cc_library(
     name = "TopAbs",
     srcs = glob([
+        "TopAbs/*.c",
+        "TopAbs/*.cpp",
         "TopAbs/*.cxx",
     ]),
     hdrs = glob([
@@ -7816,6 +7470,8 @@ cc_library(
 cc_library(
     name = "TopBas",
     srcs = glob([
+        "TopBas/*.c",
+        "TopBas/*.cpp",
         "TopBas/*.cxx",
     ]),
     hdrs = glob([
@@ -7835,31 +7491,10 @@ cc_library(
 )
 
 cc_library(
-    name = "TopClass",
-    srcs = glob([
-        "TopClass/*.cxx",
-    ]),
-    hdrs = glob([
-        "TopClass/*.gxx",
-        "TopClass/*.pxx",
-        "TopClass/*.hxx",
-        "TopClass/*.lxx",
-        "TopClass/*.h",
-    ]),
-    includes = [
-        "TopClass/",
-    ],
-    deps = [
-        ":IntCurveSurface",
-        ":IntRes2d",
-        ":NCollection",
-        ":gp",
-    ],
-)
-
-cc_library(
     name = "TopCnx",
     srcs = glob([
+        "TopCnx/*.c",
+        "TopCnx/*.cpp",
         "TopCnx/*.cxx",
     ]),
     hdrs = glob([
@@ -7881,31 +7516,10 @@ cc_library(
 )
 
 cc_library(
-    name = "TopExp",
-    srcs = glob([
-        "TopExp/*.cxx",
-    ]),
-    hdrs = glob([
-        "TopExp/*.gxx",
-        "TopExp/*.pxx",
-        "TopExp/*.hxx",
-        "TopExp/*.lxx",
-        "TopExp/*.h",
-    ]),
-    includes = [
-        "TopExp/",
-    ],
-    deps = [
-        ":NCollection",
-        ":TopAbs",
-        ":TopTools",
-        ":TopoDS",
-    ],
-)
-
-cc_library(
     name = "TopLoc",
     srcs = glob([
+        "TopLoc/*.c",
+        "TopLoc/*.cpp",
         "TopLoc/*.cxx",
     ]),
     hdrs = glob([
@@ -7927,6 +7541,8 @@ cc_library(
 cc_library(
     name = "TopOpeBRep",
     srcs = glob([
+        "TopOpeBRep/*.c",
+        "TopOpeBRep/*.cpp",
         "TopOpeBRep/*.cxx",
     ]),
     hdrs = glob([
@@ -7941,24 +7557,17 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepIntCurveSurface",
-        ":Bnd",
-        ":Geom2dInt",
+        ":BVH",
         ":GeomAbs",
-        ":GeomProjLib",
-        ":IntCurveSurface",
         ":IntRes2d",
-        ":IntSurf",
         ":NCollection",
+        ":Precision",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
         ":TopOpeBRepDS",
         ":TopOpeBRepTool",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -7967,6 +7576,8 @@ cc_library(
 cc_library(
     name = "TopOpeBRepBuild",
     srcs = glob([
+        "TopOpeBRepBuild/*.c",
+        "TopOpeBRepBuild/*.cpp",
         "TopOpeBRepBuild/*.cxx",
     ]),
     hdrs = glob([
@@ -7981,26 +7592,20 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepLProp",
-        ":Bnd",
+        ":BVH",
         ":ElCLib",
         ":ElSLib",
-        ":Geom2dAPI",
         ":GeomAbs",
-        ":GeomProjLib",
         ":IntRes2d",
         ":NCollection",
-        ":ProjLib",
+        ":Precision",
         ":StdFail",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
         ":TopOpeBRepDS",
         ":TopOpeBRepTool",
-        ":TopTools",
         ":TopoDS",
         ":gp",
     ],
@@ -8009,6 +7614,8 @@ cc_library(
 cc_library(
     name = "TopOpeBRepDS",
     srcs = glob([
+        "TopOpeBRepDS/*.c",
+        "TopOpeBRepDS/*.cpp",
         "TopOpeBRepDS/*.cxx",
     ]),
     hdrs = glob([
@@ -8023,20 +7630,14 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepLProp",
         ":ElCLib",
-        ":GeomProjLib",
-        ":IntSurf",
         ":NCollection",
-        ":ProjLib",
+        ":Precision",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
         ":TopOpeBRepTool",
-        ":TopTools",
         ":TopTrans",
         ":TopoDS",
         ":gp",
@@ -8046,6 +7647,8 @@ cc_library(
 cc_library(
     name = "TopOpeBRepTool",
     srcs = glob([
+        "TopOpeBRepTool/*.c",
+        "TopOpeBRepTool/*.cpp",
         "TopOpeBRepTool/*.cxx",
     ]),
     hdrs = glob([
@@ -8060,50 +7663,16 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepLProp",
         ":BSplCLib",
-        ":Bnd",
-        ":Draw",
+        ":BVH",
         ":ElCLib",
         ":ElSLib",
-        ":Geom2dAPI",
         ":GeomAbs",
-        ":GeomLib",
         ":NCollection",
         ":OSD",
-        ":ProjLib",
+        ":Precision",
         ":TColgp",
-        ":TopAbs",
-        ":TopExp",
-        ":TopLoc",
-        ":TopTools",
-        ":TopoDS",
-        ":gp",
-    ],
-)
-
-cc_library(
-    name = "TopTools",
-    srcs = glob([
-        "TopTools/*.cxx",
-    ]),
-    hdrs = glob([
-        "TopTools/*.gxx",
-        "TopTools/*.pxx",
-        "TopTools/*.hxx",
-        "TopTools/*.lxx",
-        "TopTools/*.h",
-    ]),
-    includes = [
-        "TopTools/",
-    ],
-    deps = [
-        ":Adaptor2d",
-        ":Bnd",
-        ":Message",
-        ":NCollection",
         ":TopAbs",
         ":TopLoc",
         ":TopoDS",
@@ -8114,6 +7683,8 @@ cc_library(
 cc_library(
     name = "TopTrans",
     srcs = glob([
+        "TopTrans/*.c",
+        "TopTrans/*.cpp",
         "TopTrans/*.cxx",
     ]),
     hdrs = glob([
@@ -8128,6 +7699,7 @@ cc_library(
     ],
     deps = [
         ":NCollection",
+        ":Precision",
         ":TopAbs",
         ":gp",
     ],
@@ -8136,6 +7708,8 @@ cc_library(
 cc_library(
     name = "TopoDS",
     srcs = glob([
+        "TopoDS/*.c",
+        "TopoDS/*.cpp",
         "TopoDS/*.cxx",
     ]),
     hdrs = glob([
@@ -8159,6 +7733,8 @@ cc_library(
 cc_library(
     name = "TopoDSToStep",
     srcs = glob([
+        "TopoDSToStep/*.c",
+        "TopoDSToStep/*.cpp",
         "TopoDSToStep/*.cxx",
     ]),
     hdrs = glob([
@@ -8173,21 +7749,17 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
-        ":Bnd",
+        ":BVH",
         ":GeomToStep",
         ":Interface",
         ":Message",
         ":MoniTool",
         ":NCollection",
+        ":Precision",
         ":ShapeAlgo",
-        ":ShapeAnalysis",
-        ":ShapeExtend",
         ":StdFail",
         ":StepGeom",
         ":TColgp",
-        ":TopExp",
         ":TopLoc",
         ":TopoDS",
         ":Transfer",
@@ -8200,6 +7772,8 @@ cc_library(
 cc_library(
     name = "Transfer",
     srcs = glob([
+        "Transfer/*.c",
+        "Transfer/*.cpp",
         "Transfer/*.cxx",
     ]),
     hdrs = glob([
@@ -8223,6 +7797,8 @@ cc_library(
 cc_library(
     name = "TransferBRep",
     srcs = glob([
+        "TransferBRep/*.c",
+        "TransferBRep/*.cpp",
         "TransferBRep/*.cxx",
     ]),
     hdrs = glob([
@@ -8236,14 +7812,11 @@ cc_library(
         "TransferBRep/",
     ],
     deps = [
-        ":ApproxInt",
-        ":BRep",
+        ":Adaptor2d",
         ":Interface",
         ":Message",
         ":NCollection",
         ":TopAbs",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":Transfer",
     ],
@@ -8252,6 +7825,8 @@ cc_library(
 cc_library(
     name = "UTL",
     srcs = glob([
+        "UTL/*.c",
+        "UTL/*.cpp",
         "UTL/*.cxx",
     ]),
     hdrs = glob([
@@ -8275,7 +7850,11 @@ cc_library(
 cc_library(
     name = "Units",
     srcs = glob([
+        "Units/*.c",
+        "Units/*.cpp",
         "Units/*.cxx",
+        "UnitsAPI/*.c",
+        "UnitsAPI/*.cpp",
         "UnitsAPI/*.cxx",
     ]),
     hdrs = glob([
@@ -8304,6 +7883,8 @@ cc_library(
 cc_library(
     name = "UnitsMethods",
     srcs = glob([
+        "UnitsMethods/*.c",
+        "UnitsMethods/*.cpp",
         "UnitsMethods/*.cxx",
     ]),
     hdrs = glob([
@@ -8326,6 +7907,8 @@ cc_library(
 cc_library(
     name = "ViewerTest",
     srcs = glob([
+        "ViewerTest/*.c",
+        "ViewerTest/*.cpp",
         "ViewerTest/*.cxx",
     ]),
     hdrs = glob([
@@ -8341,9 +7924,6 @@ cc_library(
     deps = [
         ":AIS",
         ":Adaptor2d",
-        ":ApproxInt",
-        ":Aspect",
-        ":BRep",
         ":BRepAlgo",
         ":BRepFilletAPI",
         ":BRepOffsetAPI",
@@ -8351,12 +7931,8 @@ cc_library(
         ":BRepTest",
         ":BiTgte",
         ":ChFi3d",
-        ":Cocoa",
-        ":Draw",
         ":ElSLib",
         ":FilletSurf",
-        ":Font",
-        ":GC",
         ":HLRAlgo",
         ":Image",
         ":IntAna",
@@ -8365,16 +7941,13 @@ cc_library(
         ":OSD",
         ":OpenGl",
         ":Poly",
+        ":Precision",
         ":Quantity",
         ":StdFail",
-        ":StdPrs",
-        ":StdSelect",
         ":TColgp",
         ":TShort",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":WNT",
         ":Xw",
@@ -8385,6 +7958,8 @@ cc_library(
 cc_library(
     name = "Vrml",
     srcs = glob([
+        "Vrml/*.c",
+        "Vrml/*.cpp",
         "Vrml/*.cxx",
     ]),
     hdrs = glob([
@@ -8399,6 +7974,7 @@ cc_library(
     ],
     deps = [
         ":NCollection",
+        ":Precision",
         ":Quantity",
         ":TColgp",
         ":gp",
@@ -8408,6 +7984,8 @@ cc_library(
 cc_library(
     name = "VrmlAPI",
     srcs = glob([
+        "VrmlAPI/*.c",
+        "VrmlAPI/*.cpp",
         "VrmlAPI/*.cxx",
     ]),
     hdrs = glob([
@@ -8421,14 +7999,13 @@ cc_library(
         "VrmlAPI/",
     ],
     deps = [
-        ":BRep",
+        ":Adaptor2d",
         ":NCollection",
         ":OSD",
         ":Poly",
         ":Quantity",
+        ":TDocStd",
         ":TopAbs",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":Vrml",
         ":VrmlConverter",
@@ -8439,6 +8016,8 @@ cc_library(
 cc_library(
     name = "VrmlConverter",
     srcs = glob([
+        "VrmlConverter/*.c",
+        "VrmlConverter/*.cpp",
         "VrmlConverter/*.cxx",
     ]),
     hdrs = glob([
@@ -8453,22 +8032,16 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":Aspect",
-        ":BRep",
-        ":Bnd",
+        ":BVH",
         ":CSLib",
-        ":Font",
         ":HLRAlgo",
         ":Hatch",
         ":NCollection",
         ":Poly",
-        ":StdPrs",
+        ":Precision",
         ":TColgp",
         ":TopAbs",
-        ":TopExp",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":Vrml",
         ":gp",
@@ -8479,6 +8052,8 @@ cc_library(
 cc_library(
     name = "VrmlData",
     srcs = glob([
+        "VrmlData/*.c",
+        "VrmlData/*.cpp",
         "VrmlData/*.cxx",
     ]),
     hdrs = glob([
@@ -8493,19 +8068,20 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":BRepPrim",
         ":BRepPrimAPI",
-        ":Bnd",
-        ":GeomLib",
+        ":BVH",
         ":NCollection",
         ":Poly",
+        ":Precision",
         ":Quantity",
         ":TColgp",
+        ":TDF",
+        ":TDataStd",
+        ":TDocStd",
         ":TShort",
-        ":TopExp",
         ":TopoDS",
+        ":XCAFDimTolObjects",
         ":gp",
     ],
 )
@@ -8513,6 +8089,8 @@ cc_library(
 cc_library(
     name = "WNT",
     srcs = glob([
+        "WNT/*.c",
+        "WNT/*.cpp",
         "WNT/*.cxx",
     ]),
     hdrs = glob([
@@ -8526,15 +8104,17 @@ cc_library(
         "WNT/",
     ],
     deps = [
-        ":Aspect",
+        ":Adaptor2d",
+        ":Message",
         ":NCollection",
-        ":Quantity",
     ],
 )
 
 cc_library(
     name = "XBRepMesh",
     srcs = glob([
+        "XBRepMesh/*.c",
+        "XBRepMesh/*.cpp",
         "XBRepMesh/*.cxx",
     ]),
     hdrs = glob([
@@ -8548,7 +8128,7 @@ cc_library(
         "XBRepMesh/",
     ],
     deps = [
-        ":ApproxInt",
+        ":Adaptor2d",
         ":NCollection",
     ],
 )
@@ -8556,6 +8136,8 @@ cc_library(
 cc_library(
     name = "XCAFApp",
     srcs = glob([
+        "XCAFApp/*.c",
+        "XCAFApp/*.cpp",
         "XCAFApp/*.cxx",
     ]),
     hdrs = glob([
@@ -8575,15 +8157,21 @@ cc_library(
         ":TDocStd",
         ":TPrsStd",
         ":XCAFDimTolObjects",
-        ":XCAFPrs",
     ],
 )
 
 cc_library(
     name = "XCAFDimTolObjects",
     srcs = glob([
+        "XCAFDimTolObjects/*.c",
+        "XCAFDimTolObjects/*.cpp",
         "XCAFDimTolObjects/*.cxx",
+        "XCAFDoc/*.c",
+        "XCAFDoc/*.cpp",
         "XCAFDoc/*.cxx",
+        "XCAFPrs/*.c",
+        "XCAFPrs/*.cpp",
+        "XCAFPrs/*.cxx",
     ]),
     hdrs = glob([
         "XCAFDimTolObjects/*.gxx",
@@ -8596,15 +8184,24 @@ cc_library(
         "XCAFDoc/*.hxx",
         "XCAFDoc/*.lxx",
         "XCAFDoc/*.h",
+        "XCAFPrs/*.gxx",
+        "XCAFPrs/*.pxx",
+        "XCAFPrs/*.hxx",
+        "XCAFPrs/*.lxx",
+        "XCAFPrs/*.h",
     ]),
     includes = [
         "XCAFDimTolObjects/",
         "XCAFDoc/",
+        "XCAFPrs/",
     ],
     deps = [
-        ":BRep",
+        ":AIS",
+        ":Adaptor2d",
+        ":Image",
         ":NCollection",
         ":OSD",
+        ":Precision",
         ":Quantity",
         ":TColgp",
         ":TDF",
@@ -8612,9 +8209,8 @@ cc_library(
         ":TDataXtd",
         ":TDocStd",
         ":TNaming",
-        ":TopExp",
+        ":TPrsStd",
         ":TopLoc",
-        ":TopTools",
         ":TopoDS",
         ":XCAFNoteObjects",
         ":XCAFView",
@@ -8625,6 +8221,8 @@ cc_library(
 cc_library(
     name = "XCAFNoteObjects",
     srcs = glob([
+        "XCAFNoteObjects/*.c",
+        "XCAFNoteObjects/*.cpp",
         "XCAFNoteObjects/*.cxx",
     ]),
     hdrs = glob([
@@ -8645,42 +8243,10 @@ cc_library(
 )
 
 cc_library(
-    name = "XCAFPrs",
-    srcs = glob([
-        "XCAFPrs/*.cxx",
-    ]),
-    hdrs = glob([
-        "XCAFPrs/*.gxx",
-        "XCAFPrs/*.pxx",
-        "XCAFPrs/*.hxx",
-        "XCAFPrs/*.lxx",
-        "XCAFPrs/*.h",
-    ]),
-    includes = [
-        "XCAFPrs/",
-    ],
-    deps = [
-        ":AIS",
-        ":ApproxInt",
-        ":BRep",
-        ":Font",
-        ":NCollection",
-        ":Quantity",
-        ":TDF",
-        ":TDataStd",
-        ":TDocStd",
-        ":TPrsStd",
-        ":TopLoc",
-        ":TopTools",
-        ":TopoDS",
-        ":XCAFDimTolObjects",
-        ":gp",
-    ],
-)
-
-cc_library(
     name = "XCAFView",
     srcs = glob([
+        "XCAFView/*.c",
+        "XCAFView/*.cpp",
         "XCAFView/*.cxx",
     ]),
     hdrs = glob([
@@ -8703,6 +8269,8 @@ cc_library(
 cc_library(
     name = "XDEDRAW",
     srcs = glob([
+        "XDEDRAW/*.c",
+        "XDEDRAW/*.cpp",
         "XDEDRAW/*.cxx",
     ]),
     hdrs = glob([
@@ -8718,22 +8286,19 @@ cc_library(
     deps = [
         ":AIS",
         ":Adaptor2d",
-        ":ApproxInt",
-        ":Aspect",
-        ":BRep",
         ":BinXCAFDrivers",
         ":DDF",
         ":DDocStd",
-        ":Draw",
-        ":Font",
         ":GProp",
         ":IFSelect",
         ":IGESCAFControl",
         ":IGESControl",
         ":Interface",
+        ":Message",
         ":NCollection",
         ":OSD",
         ":Poly",
+        ":Precision",
         ":Quantity",
         ":STEPCAFControl",
         ":STEPControl",
@@ -8743,12 +8308,11 @@ cc_library(
         ":TDocStd",
         ":TNaming",
         ":TPrsStd",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
+        ":UnitsMethods",
         ":ViewerTest",
+        ":VrmlAPI",
         ":XCAFDimTolObjects",
-        ":XCAFPrs",
         ":XCAFView",
         ":XSControl",
         ":XSDRAW",
@@ -8762,6 +8326,8 @@ cc_library(
 cc_library(
     name = "XSAlgo",
     srcs = glob([
+        "XSAlgo/*.c",
+        "XSAlgo/*.cpp",
         "XSAlgo/*.cxx",
     ]),
     hdrs = glob([
@@ -8776,20 +8342,13 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":Interface",
         ":Message",
         ":NCollection",
         ":Resource",
         ":ShapeAlgo",
-        ":ShapeAnalysis",
-        ":ShapeBuild",
         ":ShapeCustom",
-        ":ShapeExtend",
         ":ShapeProcess",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":Transfer",
         ":TransferBRep",
@@ -8801,6 +8360,8 @@ cc_library(
 cc_library(
     name = "XSControl",
     srcs = glob([
+        "XSControl/*.c",
+        "XSControl/*.cpp",
         "XSControl/*.cxx",
     ]),
     hdrs = glob([
@@ -8815,19 +8376,14 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":BRep",
         ":IFSelect",
         ":Interface",
         ":Message",
         ":NCollection",
         ":ShapeAlgo",
-        ":ShapeAnalysis",
         ":ShapeCustom",
-        ":ShapeExtend",
+        ":ShapeUpgrade",
         ":TopAbs",
-        ":TopExp",
-        ":TopTools",
         ":TopoDS",
         ":Transfer",
         ":TransferBRep",
@@ -8838,6 +8394,8 @@ cc_library(
 cc_library(
     name = "XSDRAW",
     srcs = glob([
+        "XSDRAW/*.c",
+        "XSDRAW/*.cpp",
         "XSDRAW/*.cxx",
     ]),
     hdrs = glob([
@@ -8852,13 +8410,10 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":Draw",
         ":IFSelect",
         ":Interface",
         ":Message",
         ":NCollection",
-        ":TopTools",
         ":TopoDS",
         ":Transfer",
         ":TransferBRep",
@@ -8870,6 +8425,8 @@ cc_library(
 cc_library(
     name = "XSDRAWIGES",
     srcs = glob([
+        "XSDRAWIGES/*.c",
+        "XSDRAWIGES/*.cpp",
         "XSDRAWIGES/*.cxx",
     ]),
     hdrs = glob([
@@ -8884,8 +8441,6 @@ cc_library(
     ],
     deps = [
         ":Adaptor2d",
-        ":ApproxInt",
-        ":Draw",
         ":IFSelect",
         ":IGESBasic",
         ":IGESControl",
@@ -8894,7 +8449,6 @@ cc_library(
         ":Interface",
         ":Message",
         ":NCollection",
-        ":TopExp",
         ":TopoDS",
         ":Transfer",
         ":XSControl",
@@ -8905,6 +8459,8 @@ cc_library(
 cc_library(
     name = "XSDRAWSTEP",
     srcs = glob([
+        "XSDRAWSTEP/*.c",
+        "XSDRAWSTEP/*.cpp",
         "XSDRAWSTEP/*.cxx",
     ]),
     hdrs = glob([
@@ -8918,8 +8474,7 @@ cc_library(
         "XSDRAWSTEP/",
     ],
     deps = [
-        ":ApproxInt",
-        ":Draw",
+        ":Adaptor2d",
         ":IFSelect",
         ":Interface",
         ":Message",
@@ -8929,7 +8484,6 @@ cc_library(
         ":StepData",
         ":StepGeom",
         ":StepSelect",
-        ":TopExp",
         ":TopoDS",
         ":Transfer",
         ":TransferBRep",
@@ -8941,6 +8495,8 @@ cc_library(
 cc_library(
     name = "XSDRAWSTLVRML",
     srcs = glob([
+        "XSDRAWSTLVRML/*.c",
+        "XSDRAWSTLVRML/*.cpp",
         "XSDRAWSTLVRML/*.cxx",
     ]),
     hdrs = glob([
@@ -8955,25 +8511,29 @@ cc_library(
     ],
     deps = [
         ":AIS",
-        ":ApproxInt",
-        ":Aspect",
-        ":BRep",
-        ":Bnd",
-        ":Draw",
-        ":Font",
+        ":Adaptor2d",
+        ":BVH",
+        ":DDocStd",
         ":MeshVS",
         ":NCollection",
         ":OSD",
         ":Poly",
+        ":Precision",
         ":Quantity",
+        ":RWGltf",
+        ":RWObj",
         ":RWStl",
-        ":StdSelect",
         ":StlAPI",
         ":TColgp",
+        ":TDataStd",
+        ":TDocStd",
         ":TopoDS",
+        ":Units",
+        ":UnitsMethods",
         ":ViewerTest",
         ":VrmlAPI",
         ":VrmlData",
+        ":XCAFDimTolObjects",
         ":XSDRAW",
         ":XSDRAWIGES",
         ":XSDRAWSTEP",
@@ -8983,6 +8543,8 @@ cc_library(
 cc_library(
     name = "XSMessage",
     srcs = glob([
+        "XSMessage/*.c",
+        "XSMessage/*.cpp",
         "XSMessage/*.cxx",
     ]),
     hdrs = glob([
@@ -9002,6 +8564,8 @@ cc_library(
 cc_library(
     name = "XmlDrivers",
     srcs = glob([
+        "XmlDrivers/*.c",
+        "XmlDrivers/*.cpp",
         "XmlDrivers/*.cxx",
     ]),
     hdrs = glob([
@@ -9030,10 +8594,20 @@ cc_library(
 cc_library(
     name = "XmlLDrivers",
     srcs = glob([
+        "XmlLDrivers/*.c",
+        "XmlLDrivers/*.cpp",
         "XmlLDrivers/*.cxx",
+        "XmlMDF/*.c",
+        "XmlMDF/*.cpp",
         "XmlMDF/*.cxx",
+        "XmlMDataStd/*.c",
+        "XmlMDataStd/*.cpp",
         "XmlMDataStd/*.cxx",
+        "XmlMDocStd/*.c",
+        "XmlMDocStd/*.cpp",
         "XmlMDocStd/*.cxx",
+        "XmlMFunction/*.c",
+        "XmlMFunction/*.cpp",
         "XmlMFunction/*.cxx",
     ]),
     hdrs = glob([
@@ -9071,12 +8645,11 @@ cc_library(
         "XmlMFunction/",
     ],
     deps = [
-        ":CDM",
+        ":CDF",
         ":LDOM",
         ":Message",
         ":NCollection",
         ":OSD",
-        ":PCDM",
         ":Plugin",
         ":Storage",
         ":TDF",
@@ -9091,6 +8664,8 @@ cc_library(
 cc_library(
     name = "XmlMDataXtd",
     srcs = glob([
+        "XmlMDataXtd/*.c",
+        "XmlMDataXtd/*.cpp",
         "XmlMDataXtd/*.cxx",
     ]),
     hdrs = glob([
@@ -9107,6 +8682,7 @@ cc_library(
         ":LDOM",
         ":Message",
         ":NCollection",
+        ":Quantity",
         ":TDF",
         ":TDataStd",
         ":TDataXtd",
@@ -9120,6 +8696,8 @@ cc_library(
 cc_library(
     name = "XmlMNaming",
     srcs = glob([
+        "XmlMNaming/*.c",
+        "XmlMNaming/*.cpp",
         "XmlMNaming/*.cxx",
     ]),
     hdrs = glob([
@@ -9133,15 +8711,13 @@ cc_library(
         "XmlMNaming/",
     ],
     deps = [
-        ":ApproxInt",
-        ":BRep",
+        ":Adaptor2d",
         ":LDOM",
         ":Message",
         ":NCollection",
         ":TDF",
         ":TNaming",
         ":TopAbs",
-        ":TopTools",
         ":TopoDS",
         ":XmlLDrivers",
         ":XmlObjMgt",
@@ -9152,6 +8728,8 @@ cc_library(
 cc_library(
     name = "XmlMXCAFDoc",
     srcs = glob([
+        "XmlMXCAFDoc/*.c",
+        "XmlMXCAFDoc/*.cpp",
         "XmlMXCAFDoc/*.cxx",
     ]),
     hdrs = glob([
@@ -9165,13 +8743,13 @@ cc_library(
         "XmlMXCAFDoc/",
     ],
     deps = [
+        ":Adaptor2d",
         ":LDOM",
         ":Message",
         ":NCollection",
         ":TDF",
         ":TNaming",
         ":TopLoc",
-        ":TopTools",
         ":XCAFDimTolObjects",
         ":XmlLDrivers",
         ":XmlMNaming",
@@ -9183,6 +8761,8 @@ cc_library(
 cc_library(
     name = "XmlObjMgt",
     srcs = glob([
+        "XmlObjMgt/*.c",
+        "XmlObjMgt/*.cpp",
         "XmlObjMgt/*.cxx",
     ]),
     hdrs = glob([
@@ -9198,6 +8778,7 @@ cc_library(
     deps = [
         ":LDOM",
         ":NCollection",
+        ":Storage",
         ":gp",
     ],
 )
@@ -9205,6 +8786,8 @@ cc_library(
 cc_library(
     name = "XmlTObjDrivers",
     srcs = glob([
+        "XmlTObjDrivers/*.c",
+        "XmlTObjDrivers/*.cpp",
         "XmlTObjDrivers/*.cxx",
     ]),
     hdrs = glob([
@@ -9232,6 +8815,8 @@ cc_library(
 cc_library(
     name = "XmlXCAFDrivers",
     srcs = glob([
+        "XmlXCAFDrivers/*.c",
+        "XmlXCAFDrivers/*.cpp",
         "XmlXCAFDrivers/*.cxx",
     ]),
     hdrs = glob([
@@ -9258,6 +8843,8 @@ cc_library(
 cc_library(
     name = "Xw",
     srcs = glob([
+        "Xw/*.c",
+        "Xw/*.cpp",
         "Xw/*.cxx",
     ]),
     hdrs = glob([
@@ -9271,7 +8858,7 @@ cc_library(
         "Xw/",
     ],
     deps = [
-        ":Aspect",
+        ":Adaptor2d",
         ":Message",
         ":NCollection",
         ":Quantity",
@@ -9281,6 +8868,8 @@ cc_library(
 cc_library(
     name = "gp",
     srcs = glob([
+        "gp/*.c",
+        "gp/*.cpp",
         "gp/*.cxx",
     ]),
     hdrs = glob([
@@ -9295,12 +8884,15 @@ cc_library(
     ],
     deps = [
         ":NCollection",
+        ":Precision",
     ],
 )
 
 cc_library(
     name = "math",
     srcs = glob([
+        "math/*.c",
+        "math/*.cpp",
         "math/*.cxx",
     ]),
     hdrs = glob([
@@ -9314,8 +8906,12 @@ cc_library(
         "math/",
     ],
     deps = [
+        ":Message",
         ":NCollection",
+        ":Precision",
         ":StdFail",
         ":gp",
     ],
 )
+
+

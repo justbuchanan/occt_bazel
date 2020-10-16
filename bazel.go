@@ -24,6 +24,7 @@ import (
 var extraDeps = map[string][]string{
 	"Font": []string{"@freetype2"},
 	"Draw": []string{"@tcl"},
+	"Adaptor2d": []string{"@org_freedesktop_fontconfig//:fontconfig"},
 }
 
 type genBazelSubcommand struct {
@@ -149,8 +150,9 @@ func genBazelLib(l *occtLib) string {
 	// srcs
 	bzl += fmt.Sprintf("    srcs = glob([\n")
 	for _, pkg := range l.pkgs {
-		bzl += fmt.Sprintf("        \"%s\",\n", filepath.Join(pkg, "*.cxx"))
 		bzl += fmt.Sprintf("        \"%s\",\n", filepath.Join(pkg, "*.c"))
+		bzl += fmt.Sprintf("        \"%s\",\n", filepath.Join(pkg, "*.cpp"))
+		bzl += fmt.Sprintf("        \"%s\",\n", filepath.Join(pkg, "*.cxx"))
 	}
 	bzl += "    ]),\n"
 
