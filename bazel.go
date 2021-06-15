@@ -22,7 +22,7 @@ import (
 // WARNING: this list is definitely not complete and you may need to modify it,
 // depending on which parts of occt you are using.
 var extraDeps = map[string][]string{
-	"Font": []string{"@freetype2"},
+	"Font": []string{"@org_freetype_freetype2//:freetype2"},
 	"Draw": []string{"@tcl"},
 	"Adaptor2d": []string{"@org_freedesktop_fontconfig//:fontconfig"},
 }
