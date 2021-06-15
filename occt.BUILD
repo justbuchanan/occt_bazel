@@ -6814,6 +6814,7 @@ cc_library(
         ":LibCtl",
         ":Message",
         ":NCollection",
+        ":Resource",
     ],
 )
 
