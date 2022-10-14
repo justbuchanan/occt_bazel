@@ -59,10 +59,11 @@ func (s *genDepgraphSubcommand) Execute(_ context.Context, f *flag.FlagSet, _ ..
 }
 
 // buildDepGraph scans the 'src' dir of occt and builds a dependency graph of the form:
-// {
-//   "dirA": ["dirB", "dirC"],
-//   "dirD": ["dirC"]
-// }
+//
+//	{
+//	  "dirA": ["dirB", "dirC"],
+//	  "dirD": ["dirC"]
+//	}
 func (cmd *genDepgraphSubcommand) buildDepGraph() (map[string][]string, error) {
 	// get all dirs under 'src'
 	var pkgDirs []string

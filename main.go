@@ -12,19 +12,20 @@
 //
 // This binary is split into two subcommands: "depgraph" and "genbazel".
 //
-// * "depgraph" scans the OCCT sources and builds a dependency graph, which is
-//   emitted in json form. This may take several minutes, but should only need
-//   to be done once.
-// * "genbazel" reads the json file from "depgraph" and uses it to generate a
-//   Bazel BUILD file. You may need to adjust bazel.go and run it again.
+//   - "depgraph" scans the OCCT sources and builds a dependency graph, which is
+//     emitted in json form. This may take several minutes, but should only need
+//     to be done once.
+//   - "genbazel" reads the json file from "depgraph" and uses it to generate a
+//     Bazel BUILD file. You may need to adjust bazel.go and run it again.
 //
 // Note: the generated BUILD file has external dependencies as specified by the
 // `extraDeps` variable in bazel.go. You'll need to add these to your WORKSPACE
 // file - see the one in this repo as an example.
 //
 // Example usage:
-//   $ occt_bazel depgraph --srcdir /path/to/occt/src > depgraph.json
-//   $ occt_bazel genbazel --depgraph depgraph.json > /path/to/occt/src/BUILD
+//
+//	$ occt_bazel depgraph --srcdir /path/to/occt/src > depgraph.json
+//	$ occt_bazel genbazel --depgraph depgraph.json > /path/to/occt/src/BUILD
 package main
 
 import (

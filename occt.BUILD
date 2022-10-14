@@ -974,8 +974,8 @@ cc_library(
         ":Units",
         ":gp",
         ":math",
-        "@org_freetype_freetype2//:freetype2",
         "@org_freedesktop_fontconfig//:fontconfig",
+        "@org_freetype_freetype2//:freetype2",
         "@tcl",
     ],
 )
@@ -8914,5 +8914,3 @@ cc_library(
         ":gp",
     ],
 )
-
-
