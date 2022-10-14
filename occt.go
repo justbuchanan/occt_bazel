@@ -179,6 +179,10 @@ func (cmd *genDepgraphSubcommand) findPackageDeps(dir string) (stringset.Set, er
 	}
 
 	for _, fi := range files {
+		// skip objc files
+		if filepath.Ext(fi.Name()) == ".mm" {
+			continue
+		}
 		b, err := ioutil.ReadFile(filepath.Join(dir, fi.Name()))
 		if err != nil {
 			return nil, err
